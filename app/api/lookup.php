@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 /* ── Load DB credentials from db.env ───────────────────────── */
-$envPath = realpath(__DIR__ . '/../../db.env');
+$envPath = realpath(__DIR__ . '/../../../db.env');
 
 if ($envPath === false || !is_file($envPath)) {
     error_log('[lookup.php] db.env not found');
