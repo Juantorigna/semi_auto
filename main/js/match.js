@@ -420,6 +420,14 @@
 
     tbody.appendChild(balanceTr);
 
+    /* Update confirm button text based on balance */
+    var confirmSpan = dom.btnResultConfirm.querySelector('span');
+    if (balance > 0) {
+      confirmSpan.textContent = KioskUtils.t('match.goToPayment');
+    } else {
+      confirmSpan.textContent = KioskUtils.t('match.continue');
+    }
+
     showView('view-result');
   }
 

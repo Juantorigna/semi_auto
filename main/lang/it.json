@@ -24,6 +24,8 @@
     "resultSubtitle": "Verifica i tuoi dati.",
     "back": "Indietro",
     "confirm": "Conferma",
+    "continue": "Continua",
+    "goToPayment": "Vai al pagamento",
     "nomatchTitle": "Nessuna corrispondenza trovata",
     "nomatchBody": "Nessuna registrazione attiva corrisponde a questa targa e chiavetta. Controlla i dati o contatta la reception.",
     "redirecting": "Ritorno alla home tra",
