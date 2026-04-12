@@ -292,6 +292,68 @@
       ? 'yes' : 'no';
   }
 
+  /* ══════════════════════════════════════════════════════════════
+     BILLING CALCULATION (ported from gestionale edit.js)
+     ══════════════════════════════════════════════════════════════ */
+
+  function getWallClockHours(start, end) {
+    var elapsed  = (end - start) / (1000 * 60 * 60);
+    var dstShift = (start.getTimezoneOffset() - end.getTimezoneOffset()) / 60;
+    return elapsed + dstShift;
+  }
+
+  function calculateDailyRate(hoursElapsed) {
+    var cycleDay = Math.floor(hoursElapsed / 24) % 9;
+    return cycleDay < 3 ? 18 : 15;
+  }
+
+  function calculateAdditionalHoursRate(hoursElapsed, additionalHours) {
+    var cycleDay               = Math.floor(hoursElapsed / 24) % 9;
+    var ratePerHour            = 3;
+    var maxHoursBeforeFullRate = (cycleDay < 3) ? 6 : 5;
+    var fullDayRate            = (cycleDay < 3) ? 18 : 15;
+
+    if (additionalHours <= maxHoursBeforeFullRate) {
+      return additionalHours * ratePerHour;
+    } else {
+      return fullDayRate;
+    }
+  }
+
+  function calculateAmpersCharge(corrente) {
+    switch (corrente) {
+      case 4:   return 0;
+      case 7:   return 6;
+      case 10:  return 10;
+      default:  return 0;
+    }
+  }
+
+  function calculateTotalStayCharge(arrivalDate, departureDate, hasCar, corrente) {
+    var totalHours     = Math.ceil(getWallClockHours(arrivalDate, departureDate));
+    var totalCharge    = 0;
+    var hoursRemaining = totalHours;
+    var carCharge      = 0;
+    var ampersCharge   = 0;
+    var selectedAmpers = parseFloat(corrente) || 0;
+
+    while (hoursRemaining > 0) {
+      if (hoursRemaining >= 24) {
+        totalCharge    += calculateDailyRate(totalHours - hoursRemaining);
+        hoursRemaining -= 24;
+        ampersCharge   += calculateAmpersCharge(selectedAmpers);
+        if (hasCar) { carCharge += 5; }
+      } else {
+        totalCharge  += calculateAdditionalHoursRate(totalHours - hoursRemaining, hoursRemaining);
+        ampersCharge += calculateAmpersCharge(selectedAmpers);
+        if (hasCar) { carCharge += Math.min(5, hoursRemaining); }
+        break;
+      }
+    }
+
+    return totalCharge + carCharge + ampersCharge;
+  }
+
   function showResult(booking) {
     currentBooking = booking;
 
@@ -300,6 +362,13 @@
     while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
 
     var paidAdvance = (parseFloat(booking.Amount) || 0) + (parseFloat(booking.AmountAdvance) || 0);
+
+    /* Calculate total stay charge from arrival to now */
+    var arrivalDate   = new Date(booking['Arrival DateTime']);
+    var departureDate = new Date();
+    var hasCar        = yesNo(booking['Has Car']) === 'yes';
+    var corrente      = parseFloat(booking.Corrente) || 0;
+    var totalCharge   = calculateTotalStayCharge(arrivalDate, departureDate, hasCar, corrente);
 
     var rows = [
       { label: KioskUtils.t('match.infoName'),        value: safe(booking.Name) },
@@ -310,7 +379,7 @@
       { label: KioskUtils.t('match.infoDeparture'),    value: romaDateTimeNow() },
       { label: KioskUtils.t('match.infoGuests'),       value: safe(booking.Quanti) },
       { label: KioskUtils.t('match.infoCategory'),     value: safe(booking.Category) },
-      { label: KioskUtils.t('match.infoTotalCharge'),  value: formatCurrency(booking['Total Charge']),  cls: 'highlight' },
+      { label: KioskUtils.t('match.infoTotalCharge'),  value: formatCurrency(totalCharge),  cls: 'highlight' },
       { label: KioskUtils.t('match.infoPaidAdvance'),  value: formatCurrency(paidAdvance),              cls: '' },
       { label: KioskUtils.t('match.infoElectricity'),  value: formatElectricity(booking.Corrente) },
       { label: KioskUtils.t('match.infoHasCar'),       value: badgeHtml(booking['Has Car']) },
@@ -337,9 +406,7 @@
     }
 
     /* Compute and show balance row */
-    var total    = parseFloat(booking['Total Charge']) || 0;
-    var paid     = (parseFloat(booking.Amount) || 0) + (parseFloat(booking.AmountAdvance) || 0);
-    var balance  = total - paid;
+    var balance  = totalCharge - paidAdvance;
 
     var balanceTr = document.createElement('tr');
     balanceTr.className = 'balance ' + (balance <= 0 ? 'paid' : 'due');
