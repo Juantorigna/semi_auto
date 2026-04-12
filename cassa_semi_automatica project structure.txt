@@ -1,0 +1,31 @@
+cassa_semi_automatica project structure 
+
+areacamperbergamoit
+|
+|
+|_app
+|    |_ web.config
+|    |_ cacert.pem
+|    |_api
+|        |_lookup.php
+|
+|_main
+     |_css
+     |   |_checkout.css
+     |   |_exit_bar.css
+     |   |_match.css
+     |_js
+     |   |_checkout.js
+     |   |_exit_bar.js
+     |   |_match.js
+     |_html
+     |   |_checkout.html
+     |   |_exit_bar.html
+     |   |_match.html
+     |_img
+     |_lang
+        |_it.json
+        |_en.json
+        |_fr.json
+        |_es.json
+        |_de.json
