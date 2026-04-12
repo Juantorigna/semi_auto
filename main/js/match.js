@@ -243,6 +243,41 @@
     });
   }
 
+  /* Format a DB datetime value showing both date and time in Rome timezone */
+  function formatDateTime(dateStr) {
+    if (!dateStr) { return '\u2014'; }
+    var d = new Date(dateStr);
+    if (isNaN(d.getTime())) { return safe(dateStr); }
+    return d.toLocaleString('it-IT', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+      timeZone: 'Europe/Rome',
+    });
+  }
+
+  /* Current date+time in the Rome timezone (handles DST automatically) */
+  function romaDateTimeNow() {
+    return new Date().toLocaleString('it-IT', {
+      day: '2-digit', month: '2-digit', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+      timeZone: 'Europe/Rome',
+    });
+  }
+
+  /* Show the numeric amperage (4, 7, 10) or "No" if absent/zero */
+  function formatElectricity(val) {
+    if (val === null || val === undefined || val === '' || val === 0 || val === '0') {
+      return KioskUtils.t('match.no');
+    }
+    var n = parseFloat(val);
+    if (!isNaN(n) && n > 0) { return String(n) + ' A'; }
+    var s = String(val).trim().toLowerCase();
+    if (s === 'no' || s === 'n' || s === 'false') {
+      return KioskUtils.t('match.no');
+    }
+    return safe(val);
+  }
+
   function formatCurrency(val) {
     if (val === null || val === undefined) { return '\u2014'; }
     var num = parseFloat(val);
@@ -264,19 +299,20 @@
     /* Clear previous rows */
     while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
 
+    var paidAdvance = (parseFloat(booking.Amount) || 0) + (parseFloat(booking.AmountAdvance) || 0);
+
     var rows = [
       { label: KioskUtils.t('match.infoName'),        value: safe(booking.Name) },
       { label: KioskUtils.t('match.infoPlate'),        value: safe(booking.Plate) },
       { label: KioskUtils.t('match.infoKey'),          value: safe(booking.Chiavetta) },
       { label: KioskUtils.t('match.infoPitch'),        value: safe(booking.Piazzola) },
-      { label: KioskUtils.t('match.infoArrival'),      value: formatDate(booking['Arrival DateTime']) },
-      { label: KioskUtils.t('match.infoDeparture'),    value: formatDate(booking['Departure DateTime']) },
+      { label: KioskUtils.t('match.infoArrival'),      value: formatDateTime(booking['Arrival DateTime']) },
+      { label: KioskUtils.t('match.infoDeparture'),    value: romaDateTimeNow() },
       { label: KioskUtils.t('match.infoGuests'),       value: safe(booking.Quanti) },
       { label: KioskUtils.t('match.infoCategory'),     value: safe(booking.Category) },
       { label: KioskUtils.t('match.infoTotalCharge'),  value: formatCurrency(booking['Total Charge']),  cls: 'highlight' },
-      { label: KioskUtils.t('match.infoPaidAdvance'),  value: formatCurrency(booking.AmountAdvance),    cls: '' },
-      { label: KioskUtils.t('match.infoPaid'),         value: formatCurrency(booking.Amount),           cls: '' },
-      { label: KioskUtils.t('match.infoElectricity'),  value: badgeHtml(booking.Corrente) },
+      { label: KioskUtils.t('match.infoPaidAdvance'),  value: formatCurrency(paidAdvance),              cls: '' },
+      { label: KioskUtils.t('match.infoElectricity'),  value: formatElectricity(booking.Corrente) },
       { label: KioskUtils.t('match.infoHasCar'),       value: badgeHtml(booking['Has Car']) },
     ];
 
