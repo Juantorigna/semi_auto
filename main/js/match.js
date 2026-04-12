@@ -377,7 +377,6 @@
       { label: KioskUtils.t('match.infoPitch'),        value: safe(booking.Piazzola) },
       { label: KioskUtils.t('match.infoArrival'),      value: formatDateTime(booking['Arrival DateTime']) },
       { label: KioskUtils.t('match.infoDeparture'),    value: romaDateTimeNow() },
-      { label: KioskUtils.t('match.infoGuests'),       value: safe(booking.Quanti) },
       { label: KioskUtils.t('match.infoCategory'),     value: safe(booking.Category) },
       { label: KioskUtils.t('match.infoTotalCharge'),  value: formatCurrency(totalCharge),  cls: 'highlight' },
       { label: KioskUtils.t('match.infoPaidAdvance'),  value: formatCurrency(paidAdvance),              cls: '' },
