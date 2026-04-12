@@ -24,6 +24,8 @@
     "resultSubtitle": "Please confirm your details.",
     "back": "Back",
     "confirm": "Confirm",
+    "continue": "Continue",
+    "goToPayment": "Go to payment",
     "nomatchTitle": "No match found",
     "nomatchBody": "No active registration matches this plate and key number. Please check your details or contact reception.",
     "redirecting": "Redirecting in",

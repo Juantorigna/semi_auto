@@ -24,6 +24,8 @@
     "resultSubtitle": "Verifique sus datos.",
     "back": "Atrás",
     "confirm": "Confirmar",
+    "continue": "Continuar",
+    "goToPayment": "Ir al pago",
     "nomatchTitle": "Sin coincidencia",
     "nomatchBody": "No hay ningún registro activo que coincida con esta matrícula y número de llave. Verifique sus datos o contacte la recepción.",
     "redirecting": "Redirigiendo en",
