@@ -1,0 +1,53 @@
+{
+  "lang": {
+    "title": "Self-Checkout",
+    "subtitle": "Sprache auswählen"
+  },
+  "exitBar": {
+    "question": "Steht Ihr Fahrzeug vor der Ausfahrtsschranke?",
+    "subtext": "Bitte stellen Sie sicher, dass Sie in der richtigen Position sind, bevor Sie fortfahren.",
+    "yes": "Ja, ich bin bereit",
+    "no": "Nein, ich komme später wieder"
+  },
+  "match": {
+    "title": "Geben Sie Ihre Daten ein",
+    "subtitle": "Geben Sie Ihr Kennzeichen und Ihre Schlüsselnummer ein, um Ihre Buchung zu finden.",
+    "plateLabel": "Kennzeichen",
+    "keyLabel": "Schlüsselnummer",
+    "search": "Suchen",
+    "searching": "Suche läuft…",
+    "errorPlateEmpty": "Bitte geben Sie Ihr Kennzeichen ein.",
+    "errorPlateInvalid": "Das Kennzeichen darf nur Buchstaben und Zahlen enthalten.",
+    "errorKeyEmpty": "Bitte geben Sie Ihre Schlüsselnummer ein.",
+    "errorKeyInvalid": "Die Schlüsselnummer darf nur Ziffern enthalten.",
+    "resultTitle": "Buchung gefunden",
+    "resultSubtitle": "Bitte überprüfen Sie Ihre Daten.",
+    "back": "Zurück",
+    "confirm": "Bestätigen",
+    "nomatchTitle": "Keine Buchung gefunden",
+    "nomatchBody": "Keine aktive Buchung stimmt mit diesem Kennzeichen und dieser Schlüsselnummer überein. Bitte überprüfen Sie Ihre Daten oder kontaktieren Sie die Rezeption.",
+    "redirecting": "Weiterleitung in",
+    "retry": "Erneut versuchen",
+    "infoName": "Name",
+    "infoPlate": "Kennzeichen",
+    "infoKey": "Schlüsselnummer",
+    "infoPitch": "Stellplatz",
+    "infoArrival": "Ankunft",
+    "infoDeparture": "Abreise",
+    "infoGuests": "Gäste",
+    "infoCategory": "Kategorie",
+    "infoTotalCharge": "Gesamtbetrag",
+    "infoPaidAdvance": "Im Voraus bezahlt",
+    "infoPaid": "Bezahlt",
+    "infoElectricity": "Strom",
+    "infoHasCar": "Extra Auto/Anhänger",
+    "infoBalance": "Restbetrag",
+    "yes": "Ja",
+    "no": "Nein"
+  },
+  "inactivity": {
+    "warning": "Sind Sie noch da?",
+    "body": "Die Sitzung wird in wenigen Sekunden zurückgesetzt.",
+    "continue": "Weiter"
+  }
+}

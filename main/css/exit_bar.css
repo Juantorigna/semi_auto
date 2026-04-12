@@ -1,0 +1,368 @@
+/* ══════════════════════════════════════════════
+   Area Camper Bergamo — Self-Checkout Kiosk
+   exit_bar.css — Screen 2: Ready at Exit Bar?
+   ══════════════════════════════════════════════ */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Design tokens ── */
+:root {
+  --green-deep:   #1a3c2a;
+  --green-mid:    #2d6a4f;
+  --green-light:  #52b788;
+  --sand:         #f5f0e8;
+  --sand-dark:    #e8e0d0;
+  --bark:         #5c4033;
+  --white:        #fff;
+  --shadow:       0 4px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg:    0 8px 40px rgba(0, 0, 0, 0.16);
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --font-body:    "DM Sans", sans-serif;
+  --font-display: "DM Serif Display", serif;
+}
+
+/* ── Global ── */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background: var(--sand);
+  color: var(--green-deep);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ══════════════════════════════════════════════
+   PAGE WRAPPER
+   ══════════════════════════════════════════════ */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 24px 24px 28px;
+  gap: 24px;
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 120% 80% at 50% 110%,
+      rgba(45, 106, 79, 0.08) 0%,
+      transparent 70%
+    ),
+    linear-gradient(175deg, var(--sand) 0%, var(--sand-dark) 100%);
+  animation: fadeIn 0.35s ease-out both;
+}
+
+
+
+/* ══════════════════════════════════════════════
+   COMPACT HEADER
+   ══════════════════════════════════════════════ */
+.kiosk-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeDown 0.45s ease-out both;
+}
+
+.kiosk-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--green-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kiosk-logo svg {
+  width: 32px;
+  height: 32px;
+}
+
+.kiosk-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--green-deep);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.kiosk-name small {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--bark);
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   QUESTION CARD
+   Two-zone layout:
+     top  — image hero (sand bg, contain)
+     body — question text
+   ══════════════════════════════════════════════ */
+.question-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 700px;
+  width: 100%;
+  overflow: hidden;                  /* clips the image to the card radius */
+  animation: fadeUp 0.45s 0.1s ease-out both;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Image hero ── */
+.card-image-wrapper {
+  width: 100%;
+  height: 240px;                     /* fixed height — fits 10" tablet */
+  background: var(--sand);           /* tint frames the image cleanly   */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--sand-dark);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;               /* never crops barrier arm or post  */
+  object-position: center bottom;    /* anchor to bottom so camper base is visible */
+  display: block;
+}
+
+/* ── Text body ── */
+.card-body {
+  padding: 28px 40px 32px;
+  text-align: center;
+}
+
+.question-text {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--green-deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.question-subtext {
+  font-size: 15px;
+  color: var(--bark);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════════
+   ACTION BUTTONS
+   ══════════════════════════════════════════════ */
+.action-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 700px;
+  animation: fadeUp 0.45s 0.2s ease-out both;
+}
+
+.btn {
+  flex: 1;
+  min-height: 80px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  letter-spacing: 0.01em;
+  transition:
+    transform    0.12s ease,
+    box-shadow   0.12s ease,
+    background   0.12s ease,
+    border-color 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Primary — Yes */
+.btn--yes {
+  background: var(--green-mid);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(45, 106, 79, 0.35);
+}
+
+.btn--yes:hover {
+  background: var(--green-deep);
+  box-shadow: 0 6px 28px rgba(45, 106, 79, 0.45);
+}
+
+.btn--yes:active {
+  background: var(--green-deep);
+  box-shadow: 0 2px 10px rgba(45, 106, 79, 0.3);
+}
+
+/* Secondary — No */
+.btn--no {
+  background: var(--white);
+  color: var(--bark);
+  border: 2px solid var(--sand-dark);
+  box-shadow: var(--shadow);
+}
+
+.btn--no:hover {
+  background: var(--sand);
+  border-color: var(--bark);
+}
+
+.btn--no:active {
+  background: var(--sand-dark);
+}
+
+.btn-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   STEP DOTS
+   ══════════════════════════════════════════════ */
+.step-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  animation: fadeUp 0.45s 0.3s ease-out both;
+}
+
+.step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sand-dark);
+  transition: width 0.2s ease, border-radius 0.2s ease, background 0.2s ease;
+}
+
+.step-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--green-mid);
+}
+
+/* ══════════════════════════════════════════════
+   INACTIVITY WARNING OVERLAY
+   ══════════════════════════════════════════════ */
+.inactivity-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 60, 42, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.inactivity-overlay[hidden] {
+  display: none !important;
+}
+
+.inactivity-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 44px 52px;
+  text-align: center;
+  max-width: 460px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+}
+
+.inactivity-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--green-deep);
+  margin-bottom: 12px;
+}
+
+.inactivity-body {
+  font-size: 16px;
+  color: var(--bark);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.btn--inactivity {
+  background: var(--green-mid);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 44px;
+  min-height: 64px;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn--inactivity:hover  { background: var(--green-deep); }
+
+.btn--inactivity:active {
+  transform: scale(0.97);
+  background: var(--green-deep);
+}
+
+.btn--inactivity:focus-visible {
+  outline: 3px solid var(--green-light);
+  outline-offset: 3px;
+}
+
+/* ══════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

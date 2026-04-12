@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it"><!-- JS overwrites at runtime with the saved locale -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <!--
+    Content-Security-Policy
+    ────────────────────────────────────────────────────────────────
+    default-src 'none'   — deny everything not listed
+    script-src  'self'   — only same-origin scripts
+    style-src   'self' + Google Fonts stylesheet
+    font-src    Google Fonts binaries
+    img-src     'self'   — covers ../img/bar.png (same origin)
+    connect-src 'self'   — fetch('../lang/xx.json')
+    form-action 'none'   — no form submissions
+    base-uri    'none'   — block <base> injection
+    ────────────────────────────────────────────────────────────────
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none';
+                 script-src 'self';
+                 style-src 'self' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 img-src 'self';
+                 connect-src 'self';
+                 form-action 'none';
+                 base-uri 'none';">
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer">
+
+  <title>Area Camper Bergamo — Self-Checkout</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=DM+Serif+Display&display=swap">
+
+  <link rel="stylesheet" href="../css/exit_bar.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SCREEN 2 — Ready at Exit Bar?                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <main class="page-wrapper" role="main">
+
+    <!-- ── Compact header ──────────────────────────────────────── -->
+    <header class="kiosk-header">
+      <div class="kiosk-logo" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <rect x="3" y="12" width="22" height="12" rx="2"
+                stroke="#52b788" stroke-width="2" fill="none"/>
+          <path d="M25 16h5.5a2 2 0 011.8 1.1L34 21v3a1 1 0 01-1 1h-8"
+                stroke="#52b788" stroke-width="2" stroke-linejoin="round" fill="none"/>
+          <circle cx="10" cy="26" r="2.5" stroke="#52b788" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="26" r="2.5" stroke="#52b788" stroke-width="2" fill="none"/>
+          <line x1="12.5" y1="24" x2="25.5" y2="24" stroke="#52b788" stroke-width="2"/>
+          <rect x="7"  y="15" width="5" height="4" rx="1"
+                stroke="#52b788" stroke-width="1.5" fill="none"/>
+          <rect x="15" y="15" width="5" height="4" rx="1"
+                stroke="#52b788" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <p class="kiosk-name">
+        Self-Checkout
+        <small>Area Camper Bergamo</small>
+      </p>
+    </header>
+
+    <!-- ── Question card ───────────────────────────────────────── -->
+    <!--
+      Two-zone card:
+        .card-image-wrapper  — bar.png reference image
+        .card-body           — localised question text
+    -->
+    <article class="question-card" aria-labelledby="question-heading">
+
+      <!-- Reference image — camper at the exit barrier -->
+      <div class="card-image-wrapper">
+        <img
+          class="card-image"
+          src="../img/bar.png"
+          alt="Camper van positioned in front of the red-and-white exit barrier"
+          draggable="false">
+      </div>
+
+      <!-- Question text (translated at runtime by exit_bar.js) -->
+      <div class="card-body">
+        <h1 id="question-heading"
+            class="question-text"
+            data-i18n="exitBar.question">
+          Is your vehicle positioned in front of the exit barrier?
+        </h1>
+        <p class="question-subtext" data-i18n="exitBar.subtext">
+          Please make sure you are in the correct position before continuing.
+        </p>
+      </div>
+
+    </article>
+
+    <!-- ── Action buttons ──────────────────────────────────────── -->
+    <div class="action-row" role="group" aria-label="Response options">
+
+      <!-- No — secondary; clears locale and returns to language screen -->
+      <button
+        id="btn-no"
+        class="btn btn--no"
+        type="button"
+        aria-label="No, I will come back later">
+
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true" focusable="false">
+          <path d="M19 12H5M5 12l7-7M5 12l7 7"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <span data-i18n="exitBar.no">No, I'll come back later</span>
+      </button>
+
+      <!-- Yes — primary; proceeds to plate + key entry screen -->
+      <button
+        id="btn-yes"
+        class="btn btn--yes"
+        type="button"
+        aria-label="Yes, I am ready to check out">
+
+        <span data-i18n="exitBar.yes">Yes, I'm ready</span>
+
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true" focusable="false">
+          <path d="M5 12h14M14 6l6 6-6 6"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+      </button>
+
+    </div>
+
+    <!-- ── Step progress dots ───────────────────────────────────── -->
+    <div class="step-dots"
+         role="progressbar"
+         aria-valuenow="2"
+         aria-valuemin="1"
+         aria-valuemax="9"
+         aria-label="Step 2 of 9">
+      <span class="step-dot active" aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+    </div>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- INACTIVITY WARNING OVERLAY                                 -->
+  <!-- [hidden] keeps it out of the a11y tree until shown         -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div id="inactivity-warning"
+       class="inactivity-overlay"
+       hidden
+       role="alertdialog"
+       aria-modal="true"
+       aria-labelledby="inactivity-title"
+       aria-describedby="inactivity-desc">
+
+    <div class="inactivity-card">
+      <p id="inactivity-title"
+         class="inactivity-title"
+         data-i18n="inactivity.warning">
+        Are you still there?
+      </p>
+      <p id="inactivity-desc"
+         class="inactivity-body"
+         data-i18n="inactivity.body">
+        The session will reset in a few seconds.
+      </p>
+      <button
+        id="btn-inactivity-continue"
+        class="btn--inactivity"
+        type="button"
+        data-i18n="inactivity.continue">
+        Continue
+      </button>
+    </div>
+
+  </div>
+
+
+  <!--
+    Load order:
+      1. utils.js     — defines KioskUtils (must be first)
+      2. exit_bar.js  — consumes KioskUtils
+  -->
+  <script src="../js/utils.js"></script>
+  <script src="../js/exit_bar.js"></script>
+
+</body>
+</html>

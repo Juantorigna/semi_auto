@@ -1,0 +1,53 @@
+{
+  "lang": {
+    "title": "Self-Checkout",
+    "subtitle": "Choisissez votre langue"
+  },
+  "exitBar": {
+    "question": "Votre véhicule est-il positionné devant la barrière de sortie ?",
+    "subtext": "Assurez-vous d'être dans la bonne position avant de continuer.",
+    "yes": "Oui, je suis prêt",
+    "no": "Non, je reviendrai plus tard"
+  },
+  "match": {
+    "title": "Entrez vos informations",
+    "subtitle": "Saisissez votre plaque d'immatriculation et le numéro de clé pour trouver votre réservation.",
+    "plateLabel": "Plaque d'immatriculation",
+    "keyLabel": "Numéro de clé",
+    "search": "Rechercher",
+    "searching": "Recherche en cours…",
+    "errorPlateEmpty": "Veuillez saisir votre plaque d'immatriculation.",
+    "errorPlateInvalid": "La plaque ne peut contenir que des lettres et des chiffres.",
+    "errorKeyEmpty": "Veuillez saisir votre numéro de clé.",
+    "errorKeyInvalid": "Le numéro de clé ne peut contenir que des chiffres.",
+    "resultTitle": "Réservation trouvée",
+    "resultSubtitle": "Veuillez vérifier vos informations.",
+    "back": "Retour",
+    "confirm": "Confirmer",
+    "nomatchTitle": "Aucune réservation trouvée",
+    "nomatchBody": "Aucune réservation active ne correspond à cette plaque et ce numéro de clé. Veuillez vérifier vos informations ou contacter la réception.",
+    "redirecting": "Redirection dans",
+    "retry": "Réessayer",
+    "infoName": "Nom",
+    "infoPlate": "Plaque",
+    "infoKey": "Numéro de clé",
+    "infoPitch": "Emplacement",
+    "infoArrival": "Arrivée",
+    "infoDeparture": "Départ",
+    "infoGuests": "Personnes",
+    "infoCategory": "Catégorie",
+    "infoTotalCharge": "Total séjour",
+    "infoPaidAdvance": "Payé d'avance",
+    "infoPaid": "Payé",
+    "infoElectricity": "Électricité",
+    "infoHasCar": "Voiture/remorque extra",
+    "infoBalance": "Solde dû",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "inactivity": {
+    "warning": "Êtes-vous toujours là ?",
+    "body": "La session sera réinitialisée dans quelques secondes.",
+    "continue": "Continuer"
+  }
+}

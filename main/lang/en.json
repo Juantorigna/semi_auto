@@ -1,0 +1,53 @@
+{
+  "lang": {
+    "title": "Self-Checkout",
+    "subtitle": "Select your language · Scegli la lingua"
+  },
+  "exitBar": {
+    "question": "Is your vehicle positioned in front of the exit barrier?",
+    "subtext": "Please make sure you are in the correct position before continuing.",
+    "yes": "Yes, I'm ready",
+    "no": "No, I'll come back later"
+  },
+  "match": {
+    "title": "Enter your details",
+    "subtitle": "Type your license plate and key number to find your booking.",
+    "plateLabel": "License plate",
+    "keyLabel": "Key number",
+    "search": "Search",
+    "searching": "Searching…",
+    "errorPlateEmpty": "Please enter your license plate.",
+    "errorPlateInvalid": "The plate can only contain letters and numbers.",
+    "errorKeyEmpty": "Please enter your key number.",
+    "errorKeyInvalid": "The key number can only contain digits.",
+    "resultTitle": "Booking found",
+    "resultSubtitle": "Please confirm your details.",
+    "back": "Back",
+    "confirm": "Confirm",
+    "nomatchTitle": "No booking found",
+    "nomatchBody": "No active booking matches this plate and key number. Please check your details or contact reception.",
+    "redirecting": "Redirecting in",
+    "retry": "Try again",
+    "infoName": "Name",
+    "infoPlate": "License plate",
+    "infoKey": "Key number",
+    "infoPitch": "Pitch",
+    "infoArrival": "Arrival",
+    "infoDeparture": "Departure",
+    "infoGuests": "Guests",
+    "infoCategory": "Category",
+    "infoTotalCharge": "Total charge",
+    "infoPaidAdvance": "Paid in advance",
+    "infoPaid": "Paid",
+    "infoElectricity": "Electricity",
+    "infoHasCar": "Extra car/trailer",
+    "infoBalance": "Balance due",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "inactivity": {
+    "warning": "Are you still there?",
+    "body": "The session will reset in a few seconds.",
+    "continue": "Continue"
+  }
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none';
+                 script-src 'self';
+                 style-src 'self' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 img-src 'self' data:;
+                 connect-src 'self';
+                 form-action 'none';
+                 base-uri 'none';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="referrer" content="no-referrer">
+  <title>Area Camper Bergamo — Self-Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="../css/match.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- SCREEN 3 — Enter Plate + Key Number                       -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <main class="page-wrapper" role="main">
+
+    <!-- ── Compact header ── -->
+    <header class="kiosk-header">
+      <div class="kiosk-logo" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <rect x="3" y="12" width="22" height="12" rx="2" stroke="#52b788" stroke-width="2" fill="none"/>
+          <path d="M25 16h5.5a2 2 0 011.8 1.1L34 21v3a1 1 0 01-1 1h-8"
+                stroke="#52b788" stroke-width="2" stroke-linejoin="round" fill="none"/>
+          <circle cx="10" cy="26" r="2.5" stroke="#52b788" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="26" r="2.5" stroke="#52b788" stroke-width="2" fill="none"/>
+          <line x1="12.5" y1="24" x2="25.5" y2="24" stroke="#52b788" stroke-width="2"/>
+          <rect x="7"  y="15" width="5" height="4" rx="1" stroke="#52b788" stroke-width="1.5" fill="none"/>
+          <rect x="15" y="15" width="5" height="4" rx="1" stroke="#52b788" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <p class="kiosk-name">
+        Self-Checkout
+        <small>Area Camper Bergamo</small>
+      </p>
+    </header>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- VIEW 1 — Entry form + keyboard          -->
+    <!-- ════════════════════════════════════════ -->
+    <div id="view-entry" class="view active">
+
+      <article class="entry-card">
+        <h1 class="entry-card__title" data-i18n="match.title">
+          Enter your details
+        </h1>
+        <p class="entry-card__subtitle" data-i18n="match.subtitle">
+          Type your license plate and key number to find your booking.
+        </p>
+
+        <div class="input-group">
+          <label class="input-label" data-i18n="match.plateLabel">License plate</label>
+          <input
+            id="input-plate"
+            class="input-field"
+            type="text"
+            maxlength="10"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            inputmode="none"
+            readonly
+            aria-label="License plate"
+            data-i18n-aria="match.plateLabel">
+          <p id="error-plate" class="input-error" aria-live="polite"></p>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label" data-i18n="match.keyLabel">Key number</label>
+          <input
+            id="input-key"
+            class="input-field"
+            type="text"
+            maxlength="3"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            inputmode="none"
+            readonly
+            aria-label="Key number"
+            data-i18n-aria="match.keyLabel">
+          <p id="error-key" class="input-error" aria-live="polite"></p>
+        </div>
+      </article>
+
+      <!-- On-screen keyboard -->
+      <div class="keyboard" role="group" aria-label="On-screen keyboard">
+        <div class="keyboard__row">
+          <button class="key" data-key="1" type="button">1</button>
+          <button class="key" data-key="2" type="button">2</button>
+          <button class="key" data-key="3" type="button">3</button>
+          <button class="key" data-key="4" type="button">4</button>
+          <button class="key" data-key="5" type="button">5</button>
+          <button class="key" data-key="6" type="button">6</button>
+          <button class="key" data-key="7" type="button">7</button>
+          <button class="key" data-key="8" type="button">8</button>
+          <button class="key" data-key="9" type="button">9</button>
+          <button class="key" data-key="0" type="button">0</button>
+        </div>
+        <div class="keyboard__row">
+          <button class="key" data-key="Q" type="button">Q</button>
+          <button class="key" data-key="W" type="button">W</button>
+          <button class="key" data-key="E" type="button">E</button>
+          <button class="key" data-key="R" type="button">R</button>
+          <button class="key" data-key="T" type="button">T</button>
+          <button class="key" data-key="Y" type="button">Y</button>
+          <button class="key" data-key="U" type="button">U</button>
+          <button class="key" data-key="I" type="button">I</button>
+          <button class="key" data-key="O" type="button">O</button>
+          <button class="key" data-key="P" type="button">P</button>
+        </div>
+        <div class="keyboard__row">
+          <button class="key" data-key="A" type="button">A</button>
+          <button class="key" data-key="S" type="button">S</button>
+          <button class="key" data-key="D" type="button">D</button>
+          <button class="key" data-key="F" type="button">F</button>
+          <button class="key" data-key="G" type="button">G</button>
+          <button class="key" data-key="H" type="button">H</button>
+          <button class="key" data-key="J" type="button">J</button>
+          <button class="key" data-key="K" type="button">K</button>
+          <button class="key" data-key="L" type="button">L</button>
+        </div>
+        <div class="keyboard__row">
+          <button class="key" data-key="Z" type="button">Z</button>
+          <button class="key" data-key="X" type="button">X</button>
+          <button class="key" data-key="C" type="button">C</button>
+          <button class="key" data-key="V" type="button">V</button>
+          <button class="key" data-key="B" type="button">B</button>
+          <button class="key" data-key="N" type="button">N</button>
+          <button class="key" data-key="M" type="button">M</button>
+          <button class="key key--backspace" id="key-backspace" type="button" aria-label="Backspace">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="rotate(180 12 12)"/>
+              <line x1="20" y1="12" x2="10" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search button -->
+      <button id="btn-search" class="btn-search" type="button" disabled>
+        <svg class="btn-search__icon" viewBox="0 0 24 24" fill="none"
+             xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span data-i18n="match.search">Search</span>
+      </button>
+
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- VIEW 2 — Match found: guest info        -->
+    <!-- ════════════════════════════════════════ -->
+    <div id="view-result" class="view">
+
+      <div class="result-card">
+        <h2 class="result-card__title" data-i18n="match.resultTitle">Booking found</h2>
+        <p class="result-card__subtitle" data-i18n="match.resultSubtitle">Please confirm your details.</p>
+
+        <table class="info-table" aria-label="Booking details">
+          <tbody id="info-tbody">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-result-back" class="btn-back" type="button">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true" focusable="false">
+            <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span data-i18n="match.back">Back</span>
+        </button>
+        <button id="btn-result-confirm" class="btn-confirm" type="button">
+          <span data-i18n="match.confirm">Confirm</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true" focusable="false">
+            <path d="M5 12h14M14 6l6 6-6 6" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ════════════════════════════════════════ -->
+    <!-- VIEW 3 — No match found                 -->
+    <!-- ════════════════════════════════════════ -->
+    <div id="view-nomatch" class="view">
+
+      <div class="nomatch-card">
+        <div class="nomatch-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h2 class="nomatch-title" data-i18n="match.nomatchTitle">No booking found</h2>
+        <p class="nomatch-body" data-i18n="match.nomatchBody">
+          No active booking matches this plate and key number. Please check your details or contact reception.
+        </p>
+        <p class="nomatch-countdown">
+          <span data-i18n="match.redirecting">Redirecting in</span>
+          <span id="countdown-number">5</span>
+        </p>
+        <button id="btn-retry" class="btn-retry" type="button" data-i18n="match.retry">Try again</button>
+      </div>
+
+    </div>
+
+    <!-- ── Step progress dots ── -->
+    <div class="step-dots"
+         role="progressbar"
+         aria-valuenow="3"
+         aria-valuemin="1"
+         aria-valuemax="9"
+         aria-label="Step 3 of 9">
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot active" aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+      <span class="step-dot"        aria-hidden="true"></span>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- LOADING OVERLAY                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div id="loading-overlay" class="loading-overlay" hidden aria-live="assertive">
+    <div class="spinner"></div>
+    <p class="loading-text" data-i18n="match.searching">Searching…</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- INACTIVITY WARNING OVERLAY                                 -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div id="inactivity-warning"
+       class="inactivity-overlay"
+       hidden
+       role="alertdialog"
+       aria-modal="true"
+       aria-labelledby="inactivity-title"
+       aria-describedby="inactivity-desc">
+    <div class="inactivity-card">
+      <p id="inactivity-title" class="inactivity-title" data-i18n="inactivity.warning">
+        Are you still there?
+      </p>
+      <p id="inactivity-desc" class="inactivity-body" data-i18n="inactivity.body">
+        The session will reset in a few seconds.
+      </p>
+      <button id="btn-inactivity-continue" class="btn--inactivity" type="button"
+              data-i18n="inactivity.continue">
+        Continue
+      </button>
+    </div>
+  </div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/match.js"></script>
+</body>
+</html>

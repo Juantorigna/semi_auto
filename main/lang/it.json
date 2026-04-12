@@ -1,0 +1,53 @@
+{
+  "lang": {
+    "title": "Self-Checkout",
+    "subtitle": "Scegli la lingua · Select your language"
+  },
+  "exitBar": {
+    "question": "Il tuo veicolo è posizionato davanti alla sbarra d'uscita?",
+    "subtext": "Assicurati di essere nella posizione corretta prima di procedere.",
+    "yes": "Sì, sono pronto",
+    "no": "No, torno più tardi"
+  },
+  "match": {
+    "title": "Inserisci i tuoi dati",
+    "subtitle": "Digita la targa e il numero della chiavetta per trovare la tua registrazione.",
+    "plateLabel": "Targa",
+    "keyLabel": "Numero chiavetta",
+    "search": "Cerca",
+    "searching": "Ricerca in corso…",
+    "errorPlateEmpty": "Inserisci la targa.",
+    "errorPlateInvalid": "La targa può contenere solo lettere e numeri.",
+    "errorKeyEmpty": "Inserisci il numero della chiavetta.",
+    "errorKeyInvalid": "Il numero della chiavetta può contenere solo cifre.",
+    "resultTitle": "Prenotazione trovata",
+    "resultSubtitle": "Verifica i tuoi dati.",
+    "back": "Indietro",
+    "confirm": "Conferma",
+    "nomatchTitle": "Nessuna prenotazione trovata",
+    "nomatchBody": "Nessuna registrazione attiva corrisponde a questa targa e chiavetta. Controlla i dati o contatta la reception.",
+    "redirecting": "Ritorno alla home tra",
+    "retry": "Riprova",
+    "infoName": "Nome",
+    "infoPlate": "Targa",
+    "infoKey": "Chiavetta",
+    "infoPitch": "Piazzola",
+    "infoArrival": "Arrivo",
+    "infoDeparture": "Partenza",
+    "infoGuests": "Ospiti",
+    "infoCategory": "Categoria",
+    "infoTotalCharge": "Totale soggiorno",
+    "infoPaidAdvance": "Pagato in anticipo",
+    "infoPaid": "Pagato",
+    "infoElectricity": "Corrente",
+    "infoHasCar": "Auto/rimorchio extra",
+    "infoBalance": "Saldo dovuto",
+    "yes": "Sì",
+    "no": "No"
+  },
+  "inactivity": {
+    "warning": "Sei ancora lì?",
+    "body": "La sessione verrà reimpostata tra pochi secondi.",
+    "continue": "Continua"
+  }
+}

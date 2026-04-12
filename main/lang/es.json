@@ -1,0 +1,53 @@
+{
+  "lang": {
+    "title": "Self-Checkout",
+    "subtitle": "Elige tu idioma"
+  },
+  "exitBar": {
+    "question": "¿Su vehículo está posicionado frente a la barrera de salida?",
+    "subtext": "Asegúrese de estar en la posición correcta antes de continuar.",
+    "yes": "Sí, estoy listo",
+    "no": "No, volveré más tarde"
+  },
+  "match": {
+    "title": "Ingrese sus datos",
+    "subtitle": "Escriba su matrícula y el número de llave para buscar su reserva.",
+    "plateLabel": "Matrícula",
+    "keyLabel": "Número de llave",
+    "search": "Buscar",
+    "searching": "Buscando…",
+    "errorPlateEmpty": "Ingrese su matrícula.",
+    "errorPlateInvalid": "La matrícula solo puede contener letras y números.",
+    "errorKeyEmpty": "Ingrese el número de llave.",
+    "errorKeyInvalid": "El número de llave solo puede contener dígitos.",
+    "resultTitle": "Reserva encontrada",
+    "resultSubtitle": "Verifique sus datos.",
+    "back": "Atrás",
+    "confirm": "Confirmar",
+    "nomatchTitle": "Reserva no encontrada",
+    "nomatchBody": "No hay ninguna reserva activa que coincida con esta matrícula y número de llave. Verifique sus datos o contacte la recepción.",
+    "redirecting": "Redirigiendo en",
+    "retry": "Intentar de nuevo",
+    "infoName": "Nombre",
+    "infoPlate": "Matrícula",
+    "infoKey": "Número de llave",
+    "infoPitch": "Parcela",
+    "infoArrival": "Llegada",
+    "infoDeparture": "Salida",
+    "infoGuests": "Huéspedes",
+    "infoCategory": "Categoría",
+    "infoTotalCharge": "Total estancia",
+    "infoPaidAdvance": "Pagado por adelantado",
+    "infoPaid": "Pagado",
+    "infoElectricity": "Electricidad",
+    "infoHasCar": "Coche/remolque extra",
+    "infoBalance": "Saldo pendiente",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "inactivity": {
+    "warning": "¿Sigue ahí?",
+    "body": "La sesión se restablecerá en unos segundos.",
+    "continue": "Continuar"
+  }
+}

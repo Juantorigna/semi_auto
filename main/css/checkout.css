@@ -1,0 +1,243 @@
+/* ══════════════════════════════════════════════
+   Area Camper Bergamo — Self-Checkout Kiosk
+   checkout.css
+   ══════════════════════════════════════════════ */
+
+
+
+/* ── Design tokens ── */
+:root {
+  --green-deep: #1a3c2a;
+  --green-mid: #2d6a4f;
+  --green-light: #52b788;
+  --sand: #f5f0e8;
+  --sand-dark: #e8e0d0;
+  --bark: #5c4033;
+  --white: #fff;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "DM Serif Display", serif;
+}
+
+/* ── Global ── */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-body);
+  background: var(--sand);
+  color: var(--green-deep);
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ── Screen base ── */
+.screen {
+  display: none;
+  position: absolute;
+  inset: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* ══════════════════════════════════════════════
+   SCREEN 1 — Language selection
+   ══════════════════════════════════════════════ */
+.screen--lang {
+  background:
+    radial-gradient(
+      ellipse 120% 80% at 50% 110%,
+      rgba(45, 106, 79, 0.08) 0%,
+      transparent 70%
+    ),
+    linear-gradient(175deg, var(--sand) 0%, var(--sand-dark) 100%);
+}
+
+/* Decorative pine silhouettes */
+.screen--lang::before,
+.screen--lang::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+  height: 320px;
+  opacity: 0.06;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+  pointer-events: none;
+}
+
+.screen--lang::before {
+  left: 24px;
+  background-image: url("../img/tree-left.svg");
+}
+
+.screen--lang::after {
+  right: 32px;
+  width: 160px;
+  height: 260px;
+  background-image: url("../img/tree-right.svg");
+}
+
+/* ── Header ── */
+.kiosk-header {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeDown 0.6s ease-out both;
+}
+
+.kiosk-logo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: var(--radius-md);
+  background: var(--green-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kiosk-logo svg {
+  width: 42px;
+  height: 42px;
+}
+
+.kiosk-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--green-deep);
+  line-height: 1.15;
+}
+
+.kiosk-subtitle {
+  font-size: 17px;
+  color: var(--bark);
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+/* ── Language grid ── */
+.lang-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 960px;
+  animation: fadeUp 0.6s 0.15s ease-out both;
+}
+
+.lang-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 172px;
+  height: 180px;
+  border: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.lang-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 21px;
+  opacity: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(82, 183, 136, 0.12) 0%,
+    transparent 70%
+  );
+  transition: opacity 0.2s ease;
+}
+
+.lang-btn:hover::after,
+.lang-btn:active::after {
+  opacity: 1;
+}
+
+.lang-btn:active {
+  transform: scale(0.97);
+  border-color: var(--green-light);
+  box-shadow: 0 2px 12px rgba(82, 183, 136, 0.25);
+}
+
+.lang-flag {
+  width: 68px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.lang-flag svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.lang-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--green-deep);
+  letter-spacing: 0.01em;
+}
+
+/* ── Footer hint ── */
+.screen-hint {
+  position: absolute;
+  bottom: 28px;
+  font-size: 14px;
+  color: var(--bark);
+  opacity: 0.6;
+  animation: fadeUp 0.6s 0.3s ease-out both;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
