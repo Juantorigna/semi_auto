@@ -53,17 +53,44 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-/* ── Load Stripe config ────────────────────────────────────── */
-$configPath = realpath(__DIR__ . '/../private/stripe-config.php');
+/* ── Load Stripe credentials from stripe.env ──────────────── */
+$envPath = realpath(__DIR__ . '/../../stripe.env');
 
-if ($configPath === false || !is_file($configPath)) {
-    error_log('[create-payment-intent.php] stripe-config.php not found');
+if ($envPath === false || !is_file($envPath)) {
+    error_log('[create-payment-intent.php] stripe.env not found');
     http_response_code(500);
     echo json_encode(['error' => 'Server configuration error']);
     exit;
 }
 
-require_once $configPath;
+$envVars = [];
+$lines   = file($envPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+if ($lines === false) {
+    error_log('[create-payment-intent.php] Could not read stripe.env');
+    http_response_code(500);
+    echo json_encode(['error' => 'Server configuration error']);
+    exit;
+}
+
+foreach ($lines as $line) {
+    $line = trim($line);
+    if ($line === '' || $line[0] === '#') { continue; }
+    $eqPos = strpos($line, '=');
+    if ($eqPos === false) { continue; }
+    $key = trim(substr($line, 0, $eqPos));
+    $val = trim(substr($line, $eqPos + 1));
+    $envVars[$key] = $val;
+}
+
+$stripeSecretKey = $envVars['STRIPE_SECRET_KEY'] ?? '';
+
+if ($stripeSecretKey === '') {
+    error_log('[create-payment-intent.php] STRIPE_SECRET_KEY missing in stripe.env');
+    http_response_code(500);
+    echo json_encode(['error' => 'Server configuration error']);
+    exit;
+}
 
 /* ── Load Stripe PHP SDK ───────────────────────────────────── */
 $autoloadPath = realpath(__DIR__ . '/../../vendor/autoload.php');
@@ -124,7 +151,7 @@ if ($amount > 99999999) {
 
 /* ── Create PaymentIntent ──────────────────────────────────── */
 try {
-    \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
+    \Stripe\Stripe::setApiKey($stripeSecretKey);
 
     $paymentIntent = \Stripe\PaymentIntent::create([
         'amount'               => $amount,
