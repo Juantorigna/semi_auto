@@ -24,7 +24,10 @@
     "resultSubtitle": "Please confirm your details.",
     "back": "Back",
     "confirm": "Confirm",
+<<<<<<< HEAD
     "continue": "Continue",
+=======
+>>>>>>> origin/claude/stripe-android-integration-LmLnf
     "goToPayment": "Go to payment",
     "nomatchTitle": "No match found",
     "nomatchBody": "No active registration matches this plate and key number. Please check your details or contact reception.",
@@ -46,6 +49,21 @@
     "infoBalance": "Balance due",
     "yes": "Yes",
     "no": "No"
+  },
+  "confirm": {
+    "titlePayment": "Payment",
+    "subtitlePayment": "Tap or insert your card on the reader to pay.",
+    "amount": "Amount due",
+    "waiting": "Waiting for reader…",
+    "processing": "Processing payment…",
+    "success": "Payment successful!",
+    "error": "Payment failed",
+    "retry": "Try again",
+    "titleNoDue": "No amount due",
+    "subtitleNoDue": "Your balance has already been paid.",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "errorBridge": "Error: payment terminal is not available."
   },
   "inactivity": {
     "warning": "Are you still there?",
