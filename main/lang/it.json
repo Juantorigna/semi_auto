@@ -24,6 +24,7 @@
     "resultSubtitle": "Verifica i tuoi dati.",
     "back": "Indietro",
     "confirm": "Conferma",
+    "goToPayment": "Vai al pagamento",
     "nomatchTitle": "Nessuna corrispondenza trovata",
     "nomatchBody": "Nessuna registrazione attiva corrisponde a questa targa e chiavetta. Controlla i dati o contatta la reception.",
     "redirecting": "Ritorno alla home tra",
@@ -44,6 +45,21 @@
     "infoBalance": "Saldo dovuto",
     "yes": "Sì",
     "no": "No"
+  },
+  "confirm": {
+    "titlePayment": "Pagamento",
+    "subtitlePayment": "Avvicina o inserisci la carta nel lettore per pagare.",
+    "amount": "Importo da pagare",
+    "waiting": "In attesa del lettore…",
+    "processing": "Pagamento in corso…",
+    "success": "Pagamento effettuato!",
+    "error": "Pagamento non riuscito",
+    "retry": "Riprova",
+    "titleNoDue": "Nessun importo dovuto",
+    "subtitleNoDue": "Il saldo è stato già pagato.",
+    "continue": "Continua",
+    "cancel": "Annulla",
+    "errorBridge": "Errore: il terminale di pagamento non è disponibile."
   },
   "inactivity": {
     "warning": "Sei ancora lì?",
