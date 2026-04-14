@@ -24,7 +24,10 @@
     "resultSubtitle": "Bitte überprüfen Sie Ihre Daten.",
     "back": "Zurück",
     "confirm": "Bestätigen",
+<<<<<<< HEAD
     "continue": "Weiter",
+=======
+>>>>>>> origin/claude/stripe-android-integration-LmLnf
     "goToPayment": "Zur Zahlung",
     "nomatchTitle": "Kein Treffer gefunden",
     "nomatchBody": "Keine aktive Registrierung stimmt mit diesem Kennzeichen und dieser Schlüsselnummer überein. Bitte überprüfen Sie Ihre Daten oder kontaktieren Sie die Rezeption.",
@@ -46,6 +49,21 @@
     "infoBalance": "Restbetrag",
     "yes": "Ja",
     "no": "Nein"
+  },
+  "confirm": {
+    "titlePayment": "Zahlung",
+    "subtitlePayment": "Halten Sie Ihre Karte an das Lesegerät oder stecken Sie sie ein.",
+    "amount": "Zu zahlender Betrag",
+    "waiting": "Warten auf Lesegerät…",
+    "processing": "Zahlung wird verarbeitet…",
+    "success": "Zahlung erfolgreich!",
+    "error": "Zahlung fehlgeschlagen",
+    "retry": "Erneut versuchen",
+    "titleNoDue": "Kein Betrag fällig",
+    "subtitleNoDue": "Ihr Guthaben wurde bereits bezahlt.",
+    "continue": "Weiter",
+    "cancel": "Abbrechen",
+    "errorBridge": "Fehler: Zahlungsterminal ist nicht verfügbar."
   },
   "inactivity": {
     "warning": "Sind Sie noch da?",
