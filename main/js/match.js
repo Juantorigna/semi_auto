@@ -427,17 +427,10 @@
 
     /* Update confirm button text based on balance */
     var confirmSpan = dom.btnResultConfirm.querySelector('span');
-<<<<<<< HEAD
     if (balance > 0) {
       confirmSpan.textContent = KioskUtils.t('match.goToPayment');
     } else {
       confirmSpan.textContent = KioskUtils.t('match.continue');
-=======
-    if (confirmSpan) {
-      confirmSpan.textContent = currentBalance > 0
-        ? KioskUtils.t('match.goToPayment')
-        : KioskUtils.t('match.confirm');
->>>>>>> origin/claude/stripe-android-integration-LmLnf
     }
 
     showView('view-result');
