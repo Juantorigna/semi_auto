@@ -45,7 +45,6 @@
   var countdownTimer    = null;
   var countdownValue    = 0;
   var currentBooking    = null;   /* stashed for confirm navigation */
-  var currentBalance    = 0;      /* computed balance for current booking */
 
   /* ══════════════════════════════════════════════════════════════
      VIEW MANAGEMENT
@@ -371,10 +370,6 @@
     var corrente      = parseFloat(booking.Corrente) || 0;
     var totalCharge   = calculateTotalStayCharge(arrivalDate, departureDate, hasCar, corrente);
 
-    /* Stash computed values for the confirm/payment screen */
-    currentBalance    = totalCharge - paidAdvance;
-    if (currentBalance < 0) { currentBalance = 0; }
-
     var rows = [
       { label: KioskUtils.t('match.infoName'),        value: safe(booking.Name) },
       { label: KioskUtils.t('match.infoPlate'),        value: safe(booking.Plate) },
@@ -505,11 +500,10 @@
   }
 
   function goConfirm() {
-    /* Navigate to next screen — booking data + balance passed via sessionStorage */
+    /* Navigate to next screen — booking data passed via sessionStorage */
     if (currentBooking) {
       try {
         sessionStorage.setItem('kiosk_booking', JSON.stringify(currentBooking));
-        sessionStorage.setItem('kiosk_balance_cents', String(Math.round(currentBalance * 100)));
       } catch (_) { /* storage blocked */ }
     }
     window.location.href = NEXT_URL;
