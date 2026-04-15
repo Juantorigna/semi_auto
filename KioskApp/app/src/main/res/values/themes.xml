@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Theme.Kiosk
+        ─────────────────────────────────────────────────────
+        • No ActionBar — WebView owns 100% of screen
+        • Fullscreen / immersive enforced in MainActivity
+        • Dark window background to avoid white flash on load
+    -->
+    <style name="Theme.Kiosk" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@color/kiosk_background</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/kiosk_accent</item>
+        <item name="colorSurface">@color/kiosk_surface</item>
+        <item name="colorOnSurface">@color/kiosk_on_surface</item>
+        <!-- Prevent status bar flash on resume -->
+        <item name="android:statusBarColor">@color/kiosk_background</item>
+        <item name="android:navigationBarColor">@color/kiosk_background</item>
+    </style>
+
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kiosk_background">#1A1A2E</color>
+    <color name="kiosk_accent">#E94560</color>
+    <color name="kiosk_surface">#16213E</color>
+    <color name="kiosk_on_surface">#FFFFFF</color>
+</resources>
