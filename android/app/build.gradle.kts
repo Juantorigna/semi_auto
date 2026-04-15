@@ -14,12 +14,8 @@ android {
         versionCode = 1
         versionName = "1.0.0"
 
-        // Base URL for the web app — change to your production domain
-        buildConfigField("String", "KIOSK_BASE_URL", "\"https://areacamperbergamo.it/main/html/checkout.html\"")
-
-        // Base URL for the API (connection-token, create-payment-intent)
-        buildConfigField("String", "API_BASE_URL", "\"https://areacamperbergamo.it/app/api\"")
-
+        buildConfigField("String", "KIOSK_BASE_URL", "\"https://win.areacamperbergamo.it/main/html/checkout.html\"")
+buildConfigField("String", "API_BASE_URL", "\"https://win.areacamperbergamo.it/app/api\"")
         // Set to true to use the simulated card reader (no physical hardware needed)
         buildConfigField("boolean", "USE_SIMULATED_READER", "true")
     }
