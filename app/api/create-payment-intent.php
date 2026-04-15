@@ -29,7 +29,7 @@ header('Referrer-Policy: no-referrer');
 
 /* ── CORS ──────────────────────────────────────────────────── */
 $allowedOrigins = [
-    'https://areacamperbergamo.it',
+    'https://win.areacamperbergamo.it',
 ];
 $requestOrigin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
