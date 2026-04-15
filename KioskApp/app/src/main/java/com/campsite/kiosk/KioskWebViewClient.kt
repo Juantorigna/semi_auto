@@ -1,66 +1,92 @@
 package com.campsite.kiosk
 
 import android.graphics.Bitmap
-import android.net.Uri
+import android.net.http.SslError
+import android.webkit.SslErrorHandler
+import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.util.Log
+import androidx.annotation.RequiresApi
+import android.os.Build
 
-/**
- * KioskWebViewClient
- *
- * Responsibilities:
- *  - Allow navigation only within the allowed origin (prevents open-redirect abuse)
- *  - Block all third-party navigations silently (no external browser launch)
- *  - Inject security response headers on every page load via intercepting resource requests
- *  - Expose page lifecycle for host Activity (loading state, errors)
- */
 class KioskWebViewClient(
     private val allowedOrigin: String,
-    private val onPageStarted: () -> Unit = {},
-    private val onPageFinished: () -> Unit = {},
-    private val onError: (String) -> Unit = {}
+    private val onPageStarted: () -> Unit,
+    private val onPageFinished: () -> Unit,
+    private val onNetworkError: () -> Unit
 ) : WebViewClient() {
 
-    companion object {
-        private const val TAG = "KioskWebViewClient"
+    // ── Navigation guard ──────────────────────────────────────────────────────
+    // Allow only URLs that start with the configured allowed origin.
+    // Everything else (deep links, redirects to third-party domains) is blocked.
+
+    override fun shouldOverrideUrlLoading(
+        view: WebView,
+        request: WebResourceRequest
+    ): Boolean {
+        val url = request.url.toString()
+        return if (url.startsWith(allowedOrigin)) {
+            false   // let WebView handle it
+        } else {
+            // Silently drop — no browser launch, no external navigation
+            true
+        }
     }
 
-    // ─── Navigation guard ────────────────────────────────────────────────────
+    // ── Page lifecycle ────────────────────────────────────────────────────────
 
-    override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-        val uri = request.url ?: return true                    // block null URLs
-        return !isSameOrigin(uri)                               // block cross-origin nav
-    }
-
-    private fun isSameOrigin(uri: Uri): Boolean {
-        val requestedHost = uri.host ?: return false
-        val allowedHost = Uri.parse(allowedOrigin).host ?: return false
-        return requestedHost.equals(allowedHost, ignoreCase = true)
-    }
-
-    // ─── Page lifecycle ───────────────────────────────────────────────────────
-
-    override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
+    override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
         super.onPageStarted(view, url, favicon)
         onPageStarted()
     }
 
-    override fun onPageFinished(view: WebView, url: String?) {
+    override fun onPageFinished(view: WebView, url: String) {
         super.onPageFinished(view, url)
         onPageFinished()
     }
 
+    // ── Error handling — API 23+ ──────────────────────────────────────────────
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceivedError(
         view: WebView,
-        errorCode: Int,
-        description: String?,
-        failingUrl: String?
+        request: WebResourceRequest,
+        error: WebResourceError
     ) {
-        super.onReceivedError(view, errorCode, description, failingUrl)
-        Log.e(TAG, "WebView error $errorCode: $description at $failingUrl")
-        onError(description ?: "Unknown error ($errorCode)")
+        super.onReceivedError(view, request, error)
+
+        // Only trigger the overlay for the main frame — subresource failures
+        // (fonts, images) should not kill the kiosk UI.
+        if (request.isForMainFrame) {
+            onNetworkError()
+        }
+    }
+
+    // ── HTTP error handling ───────────────────────────────────────────────────
+
+    override fun onReceivedHttpError(
+        view: WebView,
+        request: WebResourceRequest,
+        errorResponse: WebResourceResponse
+    ) {
+        super.onReceivedHttpError(view, request, errorResponse)
+        if (request.isForMainFrame) {
+            onNetworkError()
+        }
+    }
+
+    // ── SSL errors — abort, never proceed ────────────────────────────────────
+    // Calling handler.proceed() on SSL errors would silently accept invalid
+    // certificates. For a payment kiosk this is never acceptable.
+
+    override fun onReceivedSslError(
+        view: WebView,
+        handler: SslErrorHandler,
+        error: SslError
+    ) {
+        handler.cancel()    // always cancel — never handler.proceed()
+        onNetworkError()
     }
 }

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Campsite Checkout</string>
-    <string name="error_connection">Connessione non disponibile. Contattare la reception.</string>
+    <string name="app_name">Campsite Kiosk</string>
+
+    <!-- Loading -->
     <string name="loading">Caricamento…</string>
+
+    <!-- No-connection overlay -->
+    <string name="no_connection_title">Connessione assente</string>
+    <string name="no_connection_subtitle">Contatta la reception per assistenza.</string>
+    <string name="no_connection_retry">Riprova</string>
+    <string name="no_connection_icon_desc">Nessuna connessione di rete</string>
 </resources>

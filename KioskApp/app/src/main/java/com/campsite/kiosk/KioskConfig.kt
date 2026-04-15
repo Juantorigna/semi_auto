@@ -3,34 +3,46 @@ package com.campsite.kiosk
 /**
  * KioskConfig
  *
- * Single source of truth for environment-specific values.
- * In production builds, supply via BuildConfig or a secrets file — never hard-code credentials here.
+ * Single source of truth for all runtime constants.
+ * Change BASE_URL here and nowhere else when deploying to a new environment.
  */
 object KioskConfig {
 
-    /**
-     * Base URL of the Aruba-hosted backend.
-     * Replace with actual subdomain before deployment.
-     * Must be HTTPS — cleartext blocked by network_security_config.xml.
-     */
-    const val BASE_URL: String = "https://win.areacamperbergamo.it/semi_auto/"
+    // ── URLs ──────────────────────────────────────────────────────────────────
+
+    /** Entry point loaded on cold start. */
+    const val BASE_URL: String = "https://areacamperbergamo.it/main/html/checkout.html"
 
     /**
-     * Allowed origin for navigation guard in KioskWebViewClient.
-     * Must match BASE_URL host exactly.
+     * Origin prefix used by KioskWebViewClient to allow navigation.
+     * Any URL that does NOT start with this string is silently blocked.
      */
-    const val ALLOWED_ORIGIN: String = BASE_URL
+    const val ALLOWED_ORIGIN: String = "https://areacamperbergamo.it"
+
+    // ── JS Bridge ─────────────────────────────────────────────────────────────
+
+    /** Name under which JsBridge is exposed to JavaScript: window.KioskBridge */
+    const val JS_BRIDGE_NAME: String = "KioskBridge"
+
+    // ── User Agent ────────────────────────────────────────────────────────────
 
     /**
-     * WebView JS interface name.
-     * Must match the string used in JS: window.KioskBridge.*
+     * Custom UA string.
+     * - Identifies the kiosk to the backend for potential server-side branching.
+     * - Strips the default Android/Chrome UA to reduce fingerprinting surface.
      */
-    const val JS_INTERFACE_NAME: String = JsBridge.JS_INTERFACE_NAME
+    const val USER_AGENT: String = "CampsiteKiosk/1.0"
 
-    /**
-     * Inactivity timeout in milliseconds.
-     * If user takes no action for this period, WebView resets to BASE_URL.
-     * Wired in MainActivity in a later step.
-     */
-    const val INACTIVITY_TIMEOUT_MS: Long = 90_000L              // 90 seconds
+    // ── Inactivity ────────────────────────────────────────────────────────────
+
+    /** Milliseconds of inactivity before the JS layer triggers a session reset. */
+    const val INACTIVITY_TIMEOUT_MS: Long = 60_000L
+
+    // ── Connectivity watchdog ─────────────────────────────────────────────────
+
+    /** How long (ms) network must be absent before the no-connection overlay fires. */
+    const val NETWORK_LOSS_GRACE_MS: Long = 30_000L
+
+    /** Heartbeat ping interval in milliseconds. */
+    const val HEARTBEAT_INTERVAL_MS: Long = 300_000L   // 5 minutes
 }
