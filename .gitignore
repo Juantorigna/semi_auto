@@ -2,3 +2,5 @@
 db.env
 .log
 vendor
+composer.lock
+composer.json

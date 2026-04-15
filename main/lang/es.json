@@ -24,10 +24,7 @@
     "resultSubtitle": "Verifique sus datos.",
     "back": "Atrás",
     "confirm": "Confirmar",
-<<<<<<< HEAD
     "continue": "Continuar",
-=======
->>>>>>> origin/claude/stripe-android-integration-LmLnf
     "goToPayment": "Ir al pago",
     "nomatchTitle": "Sin coincidencia",
     "nomatchBody": "No hay ningún registro activo que coincida con esta matrícula y número de llave. Verifique sus datos o contacte la recepción.",
@@ -49,21 +46,6 @@
     "infoBalance": "Saldo pendiente",
     "yes": "Sí",
     "no": "No"
-  },
-  "confirm": {
-    "titlePayment": "Pago",
-    "subtitlePayment": "Acerque o inserte su tarjeta en el lector para pagar.",
-    "amount": "Importe a pagar",
-    "waiting": "Esperando al lector…",
-    "processing": "Procesando pago…",
-    "success": "¡Pago exitoso!",
-    "error": "Pago fallido",
-    "retry": "Intentar de nuevo",
-    "titleNoDue": "Sin importe pendiente",
-    "subtitleNoDue": "Su saldo ya ha sido pagado.",
-    "continue": "Continuar",
-    "cancel": "Cancelar",
-    "errorBridge": "Error: el terminal de pago no está disponible."
   },
   "inactivity": {
     "warning": "¿Sigue ahí?",

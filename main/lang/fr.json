@@ -24,10 +24,7 @@
     "resultSubtitle": "Veuillez vérifier vos informations.",
     "back": "Retour",
     "confirm": "Confirmer",
-<<<<<<< HEAD
     "continue": "Continuer",
-=======
->>>>>>> origin/claude/stripe-android-integration-LmLnf
     "goToPayment": "Aller au paiement",
     "nomatchTitle": "Aucune correspondance trouvée",
     "nomatchBody": "Aucun enregistrement actif ne correspond à cette plaque et ce numéro de clé. Veuillez vérifier vos informations ou contacter la réception.",
@@ -49,21 +46,6 @@
     "infoBalance": "Solde dû",
     "yes": "Oui",
     "no": "Non"
-  },
-  "confirm": {
-    "titlePayment": "Paiement",
-    "subtitlePayment": "Approchez ou insérez votre carte sur le lecteur pour payer.",
-    "amount": "Montant dû",
-    "waiting": "En attente du lecteur…",
-    "processing": "Paiement en cours…",
-    "success": "Paiement réussi !",
-    "error": "Paiement échoué",
-    "retry": "Réessayer",
-    "titleNoDue": "Aucun montant dû",
-    "subtitleNoDue": "Votre solde a déjà été payé.",
-    "continue": "Continuer",
-    "cancel": "Annuler",
-    "errorBridge": "Erreur : le terminal de paiement n'est pas disponible."
   },
   "inactivity": {
     "warning": "Êtes-vous toujours là ?",
