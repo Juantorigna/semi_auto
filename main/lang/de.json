@@ -51,5 +51,23 @@
     "warning": "Sind Sie noch da?",
     "body": "Die Sitzung wird in wenigen Sekunden zurückgesetzt.",
     "continue": "Weiter"
+  },
+  "payment": {
+    "preparing": "Zahlung wird vorbereitet…",
+    "title": "Zahlung",
+    "subtitle": "Halten Sie Ihre Karte an das Lesegerät, stecken oder streichen Sie sie.",
+    "amountDue": "Zu zahlender Betrag",
+    "tapHint": "Halten Sie Ihre Karte an das Lesegerät",
+    "cancel": "Abbrechen",
+    "processing": "Zahlung wird verarbeitet…",
+    "successTitle": "Zahlung bestätigt",
+    "successBody": "Ihre Zahlung wurde erfolgreich verarbeitet.",
+    "failedTitle": "Zahlung fehlgeschlagen",
+    "failedBody": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder kontaktieren Sie die Rezeption.",
+    "goBack": "Zurück",
+    "retry": "Erneut versuchen",
+    "errorNoData": "Registrierungsdaten fehlen. Gehen Sie zurück und versuchen Sie es erneut.",
+    "errorNetwork": "Netzwerkfehler. Bitte überprüfen Sie die Verbindung.",
+    "errorServer": "Serverfehler. Bitte versuchen Sie es erneut oder kontaktieren Sie die Rezeption."
   }
 }

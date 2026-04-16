@@ -51,5 +51,23 @@
     "warning": "¿Sigue ahí?",
     "body": "La sesión se restablecerá en unos segundos.",
     "continue": "Continuar"
+  },
+  "payment": {
+    "preparing": "Preparando el pago…",
+    "title": "Pago",
+    "subtitle": "Acerque, inserte o deslice su tarjeta en el lector.",
+    "amountDue": "Importe a pagar",
+    "tapHint": "Acerque su tarjeta al lector",
+    "cancel": "Cancelar",
+    "processing": "Procesando el pago…",
+    "successTitle": "Pago confirmado",
+    "successBody": "Su pago ha sido procesado con éxito.",
+    "failedTitle": "Pago fallido",
+    "failedBody": "Algo salió mal. Inténtelo de nuevo o contacte la recepción.",
+    "goBack": "Volver",
+    "retry": "Intentar de nuevo",
+    "errorNoData": "Faltan datos de registro. Vuelva atrás e inténtelo de nuevo.",
+    "errorNetwork": "Error de red. Verifique la conexión.",
+    "errorServer": "Error del servidor. Inténtelo de nuevo o contacte la recepción."
   }
 }

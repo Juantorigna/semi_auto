@@ -44,15 +44,15 @@ class JsBridge(
 
     /**
      * Called by payment.html when the guest must pay.
-     * @param amountCents  Integer cents — always sourced from server, never trusted from JS.
-     * @param bookingRef   Booking reference string for PaymentIntent metadata.
+     * @param amountCents     Integer cents — always sourced from server, never trusted from JS.
+     * @param registrationRef Registration reference string for PaymentIntent metadata.
      *
      * Currently a stub: logs and fires window.onPaymentFailure('not_implemented').
      * Replace body in Step 7 with real Stripe Terminal flow.
      */
     @JavascriptInterface
-    fun initiatePayment(amountCents: Int, bookingRef: String) {
-        Log.d(TAG, "initiatePayment stub — amountCents=$amountCents ref=$bookingRef")
+    fun initiatePayment(amountCents: Int, registrationRef: String) {
+        Log.d(TAG, "initiatePayment stub — amountCents=$amountCents ref=$registrationRef")
         evaluateJs("window.onPaymentFailure && window.onPaymentFailure('not_implemented')")
     }
 

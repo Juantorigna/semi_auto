@@ -51,5 +51,23 @@
     "warning": "Êtes-vous toujours là ?",
     "body": "La session sera réinitialisée dans quelques secondes.",
     "continue": "Continuer"
+  },
+  "payment": {
+    "preparing": "Préparation du paiement…",
+    "title": "Paiement",
+    "subtitle": "Approchez, insérez ou glissez votre carte sur le lecteur.",
+    "amountDue": "Montant dû",
+    "tapHint": "Approchez votre carte du lecteur",
+    "cancel": "Annuler",
+    "processing": "Paiement en cours…",
+    "successTitle": "Paiement confirmé",
+    "successBody": "Votre paiement a été traité avec succès.",
+    "failedTitle": "Paiement échoué",
+    "failedBody": "Un problème est survenu. Veuillez réessayer ou contacter la réception.",
+    "goBack": "Retour",
+    "retry": "Réessayer",
+    "errorNoData": "Données d'enregistrement manquantes. Revenez en arrière et réessayez.",
+    "errorNetwork": "Erreur réseau. Veuillez vérifier la connexion.",
+    "errorServer": "Erreur serveur. Veuillez réessayer ou contacter la réception."
   }
 }

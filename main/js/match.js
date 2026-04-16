@@ -29,7 +29,7 @@
 
   /* ── Constants ── */
   var HOME_URL       = 'checkout.html';
-  var NEXT_URL       = 'confirm.html';       /* Screen 4 — TBD */
+  var NEXT_URL       = 'payment.html';       /* Screen 4 — Payment */
   var API_LOOKUP_URL = '../../app/api/lookup.php';
   var PLATE_MAX      = 10;
   var KEY_MAX        = 3;
@@ -44,7 +44,7 @@
   var activeField       = null;   /* 'plate' | 'key' */
   var countdownTimer    = null;
   var countdownValue    = 0;
-  var currentBooking    = null;   /* stashed for confirm navigation */
+  var currentRegistration = null;   /* stashed for confirm navigation */
 
   /* ══════════════════════════════════════════════════════════════
      VIEW MANAGEMENT
@@ -213,8 +213,8 @@
       return;
     }
 
-    if (data && data.found === true && data.booking) {
-      showResult(data.booking);
+    if (data && data.found === true && data.registration) {
+      showResult(data.registration);
     } else {
       showNoMatch();
     }
@@ -354,34 +354,34 @@
     return totalCharge + carCharge + ampersCharge;
   }
 
-  function showResult(booking) {
-    currentBooking = booking;
+  function showResult(reg) {
+    currentRegistration = reg;
 
     var tbody = dom.infoTbody;
     /* Clear previous rows */
     while (tbody.firstChild) { tbody.removeChild(tbody.firstChild); }
 
-    var paidAdvance = (parseFloat(booking.Amount) || 0) + (parseFloat(booking.AmountAdvance) || 0);
+    var paidAdvance = (parseFloat(reg.Amount) || 0) + (parseFloat(reg.AmountAdvance) || 0);
 
     /* Calculate total stay charge from arrival to now */
-    var arrivalDate   = new Date(booking['Arrival DateTime']);
+    var arrivalDate   = new Date(reg['Arrival DateTime']);
     var departureDate = new Date();
-    var hasCar        = yesNo(booking['Has Car']) === 'yes';
-    var corrente      = parseFloat(booking.Corrente) || 0;
+    var hasCar        = yesNo(reg['Has Car']) === 'yes';
+    var corrente      = parseFloat(reg.Corrente) || 0;
     var totalCharge   = calculateTotalStayCharge(arrivalDate, departureDate, hasCar, corrente);
 
     var rows = [
-      { label: KioskUtils.t('match.infoName'),        value: safe(booking.Name) },
-      { label: KioskUtils.t('match.infoPlate'),        value: safe(booking.Plate) },
-      { label: KioskUtils.t('match.infoKey'),          value: safe(booking.Chiavetta) },
-      { label: KioskUtils.t('match.infoPitch'),        value: safe(booking.Piazzola) },
-      { label: KioskUtils.t('match.infoArrival'),      value: formatDateTime(booking['Arrival DateTime']) },
+      { label: KioskUtils.t('match.infoName'),        value: safe(reg.Name) },
+      { label: KioskUtils.t('match.infoPlate'),        value: safe(reg.Plate) },
+      { label: KioskUtils.t('match.infoKey'),          value: safe(reg.Chiavetta) },
+      { label: KioskUtils.t('match.infoPitch'),        value: safe(reg.Piazzola) },
+      { label: KioskUtils.t('match.infoArrival'),      value: formatDateTime(reg['Arrival DateTime']) },
       { label: KioskUtils.t('match.infoDeparture'),    value: romaDateTimeNow() },
-      { label: KioskUtils.t('match.infoCategory'),     value: safe(booking.Category) },
+      { label: KioskUtils.t('match.infoCategory'),     value: safe(reg.Category) },
       { label: KioskUtils.t('match.infoTotalCharge'),  value: formatCurrency(totalCharge),  cls: 'highlight' },
       { label: KioskUtils.t('match.infoPaidAdvance'),  value: formatCurrency(paidAdvance),              cls: '' },
-      { label: KioskUtils.t('match.infoElectricity'),  value: formatElectricity(booking.Corrente) },
-      { label: KioskUtils.t('match.infoHasCar'),       value: badgeHtml(booking['Has Car']) },
+      { label: KioskUtils.t('match.infoElectricity'),  value: formatElectricity(reg.Corrente) },
+      { label: KioskUtils.t('match.infoHasCar'),       value: badgeHtml(reg['Has Car']) },
     ];
 
     for (var i = 0; i < rows.length; i++) {
@@ -489,7 +489,7 @@
 
   function goBackToEntry() {
     stopCountdown();
-    currentBooking = null;
+    currentRegistration = null;
     showView('view-entry');
     dom.inputPlate.value = '';
     dom.inputKey.value   = '';
@@ -500,10 +500,10 @@
   }
 
   function goConfirm() {
-    /* Navigate to next screen — booking data passed via sessionStorage */
-    if (currentBooking) {
+    /* Navigate to next screen — registration data passed via sessionStorage */
+    if (currentRegistration) {
       try {
-        sessionStorage.setItem('kiosk_booking', JSON.stringify(currentBooking));
+        sessionStorage.setItem('kiosk_registration', JSON.stringify(currentRegistration));
       } catch (_) { /* storage blocked */ }
     }
     window.location.href = NEXT_URL;

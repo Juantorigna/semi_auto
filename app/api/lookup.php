@@ -1,6 +1,6 @@
 <?php
 /**
- * lookup.php — Kiosk Booking Lookup API
+ * lookup.php — Kiosk Registration Lookup API
  *
  * POST JSON: { "plate": "AB123CD", "key_number": "17" }
  *
@@ -197,7 +197,7 @@ try {
         ':active' => 'Y',
     ]);
 
-    $booking = $stmt->fetch();
+    $registration = $stmt->fetch();
 
 } catch (PDOException $e) {
     error_log('[lookup.php] Query failed: ' . $e->getMessage());
@@ -207,11 +207,11 @@ try {
 }
 
 /* ── Response ──────────────────────────────────────────────── */
-if ($booking === false) {
+if ($registration === false) {
     http_response_code(404);
     echo json_encode([
         'found' => false,
-        'error' => 'No active booking found for this plate and key number',
+        'error' => 'No active registration found for this plate and key number',
     ]);
     exit;
 }
@@ -219,25 +219,25 @@ if ($booking === false) {
 /* Never leak the internal ID or registration code to the kiosk.
    Build a safe response object with only the fields the UI needs. */
 $response = [
-    'found'   => true,
-    'booking' => [
-        'Name'                => $booking['Name'],
-        'Nationality'         => $booking['Nationality'],
-        'Quanti'              => $booking['Quanti'],
-        'Category'            => $booking['Category'],
-        'Caravan Confirmation' => $booking['Caravan Confirmation'],
-        'Plate'               => $booking['Plate'],
-        'Piazzola'            => $booking['Piazzola'],
-        'Chiavetta'           => $booking['Chiavetta'],
-        'Corrente'            => $booking['Corrente'],
-        'Paid'                => $booking['Paid'],
-        'Amount'              => $booking['Amount'],
-        'PaidInAdvance'       => $booking['PaidInAdvance'],
-        'AmountAdvance'       => $booking['AmountAdvance'],
-        'Has Car'             => $booking['Has Car'],
-        'Arrival DateTime'    => $booking['Arrival DateTime'],
-        'Departure DateTime'  => $booking['Departure DateTime'],
-        'Total Charge'        => $booking['Total Charge'],
+    'found'        => true,
+    'registration' => [
+        'Name'                => $registration['Name'],
+        'Nationality'         => $registration['Nationality'],
+        'Quanti'              => $registration['Quanti'],
+        'Category'            => $registration['Category'],
+        'Caravan Confirmation' => $registration['Caravan Confirmation'],
+        'Plate'               => $registration['Plate'],
+        'Piazzola'            => $registration['Piazzola'],
+        'Chiavetta'           => $registration['Chiavetta'],
+        'Corrente'            => $registration['Corrente'],
+        'Paid'                => $registration['Paid'],
+        'Amount'              => $registration['Amount'],
+        'PaidInAdvance'       => $registration['PaidInAdvance'],
+        'AmountAdvance'       => $registration['AmountAdvance'],
+        'Has Car'             => $registration['Has Car'],
+        'Arrival DateTime'    => $registration['Arrival DateTime'],
+        'Departure DateTime'  => $registration['Departure DateTime'],
+        'Total Charge'        => $registration['Total Charge'],
     ],
 ];
 

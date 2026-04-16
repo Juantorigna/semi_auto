@@ -51,5 +51,23 @@
     "warning": "Are you still there?",
     "body": "The session will reset in a few seconds.",
     "continue": "Continue"
+  },
+  "payment": {
+    "preparing": "Preparing payment…",
+    "title": "Payment",
+    "subtitle": "Tap, insert, or swipe your card on the reader.",
+    "amountDue": "Amount due",
+    "tapHint": "Hold your card near the reader",
+    "cancel": "Cancel",
+    "processing": "Processing payment…",
+    "successTitle": "Payment confirmed",
+    "successBody": "Your payment has been processed successfully.",
+    "failedTitle": "Payment failed",
+    "failedBody": "Something went wrong. Please try again or contact reception.",
+    "goBack": "Go back",
+    "retry": "Try again",
+    "errorNoData": "Registration data missing. Go back and try again.",
+    "errorNetwork": "Network error. Please check the connection.",
+    "errorServer": "Server error. Please try again or contact reception."
   }
 }

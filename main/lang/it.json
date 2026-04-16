@@ -51,5 +51,23 @@
     "warning": "Sei ancora lì?",
     "body": "La sessione verrà reimpostata tra pochi secondi.",
     "continue": "Continua"
+  },
+  "payment": {
+    "preparing": "Preparazione del pagamento…",
+    "title": "Pagamento",
+    "subtitle": "Avvicina, inserisci o striscia la carta sul lettore.",
+    "amountDue": "Importo dovuto",
+    "tapHint": "Avvicina la carta al lettore",
+    "cancel": "Annulla",
+    "processing": "Pagamento in corso…",
+    "successTitle": "Pagamento confermato",
+    "successBody": "Il pagamento è stato elaborato con successo.",
+    "failedTitle": "Pagamento fallito",
+    "failedBody": "Qualcosa è andato storto. Riprova o contatta la reception.",
+    "goBack": "Indietro",
+    "retry": "Riprova",
+    "errorNoData": "Dati della registrazione mancanti. Torna indietro e riprova.",
+    "errorNetwork": "Errore di rete. Verifica la connessione.",
+    "errorServer": "Errore del server. Riprova o contatta la reception."
   }
 }
