@@ -43,6 +43,7 @@
   var paymentIntentId    = null;
   var registrationRef    = null;
   var serverAmountCents  = 0;
+  var serverClientSecret = '';      /* passed to native bridge — never to display */
   var retryCount         = 0;
 
   /* ══════════════════════════════════════════════════════════════
@@ -157,9 +158,10 @@
       return;
     }
 
-    paymentIntentId   = data.payment_intent_id;
-    registrationRef   = data.registration_ref || '';
-    serverAmountCents = data.amount_cents;
+    paymentIntentId    = data.payment_intent_id;
+    registrationRef    = data.registration_ref || '';
+    serverAmountCents  = data.amount_cents;
+    serverClientSecret = data.client_secret;
 
     dom.amountValue.textContent = formatCentsToEuro(serverAmountCents);
 
@@ -174,7 +176,8 @@
   function initiateNativePayment() {
     if (typeof window.KioskBridge !== 'undefined' &&
         typeof window.KioskBridge.initiatePayment === 'function') {
-      window.KioskBridge.initiatePayment(serverAmountCents, registrationRef);
+      /* Pass clientSecret (not amountCents) — amount is owned by server/Terminal */
+      window.KioskBridge.initiatePayment(serverClientSecret, registrationRef);
     } else {
       console.warn('[payment] KioskBridge not available — running in browser?');
       /* In dev/browser mode, simulate a delayed failure so the UI is testable */

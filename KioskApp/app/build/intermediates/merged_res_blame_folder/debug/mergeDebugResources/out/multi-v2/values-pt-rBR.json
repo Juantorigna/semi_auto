@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-31:/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-36:/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\1473c12105a18237d9ca7c7a984f23c1\\transformed\\appcompat-1.7.0\\res\\values-pt-rBR\\values-pt-rBR.xml",

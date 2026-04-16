@@ -53,4 +53,7 @@ dependencies {
 
     // Lifecycle (needed for WebView Activity scope)
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.3'
+
+    // Stripe Terminal SDK — WisePOS E (Internet reader)
+    implementation 'com.stripe:stripeterminal:4.1.0'
 }

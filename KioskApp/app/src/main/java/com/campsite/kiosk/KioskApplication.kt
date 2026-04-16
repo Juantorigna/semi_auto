@@ -7,8 +7,8 @@ import android.util.Log
  * KioskApplication
  *
  * Application subclass.
- * Currently minimal — declared now so Step 4 (Stripe Terminal SDK init)
- * can call Terminal.initTerminal() here in onCreate() without refactoring.
+ * Initialises the Stripe Terminal SDK once at process start via [TerminalManager].
+ * Discovery starts automatically inside [TerminalManager.init] after SDK init.
  */
 class KioskApplication : Application() {
 
@@ -19,6 +19,8 @@ class KioskApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "KioskApplication started")
-        // Step 4: Terminal.initTerminal(this, TerminalListener, ConnectionTokenProvider) goes here
+
+        // Steps 4 + 5: init Terminal SDK and kick off reader discovery
+        TerminalManager.init(this)
     }
 }

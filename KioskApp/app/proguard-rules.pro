@@ -8,8 +8,8 @@
 # ─── Kotlin metadata ─────────────────────────────────────────────────────────
 -keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
 
-# ─── Stripe Terminal (wired in Step N — pre-emptive keep) ────────────────────
-# -keep class com.stripe.stripeterminal.** { *; }
+# ─── Stripe Terminal (Steps 4–7) ─────────────────────────────────────────────
+-keep class com.stripe.stripeterminal.** { *; }
 
 # ─── Crash reporting (add your SDK keep rules here) ──────────────────────────
 # -keep class com.google.firebase.crashlytics.** { *; }

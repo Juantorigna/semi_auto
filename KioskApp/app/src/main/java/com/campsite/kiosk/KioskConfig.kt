@@ -45,4 +45,20 @@ object KioskConfig {
 
     /** Heartbeat ping interval in milliseconds. */
     const val HEARTBEAT_INTERVAL_MS: Long = 300_000L   // 5 minutes
+
+    // ── Stripe Terminal ───────────────────────────────────────────────────────
+
+    /** Backend endpoint that returns a Stripe Terminal connection token secret. */
+    const val CONNECTION_TOKEN_URL: String =
+        "https://win.areacamperbergamo.it/semi_auto/app/api/connection-token.php"
+
+    /**
+     * Serial number of the WisePOS E reader to auto-connect.
+     * Set this to the serial printed on the reader label.
+     * Leave empty ("") to connect to the first discovered reader instead.
+     */
+    const val READER_SERIAL: String = ""
+
+    /** Stripe Terminal location ID (Dashboard → Terminal → Locations). */
+    const val TERMINAL_LOCATION_ID: String = ""
 }

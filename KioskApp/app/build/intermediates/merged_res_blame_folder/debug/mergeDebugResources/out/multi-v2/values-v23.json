@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-31:/values-v23/values-v23.xml",
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-36:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\bc1ac07c5b7dc6683ab3a624b95b2a1e\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

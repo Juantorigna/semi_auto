@@ -31,8 +31,8 @@ class JsBridge(
     @JavascriptInterface
     fun getAppVersion(): String {
         return try {
-            val pm      = activity.packageManager
-            val info    = pm.getPackageInfo(activity.packageName, 0)
+            val pm   = activity.packageManager
+            val info = pm.getPackageInfo(activity.packageName, 0)
             info.versionName ?: "unknown"
         } catch (e: Exception) {
             Log.e(TAG, "getAppVersion error", e)
@@ -40,40 +40,60 @@ class JsBridge(
         }
     }
 
-    // ── Payment stubs (wired in Step 7) ──────────────────────────────────────
+    // ── Reader status ─────────────────────────────────────────────────────────
+
+    /**
+     * Called by JS to query reader connection status.
+     * Returns "connected" | "disconnected" | "not_initialized".
+     */
+    @JavascriptInterface
+    fun getReaderStatus(): String {
+        val status = TerminalManager.readerStatus
+        Log.d(TAG, "getReaderStatus → $status")
+        return status
+    }
+
+    // ── Payment ───────────────────────────────────────────────────────────────
 
     /**
      * Called by payment.html when the guest must pay.
-     * @param amountCents     Integer cents — always sourced from server, never trusted from JS.
-     * @param registrationRef Registration reference string for PaymentIntent metadata.
      *
-     * Currently a stub: logs and fires window.onPaymentFailure('not_implemented').
-     * Replace body in Step 7 with real Stripe Terminal flow.
+     * @param clientSecret     The PaymentIntent client_secret from the server response.
+     *                         The server is the sole source of truth for the amount.
+     * @param registrationRef  Registration reference for logging only.
+     *
+     * On success: evaluates window.onPaymentSuccess(paymentIntentId)
+     * On failure: evaluates window.onPaymentFailure(errorMessage)
      */
     @JavascriptInterface
-    fun initiatePayment(amountCents: Int, registrationRef: String) {
-        Log.d(TAG, "initiatePayment stub — amountCents=$amountCents ref=$registrationRef")
-        evaluateJs("window.onPaymentFailure && window.onPaymentFailure('not_implemented')")
+    fun initiatePayment(clientSecret: String, registrationRef: String) {
+        Log.d(TAG, "initiatePayment — ref=$registrationRef")
+
+        TerminalManager.processPayment(
+            clientSecret = clientSecret,
+            onSuccess    = { piId ->
+                Log.i(TAG, "Payment success: $piId")
+                evaluateJs(
+                    "window.onPaymentSuccess && window.onPaymentSuccess(${escapeJsString(piId)})"
+                )
+            },
+            onFailure    = { msg ->
+                Log.e(TAG, "Payment failure: $msg")
+                evaluateJs(
+                    "window.onPaymentFailure && window.onPaymentFailure(${escapeJsString(msg)})"
+                )
+            }
+        )
     }
 
     /**
      * Called by the JS layer when the guest taps "Cancel" on the payment screen.
-     * Stub: logs only.
+     * Cancels any in-flight collectPaymentMethod operation.
      */
     @JavascriptInterface
     fun cancelPayment() {
-        Log.d(TAG, "cancelPayment stub called")
-    }
-
-    /**
-     * Called by JS to query reader connection status.
-     * Returns "connected" | "disconnected" | "unknown".
-     * Stub always returns "disconnected" until Step 5 wires real discovery.
-     */
-    @JavascriptInterface
-    fun getReaderStatus(): String {
-        Log.d(TAG, "getReaderStatus stub called")
-        return "disconnected"
+        Log.d(TAG, "cancelPayment called")
+        TerminalManager.cancelPayment()
     }
 
     // ── Overlay control ───────────────────────────────────────────────────────
@@ -96,5 +116,18 @@ class JsBridge(
         activity.runOnUiThread {
             webView.evaluateJavascript(script, null)
         }
+    }
+
+    /**
+     * Wraps a string in single-quoted JS literal, escaping backslashes,
+     * single quotes, and newlines to prevent JS injection.
+     */
+    private fun escapeJsString(value: String): String {
+        val escaped = value
+            .replace("\\", "\\\\")
+            .replace("'", "\\'")
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+        return "'$escaped'"
     }
 }
