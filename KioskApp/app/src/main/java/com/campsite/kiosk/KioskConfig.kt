@@ -11,13 +11,13 @@ object KioskConfig {
     // ── URLs ──────────────────────────────────────────────────────────────────
 
     /** Entry point loaded on cold start. */
-    const val BASE_URL: String = "https://areacamperbergamo.it/main/html/checkout.html"
+    const val BASE_URL: String = "https://win.areacamperbergamo.it/semi_auto/main/html/checkout.html"
 
     /**
      * Origin prefix used by KioskWebViewClient to allow navigation.
      * Any URL that does NOT start with this string is silently blocked.
      */
-    const val ALLOWED_ORIGIN: String = "https://areacamperbergamo.it"
+    const val ALLOWED_ORIGIN: String = "https://win.areacamperbergamo.it"
 
     // ── JS Bridge ─────────────────────────────────────────────────────────────
 
