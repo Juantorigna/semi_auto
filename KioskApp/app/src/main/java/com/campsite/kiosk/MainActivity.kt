@@ -10,6 +10,7 @@ import android.view.WindowInsetsController
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
+import com.campsite.kiosk.BuildConfig
 import com.campsite.kiosk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -24,19 +25,25 @@ class MainActivity : AppCompatActivity() {
 
         webView = binding.webView
 
-        applyImmersiveMode()
         configureWebView()
-        wireClients()
+        enterImmersiveMode()
 
-        binding.btnRetry.setOnClickListener { showNoConnectionOverlay(false) }
+        binding.btnRetry.setOnClickListener {
+            showError(show = false)
+            webView.reload()
+        }
 
-        webView.loadUrl(KioskConfig.BASE_URL)
+        if (savedInstanceState != null) {
+            webView.restoreState(savedInstanceState)
+        } else {
+            webView.loadUrl(KioskConfig.BASE_URL)
+        }
     }
 
     override fun onResume() {
         super.onResume()
         webView.onResume()
-        applyImmersiveMode()
+        enterImmersiveMode()
     }
 
     override fun onPause() {
@@ -50,123 +57,103 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
     }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) applyImmersiveMode()
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        webView.saveState(outState)
     }
 
-    // ── Immersive mode ────────────────────────────────────────────────────────
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (webView.canGoBack()) webView.goBack()
+        // swallow — never exit to launcher
+    }
 
-    private fun applyImmersiveMode() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.let { ctrl ->
-                ctrl.hide(WindowInsets.Type.systemBars())
-                ctrl.systemBarsBehavior =
-                    WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-            }
-        } else {
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = (
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-                    )
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return when (keyCode) {
+            KeyEvent.KEYCODE_VOLUME_DOWN,
+            KeyEvent.KEYCODE_VOLUME_UP,
+            KeyEvent.KEYCODE_VOLUME_MUTE -> true
+            else -> super.onKeyDown(keyCode, event)
         }
     }
 
-    // ── WebView configuration ────────────────────────────────────────────────
-
     @SuppressLint("SetJavaScriptEnabled")
     private fun configureWebView() {
-        val settings: WebSettings = webView.settings
+        webView.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            cacheMode = WebSettings.LOAD_DEFAULT
+            @Suppress("DEPRECATION")
+            mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+            allowFileAccess = false
+            allowContentAccess = false
+            geolocationEnabled = false
+            saveFormData = false
+            @Suppress("DEPRECATION")
+            savePassword = false
+            javaScriptCanOpenWindowsAutomatically = false
+            setSupportMultipleWindows(false)
+            useWideViewPort = true
+            loadWithOverviewMode = true
+            setSupportZoom(false)
+            builtInZoomControls = false
+            displayZoomControls = false
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                safeBrowsingEnabled = true
+            }
+            userAgentString = "$userAgentString KioskApp/${BuildConfig.VERSION_NAME}"
+        }
 
-        settings.javaScriptEnabled = true
-        settings.domStorageEnabled = true
-        settings.useWideViewPort = true
-        settings.loadWithOverviewMode = true
-        settings.setSupportZoom(false)
-        settings.builtInZoomControls = false
-        settings.displayZoomControls = false
-        settings.allowFileAccess = false
-        settings.allowContentAccess = false
-        @Suppress("DEPRECATION")
-        settings.allowFileAccessFromFileURLs = false
-        @Suppress("DEPRECATION")
-        settings.allowUniversalAccessFromFileURLs = false
-        settings.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW
-        settings.cacheMode = WebSettings.LOAD_DEFAULT
-        @Suppress("DEPRECATION")
-        settings.savePassword = false
-        @Suppress("DEPRECATION")
-        settings.saveFormData = false
-        settings.mediaPlaybackRequiresUserGesture = true
-        settings.userAgentString = "CampsiteKiosk/1.0"
-
-        webView.isLongClickable = false
-        webView.setOnLongClickListener { true }
-        webView.isHapticFeedbackEnabled = false
-        webView.isVerticalScrollBarEnabled = false
-        webView.isHorizontalScrollBarEnabled = false
-        webView.overScrollMode = View.OVER_SCROLL_NEVER
-        webView.keepScreenOn = true
-    }
-
-    // ── Clients ───────────────────────────────────────────────────────────────
-
-    private fun wireClients() {
         webView.webViewClient = KioskWebViewClient(
             allowedOrigin = KioskConfig.ALLOWED_ORIGIN,
             onPageStarted = { showLoading(true) },
-            onPageFinished = { showLoading(false) },
-            onError = { showNoConnectionOverlay(true) }
+            onPageFinished = {
+                showLoading(false)
+                showError(show = false)
+            },
+            onNetworkError = { message -> showError(show = true, message = message) }
         )
         webView.webChromeClient = KioskWebChromeClient()
 
         webView.addJavascriptInterface(
             JsBridge(appVersion = BuildConfig.VERSION_NAME),
-            KioskConfig.JS_INTERFACE_NAME
+            JsBridge.JS_INTERFACE_NAME          // direct ref — avoids KioskConfig circular dep
         )
+
+        webView.keepScreenOn = true
     }
 
-    // ── UI state ──────────────────────────────────────────────────────────────
+    private fun enterImmersiveMode() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.let {
+                it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+                it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            or View.SYSTEM_UI_FLAG_FULLSCREEN
+                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    )
+        }
+    }
 
     private fun showLoading(visible: Boolean) {
-        runOnUiThread {
-            binding.loadingIndicator.visibility = if (visible) View.VISIBLE else View.GONE
-        }
+        binding.loadingIndicator.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
-    fun showNoConnectionOverlay(visible: Boolean) {
-        runOnUiThread {
-            binding.noConnectionOverlay.visibility = if (visible) View.VISIBLE else View.GONE
-            if (!visible) webView.reload()
-        }
-    }
-
-    // ── Key intercepts ────────────────────────────────────────────────────────
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        return when (keyCode) {
-            KeyEvent.KEYCODE_BACK,
-            KeyEvent.KEYCODE_HOME,
-            KeyEvent.KEYCODE_APP_SWITCH,
-            KeyEvent.KEYCODE_MENU,
-            KeyEvent.KEYCODE_VOLUME_UP,
-            KeyEvent.KEYCODE_VOLUME_DOWN -> true
-            else -> super.onKeyDown(keyCode, event)
-        }
-    }
-
-    @Deprecated("Deprecated in Java")
-    @Suppress("DEPRECATION")
-    override fun onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack()
+    private fun showError(show: Boolean, message: String = "") {
+        if (show) {
+            binding.noConnectionOverlay.visibility = View.VISIBLE
+            if (message.isNotEmpty()) binding.tvErrorMessage.text = message
+            binding.webView.visibility = View.INVISIBLE
         } else {
-            super.onBackPressed()
+            binding.noConnectionOverlay.visibility = View.GONE
+            binding.webView.visibility = View.VISIBLE
         }
     }
 }
