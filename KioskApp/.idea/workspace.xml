@@ -23,9 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ba832cdc-58ce-4b56-b027-8dea7239b950" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskWebViewClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskWebViewClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
