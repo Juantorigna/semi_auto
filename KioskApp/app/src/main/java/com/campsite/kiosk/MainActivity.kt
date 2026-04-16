@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.campsite.kiosk.databinding.ActivityMainBinding
 
@@ -14,6 +15,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var webView: WebView
+
+    // ─── Back-press handler ───────────────────────────────────────────────────
+    // Modern API replaces deprecated onBackPressed(). Callback is always enabled
+    // so the kiosk can NEVER exit to launcher — back only navigates WebView history.
+    private val backPressedCallback: OnBackPressedCallback =
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (::webView.isInitialized && webView.canGoBack()) {
+                    webView.goBack()
+                }
+                // else: swallow — kiosk must not leave the app
+            }
+        }
 
     // ─── Lifecycle ────────────────────────────────────────────────────────────
 
@@ -23,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         webView = binding.webView
+
+        onBackPressedDispatcher.addCallback(this, backPressedCallback)
 
         configureWebView()
         enterImmersiveMode()
@@ -61,15 +77,7 @@ class MainActivity : AppCompatActivity() {
         webView.saveState(outState)
     }
 
-    // ─── Back press — kiosk guard ─────────────────────────────────────────────
-
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack()
-        }
-        // intentionally NOT calling super — kiosk must never exit to launcher
-    }
+    // ─── Hardware key guard — swallow volume keys ────────────────────────────
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
