@@ -1,7 +1,6 @@
 package com.campsite.kiosk
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -10,13 +9,14 @@ import android.view.WindowInsetsController
 import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
-import com.campsite.kiosk.BuildConfig
 import com.campsite.kiosk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var webView: WebView
+
+    // ─── Lifecycle ────────────────────────────────────────────────────────────
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         enterImmersiveMode()
 
         binding.btnRetry.setOnClickListener {
-            showError(show = false)
+            showError(false)
             webView.reload()
         }
 
@@ -62,10 +62,13 @@ class MainActivity : AppCompatActivity() {
         webView.saveState(outState)
     }
 
-    @Deprecated("Deprecated in Java")
+    // ─── Back press — kiosk guard ─────────────────────────────────────────────
+
     override fun onBackPressed() {
-        if (webView.canGoBack()) webView.goBack()
-        // swallow — never exit to launcher
+        if (webView.canGoBack()) {
+            webView.goBack()
+        }
+        // intentionally NOT calling super — kiosk must never exit to launcher
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -77,8 +80,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // ─── WebView config ───────────────────────────────────────────────────────
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun configureWebView() {
+        val appVersion = packageManager
+            .getPackageInfo(packageName, 0)
+            .versionName
+            ?: "unknown"
+
         webView.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
@@ -87,10 +97,8 @@ class MainActivity : AppCompatActivity() {
             mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
             allowFileAccess = false
             allowContentAccess = false
-            geolocationEnabled = false
-            saveFormData = false
             @Suppress("DEPRECATION")
-            savePassword = false
+            setGeolocationEnabled(false)
             javaScriptCanOpenWindowsAutomatically = false
             setSupportMultipleWindows(false)
             useWideViewPort = true
@@ -98,10 +106,8 @@ class MainActivity : AppCompatActivity() {
             setSupportZoom(false)
             builtInZoomControls = false
             displayZoomControls = false
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                safeBrowsingEnabled = true
-            }
-            userAgentString = "$userAgentString KioskApp/${BuildConfig.VERSION_NAME}"
+            safeBrowsingEnabled = true
+            userAgentString = "$userAgentString KioskApp/$appVersion"
         }
 
         webView.webViewClient = KioskWebViewClient(
@@ -109,48 +115,44 @@ class MainActivity : AppCompatActivity() {
             onPageStarted = { showLoading(true) },
             onPageFinished = {
                 showLoading(false)
-                showError(show = false)
+                showError(false)
             },
-            onNetworkError = { message -> showError(show = true, message = message) }
+            onError = { msg ->
+                showLoading(false)
+                showError(true, msg)
+            }
         )
+
         webView.webChromeClient = KioskWebChromeClient()
 
         webView.addJavascriptInterface(
-            JsBridge(appVersion = BuildConfig.VERSION_NAME),
-            JsBridge.JS_INTERFACE_NAME          // direct ref — avoids KioskConfig circular dep
+            JsBridge(appVersion = appVersion),
+            JsBridge.JS_INTERFACE_NAME
         )
 
         webView.keepScreenOn = true
     }
 
+    // ─── Immersive mode ───────────────────────────────────────────────────────
+
     private fun enterImmersiveMode() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.let {
-                it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
-                it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-            }
-        } else {
-            @Suppress("DEPRECATION")
-            window.decorView.systemUiVisibility = (
-                    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            or View.SYSTEM_UI_FLAG_FULLSCREEN
-                            or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    )
+        window.insetsController?.let {
+            it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+            it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
+
+    // ─── UI helpers ───────────────────────────────────────────────────────────
 
     private fun showLoading(visible: Boolean) {
         binding.loadingIndicator.visibility = if (visible) View.VISIBLE else View.GONE
     }
 
-    private fun showError(show: Boolean, message: String = "") {
-        if (show) {
+    private fun showError(visible: Boolean, message: String = "") {
+        if (visible) {
+            binding.webView.visibility = View.INVISIBLE
             binding.noConnectionOverlay.visibility = View.VISIBLE
             if (message.isNotEmpty()) binding.tvErrorMessage.text = message
-            binding.webView.visibility = View.INVISIBLE
         } else {
             binding.noConnectionOverlay.visibility = View.GONE
             binding.webView.visibility = View.VISIBLE

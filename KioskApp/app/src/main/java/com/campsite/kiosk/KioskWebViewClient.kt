@@ -1,92 +1,52 @@
 package com.campsite.kiosk
 
 import android.graphics.Bitmap
-import android.net.http.SslError
-import android.webkit.SslErrorHandler
-import android.webkit.WebResourceError
+import android.net.Uri
 import android.webkit.WebResourceRequest
-import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.annotation.RequiresApi
-import android.os.Build
+import android.util.Log
 
 class KioskWebViewClient(
     private val allowedOrigin: String,
-    private val onPageStarted: () -> Unit,
-    private val onPageFinished: () -> Unit,
-    private val onNetworkError: () -> Unit
+    private val onPageStarted: () -> Unit = {},
+    private val onPageFinished: () -> Unit = {},
+    private val onError: (String) -> Unit = {}
 ) : WebViewClient() {
 
-    // ── Navigation guard ──────────────────────────────────────────────────────
-    // Allow only URLs that start with the configured allowed origin.
-    // Everything else (deep links, redirects to third-party domains) is blocked.
-
-    override fun shouldOverrideUrlLoading(
-        view: WebView,
-        request: WebResourceRequest
-    ): Boolean {
-        val url = request.url.toString()
-        return if (url.startsWith(allowedOrigin)) {
-            false   // let WebView handle it
-        } else {
-            // Silently drop — no browser launch, no external navigation
-            true
-        }
+    companion object {
+        private const val TAG = "KioskWebViewClient"
     }
 
-    // ── Page lifecycle ────────────────────────────────────────────────────────
+    override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+        val uri = request.url ?: return true
+        return !isSameOrigin(uri)
+    }
 
-    override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
+    private fun isSameOrigin(uri: Uri): Boolean {
+        val requestedHost = uri.host ?: return false
+        val allowedHost = Uri.parse(allowedOrigin).host ?: return false
+        return requestedHost.equals(allowedHost, ignoreCase = true)
+    }
+
+    override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
         super.onPageStarted(view, url, favicon)
         onPageStarted()
     }
 
-    override fun onPageFinished(view: WebView, url: String) {
+    override fun onPageFinished(view: WebView, url: String?) {
         super.onPageFinished(view, url)
         onPageFinished()
     }
 
-    // ── Error handling — API 23+ ──────────────────────────────────────────────
-
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceivedError(
         view: WebView,
-        request: WebResourceRequest,
-        error: WebResourceError
+        errorCode: Int,
+        description: String?,
+        failingUrl: String?
     ) {
-        super.onReceivedError(view, request, error)
-
-        // Only trigger the overlay for the main frame — subresource failures
-        // (fonts, images) should not kill the kiosk UI.
-        if (request.isForMainFrame) {
-            onNetworkError()
-        }
-    }
-
-    // ── HTTP error handling ───────────────────────────────────────────────────
-
-    override fun onReceivedHttpError(
-        view: WebView,
-        request: WebResourceRequest,
-        errorResponse: WebResourceResponse
-    ) {
-        super.onReceivedHttpError(view, request, errorResponse)
-        if (request.isForMainFrame) {
-            onNetworkError()
-        }
-    }
-
-    // ── SSL errors — abort, never proceed ────────────────────────────────────
-    // Calling handler.proceed() on SSL errors would silently accept invalid
-    // certificates. For a payment kiosk this is never acceptable.
-
-    override fun onReceivedSslError(
-        view: WebView,
-        handler: SslErrorHandler,
-        error: SslError
-    ) {
-        handler.cancel()    // always cancel — never handler.proceed()
-        onNetworkError()
+        super.onReceivedError(view, errorCode, description, failingUrl)
+        Log.e(TAG, "WebView error $errorCode: $description at $failingUrl")
+        onError(description ?: "Error $errorCode")
     }
 }
