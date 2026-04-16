@@ -1,37 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Network Security Config
-    ─────────────────────────────────────────────────────
-    • Enforces HTTPS-only for all connections (no cleartext)
-    • Aruba shared hosting uses standard CA certs — trust system CAs
-    • Certificate pinning deferred to Step N (add <pin-set> here when cert known)
-    ─────────────────────────────────────────────────────
--->
 <network-security-config>
 
-    <!-- Block all cleartext traffic globally -->
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
     </base-config>
 
-    <!-- Aruba backend domain — HTTPS enforced -->
     <domain-config cleartextTrafficPermitted="false">
-        <!-- TODO: Replace with actual Aruba subdomain before deploy -->
-        <domain includeSubdomains="true">https://win.areacamperbergamo.it/semi_auto/</domain>
+        <domain includeSubdomains="true">areacamperbergamo.it</domain>
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
-        <!--
-        Uncomment and fill after first deploy to pin cert:
-        <pin-set expiration="2026-12-31">
-            <pin digest="SHA-256">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</pin>
-        </pin-set>
-        -->
     </domain-config>
 
-    <!-- Debug only: allow localhost for dev proxy -->
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="false">localhost</domain>
         <domain includeSubdomains="false">10.0.2.2</domain>

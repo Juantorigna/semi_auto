@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/kiosk_background">
 
-    <!-- Full-screen WebView — kiosk fills entire display -->
     <WebView
         android:id="@+id/webView"
         android:layout_width="0dp"
@@ -16,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Loading indicator — centred, shown during page loads -->
     <ProgressBar
         android:id="@+id/loadingIndicator"
         style="?android:attr/progressBarStyleLarge"
@@ -28,5 +26,37 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/noConnectionOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvErrorMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/kiosk_on_surface"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="@string/error_no_connection" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_retry"
+            android:backgroundTint="@color/kiosk_accent" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
