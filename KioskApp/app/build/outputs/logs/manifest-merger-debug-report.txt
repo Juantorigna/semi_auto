@@ -1,0 +1,340 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:2:1-42:12
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:2:1-42:12
+MERGED from [androidx.databinding:viewbinding:8.3.0] C:\Users\rigna\.gradle\caches\transforms-4\082760b0dbc28161c80c4e16ba8b78ac\transformed\viewbinding-8.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.12.0] C:\Users\rigna\.gradle\caches\transforms-4\4b1ba4e2cef670310bf3e5b26607d020\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\rigna\.gradle\caches\transforms-4\05b363143853e79b11ec3525e5f44e93\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\3a2ee1efff6a5e73462d68a2d9ceafb9\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\1473c12105a18237d9ca7c7a984f23c1\transformed\appcompat-1.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\9300e5ca108b122c017e451dd3ab5b47\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\699af758235f365c0709f6a79ce80ca1\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\rigna\.gradle\caches\transforms-4\606e001f55b9e3377eb499a75467fb90\transformed\fragment-1.5.4\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\rigna\.gradle\caches\transforms-4\a0c3d0814d4ab61b861348dcc41d572f\transformed\activity-1.8.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\bd62e028d20d53aaf87d7c435a6ae5f1\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\7436403493382255a371835b38cd2b24\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\rigna\.gradle\caches\transforms-4\827d7e1eac2bd20a2e014a168c51eb8f\transformed\transition-1.5.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\530eca88a1a9ca152b6dfb1fd0c57e31\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\c9a7e59965de8322fce981b0b3361bc4\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\f1986a0166fdbd042c46bb051a6aa1f6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\1e0118eaf4fd1053fec5d80e0806fcf2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\028962fee9768a6e0aa3e56b52284a90\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\7fe1e12812baa6e31504c0c7e4453546\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\248fcd4ecdf5ebc0348d70922b17aa8a\transformed\recyclerview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\a4727707fe3aad20b6551df32dfa91ef\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\rigna\.gradle\caches\transforms-4\3f605866616b71c3953cd2419fb272bb\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\cdffc0a972d5d669cd30c18f12736b1a\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\41ee2663368dc762b3a4565f17c4144e\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\4e17c651fa24a1560cb81ed0b94bb336\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\67fd47a1316d8c30ae1ff99ee32f9b5f\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\627ea35e08b762efd324de56ae990c6f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\2e7581a840df95f83b1b6bd9717291b2\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\238c6aa644c25a62e1bf1d0294042779\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\6c79058aba48fb92437d432afe9d68cb\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\e46a0f4e0bfcfdf04c9b98d65267cd65\transformed\core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\db8ad833dc0c6f04640ca9c0b80c1476\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\279e5cc1d7c016fa2cddacde6516611b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\bc1ac07c5b7dc6683ab3a624b95b2a1e\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\9fc4f999ee9268e25f054d7efcab2b77\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\7ce154d3e5288e5d5ff0ec24247b5733\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\38e9cba386682253292daee9dee89b3e\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\3bba5cf9f37386d97cabd0d4d4f9fa71\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\ba10043060a966bca82a0c4472229030\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\fef28d62e7e7223d271f0a769b222a7e\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\rigna\.gradle\caches\transforms-4\041d328ab56d2689f895dd1aaa16bef6\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:5:5-67
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:5:22-64
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:6:5-68
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:6:22-65
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:7:22-76
+application
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:9:5-40:19
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:9:5-40:19
+MERGED from [com.google.android.material:material:1.12.0] C:\Users\rigna\.gradle\caches\transforms-4\4b1ba4e2cef670310bf3e5b26607d020\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.12.0] C:\Users\rigna\.gradle\caches\transforms-4\4b1ba4e2cef670310bf3e5b26607d020\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\rigna\.gradle\caches\transforms-4\05b363143853e79b11ec3525e5f44e93\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\rigna\.gradle\caches\transforms-4\05b363143853e79b11ec3525e5f44e93\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\7ce154d3e5288e5d5ff0ec24247b5733\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\7ce154d3e5288e5d5ff0ec24247b5733\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:16:9-36
+	android:label
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:15:9-41
+	android:hardwareAccelerated
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:19:9-43
+	android:roundIcon
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:14:9-54
+	tools:targetApi
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:20:9-29
+	android:icon
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:13:9-43
+	android:allowBackup
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:11:9-36
+	android:theme
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:9-46
+	android:networkSecurityConfig
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:18:9-69
+	android:dataExtractionRules
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:12:9-65
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:10:9-41
+activity#com.campsite.kiosk.MainActivity
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:22:9-38:20
+	android:screenOrientation
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:26:13-50
+	android:launchMode
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:25:13-44
+	android:windowSoftInputMode
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:28:13-56
+	android:exported
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:24:13-36
+	android:keepScreenOn
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:29:13-40
+	android:configChanges
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:27:13-94
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:23:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.DEFAULT+category:name:android.intent.category.HOME+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:31:13-36:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:32:17-69
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:32:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:33:17-77
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:33:27-74
+category#android.intent.category.HOME
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:34:17-73
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:34:27-70
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:35:17-76
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:35:27-73
+uses-sdk
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:8.3.0] C:\Users\rigna\.gradle\caches\transforms-4\082760b0dbc28161c80c4e16ba8b78ac\transformed\viewbinding-8.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.3.0] C:\Users\rigna\.gradle\caches\transforms-4\082760b0dbc28161c80c4e16ba8b78ac\transformed\viewbinding-8.3.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.12.0] C:\Users\rigna\.gradle\caches\transforms-4\4b1ba4e2cef670310bf3e5b26607d020\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.12.0] C:\Users\rigna\.gradle\caches\transforms-4\4b1ba4e2cef670310bf3e5b26607d020\transformed\material-1.12.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\rigna\.gradle\caches\transforms-4\05b363143853e79b11ec3525e5f44e93\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\rigna\.gradle\caches\transforms-4\05b363143853e79b11ec3525e5f44e93\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\3a2ee1efff6a5e73462d68a2d9ceafb9\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\3a2ee1efff6a5e73462d68a2d9ceafb9\transformed\appcompat-resources-1.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\1473c12105a18237d9ca7c7a984f23c1\transformed\appcompat-1.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat:1.7.0] C:\Users\rigna\.gradle\caches\transforms-4\1473c12105a18237d9ca7c7a984f23c1\transformed\appcompat-1.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\9300e5ca108b122c017e451dd3ab5b47\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\9300e5ca108b122c017e451dd3ab5b47\transformed\emoji2-views-helper-1.3.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\699af758235f365c0709f6a79ce80ca1\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\699af758235f365c0709f6a79ce80ca1\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\rigna\.gradle\caches\transforms-4\606e001f55b9e3377eb499a75467fb90\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.4] C:\Users\rigna\.gradle\caches\transforms-4\606e001f55b9e3377eb499a75467fb90\transformed\fragment-1.5.4\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\rigna\.gradle\caches\transforms-4\a0c3d0814d4ab61b861348dcc41d572f\transformed\activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] C:\Users\rigna\.gradle\caches\transforms-4\a0c3d0814d4ab61b861348dcc41d572f\transformed\activity-1.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\bd62e028d20d53aaf87d7c435a6ae5f1\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\bd62e028d20d53aaf87d7c435a6ae5f1\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\7436403493382255a371835b38cd2b24\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\7436403493382255a371835b38cd2b24\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\rigna\.gradle\caches\transforms-4\827d7e1eac2bd20a2e014a168c51eb8f\transformed\transition-1.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.5.0] C:\Users\rigna\.gradle\caches\transforms-4\827d7e1eac2bd20a2e014a168c51eb8f\transformed\transition-1.5.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\530eca88a1a9ca152b6dfb1fd0c57e31\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\530eca88a1a9ca152b6dfb1fd0c57e31\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\c9a7e59965de8322fce981b0b3361bc4\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\c9a7e59965de8322fce981b0b3361bc4\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\f1986a0166fdbd042c46bb051a6aa1f6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\f1986a0166fdbd042c46bb051a6aa1f6\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\1e0118eaf4fd1053fec5d80e0806fcf2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\1e0118eaf4fd1053fec5d80e0806fcf2\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\028962fee9768a6e0aa3e56b52284a90\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\028962fee9768a6e0aa3e56b52284a90\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\7fe1e12812baa6e31504c0c7e4453546\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\7fe1e12812baa6e31504c0c7e4453546\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\248fcd4ecdf5ebc0348d70922b17aa8a\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\248fcd4ecdf5ebc0348d70922b17aa8a\transformed\recyclerview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\a4727707fe3aad20b6551df32dfa91ef\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\rigna\.gradle\caches\transforms-4\a4727707fe3aad20b6551df32dfa91ef\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\rigna\.gradle\caches\transforms-4\3f605866616b71c3953cd2419fb272bb\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\rigna\.gradle\caches\transforms-4\3f605866616b71c3953cd2419fb272bb\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\cdffc0a972d5d669cd30c18f12736b1a\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\cdffc0a972d5d669cd30c18f12736b1a\transformed\lifecycle-livedata-core-ktx-2.8.3\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\41ee2663368dc762b3a4565f17c4144e\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\41ee2663368dc762b3a4565f17c4144e\transformed\lifecycle-viewmodel-2.8.3\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\4e17c651fa24a1560cb81ed0b94bb336\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\4e17c651fa24a1560cb81ed0b94bb336\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\67fd47a1316d8c30ae1ff99ee32f9b5f\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\67fd47a1316d8c30ae1ff99ee32f9b5f\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\627ea35e08b762efd324de56ae990c6f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\627ea35e08b762efd324de56ae990c6f\transformed\lifecycle-livedata-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\2e7581a840df95f83b1b6bd9717291b2\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\2e7581a840df95f83b1b6bd9717291b2\transformed\lifecycle-livedata-core-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\238c6aa644c25a62e1bf1d0294042779\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\238c6aa644c25a62e1bf1d0294042779\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\6c79058aba48fb92437d432afe9d68cb\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\6c79058aba48fb92437d432afe9d68cb\transformed\lifecycle-viewmodel-savedstate-2.8.3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\e46a0f4e0bfcfdf04c9b98d65267cd65\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\e46a0f4e0bfcfdf04c9b98d65267cd65\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\db8ad833dc0c6f04640ca9c0b80c1476\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\db8ad833dc0c6f04640ca9c0b80c1476\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\279e5cc1d7c016fa2cddacde6516611b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\279e5cc1d7c016fa2cddacde6516611b\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\bc1ac07c5b7dc6683ab3a624b95b2a1e\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\bc1ac07c5b7dc6683ab3a624b95b2a1e\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\9fc4f999ee9268e25f054d7efcab2b77\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\9fc4f999ee9268e25f054d7efcab2b77\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\7ce154d3e5288e5d5ff0ec24247b5733\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\7ce154d3e5288e5d5ff0ec24247b5733\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\38e9cba386682253292daee9dee89b3e\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\38e9cba386682253292daee9dee89b3e\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\3bba5cf9f37386d97cabd0d4d4f9fa71\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\3bba5cf9f37386d97cabd0d4d4f9fa71\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\ba10043060a966bca82a0c4472229030\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\ba10043060a966bca82a0c4472229030\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\fef28d62e7e7223d271f0a769b222a7e\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\rigna\.gradle\caches\transforms-4\fef28d62e7e7223d271f0a769b222a7e\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\rigna\.gradle\caches\transforms-4\041d328ab56d2689f895dd1aaa16bef6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\rigna\.gradle\caches\transforms-4\041d328ab56d2689f895dd1aaa16bef6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rigna\.gradle\caches\transforms-4\92a1588ff23e6b500319ca359375f903\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+permission#com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+uses-permission#com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.3] C:\Users\rigna\.gradle\caches\transforms-4\0ed1f3c308c50dfccf0fb198c2d247ba\transformed\lifecycle-process-2.8.3\AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
