@@ -1,6 +1,7 @@
 package com.campsite.kiosk
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -14,15 +15,20 @@ import com.stripe.stripeterminal.external.callable.InternetReaderListener
 import com.stripe.stripeterminal.external.callable.MobileReaderListener
 import com.stripe.stripeterminal.external.callable.PaymentIntentCallback
 import com.stripe.stripeterminal.external.callable.ReaderCallback
+import com.stripe.stripeterminal.external.callable.TerminalListener
 import com.stripe.stripeterminal.external.models.CollectConfiguration
 import com.stripe.stripeterminal.external.models.ConnectionConfiguration
+import com.stripe.stripeterminal.external.models.ConnectionStatus
 import com.stripe.stripeterminal.external.models.DisconnectReason
 import com.stripe.stripeterminal.external.models.DiscoveryConfiguration
 import com.stripe.stripeterminal.external.models.PaymentIntent
 import com.stripe.stripeterminal.external.models.PaymentIntentStatus
+import com.stripe.stripeterminal.external.models.PaymentStatus
 import com.stripe.stripeterminal.external.models.Reader
 import com.stripe.stripeterminal.external.models.ReaderEvent
+import com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate
 import com.stripe.stripeterminal.external.models.TerminalException
+import com.stripe.stripeterminal.log.LogLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,138 +36,154 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "TerminalManager"
 
-class TerminalManager(
-    private val context: Context,
-    private val onPaymentSuccess: (paymentIntentId: String) -> Unit,
-    private val onPaymentFailure: (message: String) -> Unit,
-    private val onReaderStatusChanged: (status: String) -> Unit
-) {
+/**
+ * TerminalManager
+ *
+ * Singleton that owns the full Stripe Terminal lifecycle:
+ *   - SDK initialisation (called once from KioskApplication.onCreate)
+ *   - Reader discovery + auto-connect (WisePOS E via Internet; WisePad 3 via BLE)
+ *   - Payment flow: retrievePaymentIntent → collectPaymentMethod → confirmPaymentIntent
+ *   - Cancel of in-flight collection
+ *
+ * @SuppressLint("MissingPermission") is applied at the object level because:
+ *   1. Every BLE API call is preceded by hasBluetoothPermission() which calls
+ *      checkSelfPermission and early-returns on failure.
+ *   2. Every BLE try-block catches SecurityException as a secondary safety net for
+ *      the race where permission is revoked between the check and the SDK call.
+ *   3. The lint engine cannot statically trace the guard when the SDK call
+ *      sits inside an anonymous class body, so the annotation is the correct tool here.
+ *   Internet-mode calls (WisePOS E) require no Bluetooth permission.
+ */
+@SuppressLint("MissingPermission")
+object TerminalManager {
 
+    // ── State exposed to JsBridge ─────────────────────────────────────────────
+
+    @Volatile
+    var readerStatus: String = "disconnected"
+        private set
+
+    // ── Internal state ────────────────────────────────────────────────────────
+
+    private lateinit var appContext: Context
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
     /** Held so callers can cancel an in-progress collectPaymentMethod. */
+    @Volatile
     private var collectCancelable: Cancelable? = null
 
-    // ── Listener implementations ──────────────────────────────────────────────
+    // ── Initialisation ────────────────────────────────────────────────────────
 
     /**
-     * SDK 4.x: InternetConnectionConfiguration requires an InternetReaderListener
-     * as the first (mandatory) parameter. This listener receives disconnect events
-     * from the smart reader (WisePOS E) and any reader-level events.
+     * Called once from KioskApplication.onCreate.
+     * Initialises the Terminal SDK and immediately starts reader discovery.
+     *
+     * SDK 4.x initTerminal positional signature (@JvmOverloads — LogLevel cannot be skipped):
+     *   initTerminal(context, logLevel, tokenProvider, listener)
+     *
+     * SDK 4.x TerminalListener no longer has onUnexpectedReaderDisconnect.
+     * Disconnect events are delegated to InternetReaderListener / MobileReaderListener.
      */
-    private val internetReaderListener = object : InternetReaderListener {
-        override fun onDisconnect(reason: DisconnectReason) {
-            Log.w(TAG, "Internet reader disconnected — reason: $reason")
-            onReaderStatusChanged("disconnected")
-        }
-    }
+    fun init(context: Context) {
+        appContext = context.applicationContext
 
-    /**
-     * SDK 4.x: BluetoothConnectionConfiguration requires a MobileReaderListener
-     * as the first (mandatory) parameter. MobileReaderListener extends
-     * ReaderReconnectionListener and handles BLE reader events.
-     */
-    private val mobileReaderListener = object : MobileReaderListener {
-        override fun onDisconnect(reason: DisconnectReason) {
-            Log.w(TAG, "BLE reader disconnected — reason: $reason")
-            onReaderStatusChanged("disconnected")
+        if (Terminal.isInitialized()) {
+            Log.d(TAG, "Terminal already initialised — skipping init")
+            startDiscovery()
+            return
         }
 
-        override fun onReportReaderEvent(event: ReaderEvent) {
-            Log.d(TAG, "BLE reader event: $event")
-        }
+        val terminalListener = object : TerminalListener {
+            override fun onConnectionStatusChange(status: ConnectionStatus) {
+                Log.d(TAG, "Terminal connection status: $status")
+            }
 
-        override fun onReportLowBatteryWarning() {
-            Log.w(TAG, "BLE reader low battery")
-        }
-
-        override fun onStartInstallingUpdate(
-            update: com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate,
-            cancelable: Cancelable?
-        ) {
-            Log.i(TAG, "BLE reader firmware update started")
-        }
-
-        override fun onReportReaderSoftwareUpdateProgress(progress: Float) {
-            Log.d(TAG, "BLE reader update progress: ${(progress * 100).toInt()}%")
-        }
-
-        override fun onFinishInstallingUpdate(
-            update: com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate?,
-            e: TerminalException?
-        ) {
-            if (e != null) {
-                Log.e(TAG, "BLE reader update failed: ${e.errorMessage}")
-            } else {
-                Log.i(TAG, "BLE reader update finished")
+            override fun onPaymentStatusChange(status: PaymentStatus) {
+                Log.d(TAG, "Terminal payment status: $status")
             }
         }
 
-        // ReaderReconnectionListener
-        override fun onReaderReconnectStarted(
-            reader: Reader,
-            cancelReconnect: Cancelable,
-            reason: DisconnectReason
-        ) {
-            Log.i(TAG, "BLE reader reconnecting: ${reader.serialNumber}")
-            onReaderStatusChanged("reconnecting")
-        }
+        Terminal.initTerminal(
+            appContext,
+            LogLevel.VERBOSE,
+            TerminalTokenProvider(),
+            terminalListener
+        )
 
-        override fun onReaderReconnectSucceeded(reader: Reader) {
-            Log.i(TAG, "BLE reader reconnected: ${reader.serialNumber}")
-            onReaderStatusChanged("connected")
-        }
+        Log.i(TAG, "Terminal SDK initialised")
+        startDiscovery()
+    }
 
-        override fun onReaderReconnectFailed(reader: Reader) {
-            Log.e(TAG, "BLE reader reconnect failed: ${reader.serialNumber}")
-            onReaderStatusChanged("disconnected")
+    // ── Discovery entry point ─────────────────────────────────────────────────
+
+    /**
+     * WisePOS E (Internet) is the default — no Bluetooth required.
+     * Bluetooth path activates only when TERMINAL_LOCATION_ID is set in KioskConfig,
+     * which is required only for WisePad 3 (BLE reader).
+     */
+    private fun startDiscovery() {
+        if (KioskConfig.TERMINAL_LOCATION_ID.isNotBlank()) {
+            discoverBluetooth()
+        } else {
+            discoverInternet()
         }
     }
 
-    // ── Reader discovery ──────────────────────────────────────────────────────
+    // ── Internet discovery (WisePOS E) ────────────────────────────────────────
 
-    /**
-     * WisePOS E — Internet discovery.
-     * No Bluetooth permission required.
-     */
-    fun discoverAndConnect(readerSerialNumber: String) {
-        val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(
-            isSimulated = false
-        )
+    private fun discoverInternet() {
+        val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(isSimulated = false)
 
         Terminal.getInstance().discoverReaders(
             config,
             object : DiscoveryListener {
                 override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
-                    val target = if (readerSerialNumber.isNotBlank()) {
-                        readers.firstOrNull { it.serialNumber == readerSerialNumber }
-                    } else {
-                        readers.firstOrNull()
-                    } ?: return
-                    connectInternetReader(target)
+                    val target = pickReader(readers) ?: return
+                    connectInternet(target)
                 }
             },
             object : Callback {
                 override fun onSuccess() {
-                    Log.d(TAG, "Internet discovery completed")
+                    Log.d(TAG, "Internet discovery complete")
                 }
 
                 override fun onFailure(e: TerminalException) {
                     Log.e(TAG, "Internet discovery failed: ${e.errorMessage}")
-                    onReaderStatusChanged("disconnected")
+                    updateStatus("disconnected")
                 }
             }
         )
     }
 
-    /**
-     * WisePad 3 — Bluetooth discovery.
-     * Guards BLUETOOTH_SCAN / ACCESS_FINE_LOCATION before touching BLE APIs.
-     */
-    fun discoverAndConnectBluetooth(readerSerialNumber: String) {
+    private fun connectInternet(reader: Reader) {
+        val config = ConnectionConfiguration.InternetConnectionConfiguration(
+            internetReaderListener = internetReaderListener,
+            failIfInUse = true
+        )
+
+        Terminal.getInstance().connectReader(
+            reader,
+            config,
+            object : ReaderCallback {
+                override fun onSuccess(reader: Reader) {
+                    Log.i(TAG, "Internet reader connected: ${reader.serialNumber}")
+                    updateStatus("connected")
+                }
+
+                override fun onFailure(e: TerminalException) {
+                    Log.e(TAG, "Internet reader connect failed: ${e.errorMessage}")
+                    updateStatus("disconnected")
+                }
+            }
+        )
+    }
+
+    // ── Bluetooth discovery (WisePad 3) ───────────────────────────────────────
+
+    private fun discoverBluetooth() {
         if (!hasBluetoothPermission()) {
-            Log.w(TAG, "Bluetooth permission not granted — skipping BLE discovery")
-            onReaderStatusChanged("permission_denied")
+            Log.w(TAG, "BLE permission not granted — skipping Bluetooth discovery")
+            updateStatus("permission_denied")
             return
         }
 
@@ -175,75 +197,38 @@ class TerminalManager(
                 config,
                 object : DiscoveryListener {
                     override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
-                        val target = if (readerSerialNumber.isNotBlank()) {
-                            readers.firstOrNull { it.serialNumber == readerSerialNumber }
-                        } else {
-                            readers.firstOrNull()
-                        } ?: return
-                        connectBluetoothReader(target)
+                        val target = pickReader(readers) ?: return
+                        connectBluetooth(target)
                     }
                 },
                 object : Callback {
                     override fun onSuccess() {
-                        Log.d(TAG, "BLE discovery completed")
+                        Log.d(TAG, "BLE discovery complete")
                     }
 
                     override fun onFailure(e: TerminalException) {
                         Log.e(TAG, "BLE discovery failed: ${e.errorMessage}")
-                        onReaderStatusChanged("disconnected")
+                        updateStatus("disconnected")
                     }
                 }
             )
         } catch (se: SecurityException) {
+            // Race: permission revoked between hasBluetoothPermission() and SDK call
             Log.e(TAG, "SecurityException during BLE discovery: ${se.message}")
-            onReaderStatusChanged("permission_denied")
+            updateStatus("permission_denied")
         }
     }
 
-    // ── Connect helpers ───────────────────────────────────────────────────────
-
-    /**
-     * SDK 4.x: InternetConnectionConfiguration(internetReaderListener, failIfInUse)
-     * internetReaderListener is the FIRST required parameter — was missing before.
-     */
-    private fun connectInternetReader(reader: Reader) {
-        val config = ConnectionConfiguration.InternetConnectionConfiguration(
-            internetReaderListener = internetReaderListener,
-            failIfInUse = true
-        )
-
-        Terminal.getInstance().connectReader(
-            reader,
-            config,
-            object : ReaderCallback {
-                override fun onSuccess(reader: Reader) {
-                    Log.d(TAG, "Internet reader connected: ${reader.serialNumber}")
-                    onReaderStatusChanged("connected")
-                }
-
-                override fun onFailure(e: TerminalException) {
-                    Log.e(TAG, "Internet reader connect failed: ${e.errorMessage}")
-                    onReaderStatusChanged("disconnected")
-                }
-            }
-        )
-    }
-
-    /**
-     * SDK 4.x: BluetoothConnectionConfiguration(locationId, mobileReaderListener)
-     * mobileReaderListener is a required parameter — was missing before.
-     * Double-checks permission before calling BLE connect.
-     */
-    private fun connectBluetoothReader(reader: Reader) {
+    private fun connectBluetooth(reader: Reader) {
         if (!hasBluetoothPermission()) {
-            Log.w(TAG, "Bluetooth permission lost before connect — aborting")
-            onReaderStatusChanged("permission_denied")
+            Log.w(TAG, "BLE permission lost before connect — aborting")
+            updateStatus("permission_denied")
             return
         }
 
         val locationId = KioskConfig.TERMINAL_LOCATION_ID.ifBlank {
-            Log.e(TAG, "TERMINAL_LOCATION_ID not configured in KioskConfig")
-            onReaderStatusChanged("config_error")
+            Log.e(TAG, "TERMINAL_LOCATION_ID blank — cannot connect BLE reader")
+            updateStatus("config_error")
             return
         }
 
@@ -258,93 +243,106 @@ class TerminalManager(
                 config,
                 object : ReaderCallback {
                     override fun onSuccess(reader: Reader) {
-                        Log.d(TAG, "BLE reader connected: ${reader.serialNumber}")
-                        onReaderStatusChanged("connected")
+                        Log.i(TAG, "BLE reader connected: ${reader.serialNumber}")
+                        updateStatus("connected")
                     }
 
                     override fun onFailure(e: TerminalException) {
                         Log.e(TAG, "BLE reader connect failed: ${e.errorMessage}")
-                        onReaderStatusChanged("disconnected")
+                        updateStatus("disconnected")
                     }
                 }
             )
         } catch (se: SecurityException) {
             Log.e(TAG, "SecurityException during BLE connect: ${se.message}")
-            onReaderStatusChanged("permission_denied")
+            updateStatus("permission_denied")
         }
     }
 
     // ── Payment flow ──────────────────────────────────────────────────────────
 
     /**
-     * Full payment flow:
-     *   1. retrievePaymentIntent(clientSecret)
-     *   2. collectPaymentMethod
-     *   3. confirmPaymentIntent
+     * Full payment sequence:
+     *   retrievePaymentIntent → collectPaymentMethod → confirmPaymentIntent
      *
-     * clientSecret is always fetched server-side — never passed from JS directly.
+     * clientSecret originates server-side (create-payment-intent.php).
+     * Amount is never read from or trusted on the client.
      */
-    fun requestPayment(clientSecret: String, bookingRef: String) {
+    fun processPayment(
+        clientSecret: String,
+        onSuccess: (paymentIntentId: String) -> Unit,
+        onFailure: (message: String) -> Unit
+    ) {
         scope.launch {
             Terminal.getInstance().retrievePaymentIntent(
                 clientSecret,
                 object : PaymentIntentCallback {
                     override fun onSuccess(paymentIntent: PaymentIntent) {
-                        collectPayment(paymentIntent, bookingRef)
+                        collectPayment(paymentIntent, onSuccess, onFailure)
                     }
 
                     override fun onFailure(e: TerminalException) {
                         Log.e(TAG, "retrievePaymentIntent failed: ${e.errorMessage}")
-                        onPaymentFailure(e.errorMessage ?: "retrieve_failed")
+                        onFailure(e.errorMessage ?: "retrieve_failed")
                     }
                 }
             )
         }
     }
 
-    private fun collectPayment(paymentIntent: PaymentIntent, bookingRef: String) {
+    private fun collectPayment(
+        paymentIntent: PaymentIntent,
+        onSuccess: (String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         val collectConfig = CollectConfiguration.Builder().build()
 
         collectCancelable = Terminal.getInstance().collectPaymentMethod(
             paymentIntent,
             object : PaymentIntentCallback {
-                override fun onSuccess(paymentIntent: PaymentIntent) {
+                override fun onSuccess(updatedIntent: PaymentIntent) {
                     collectCancelable = null
-                    confirmPayment(paymentIntent, bookingRef)
+                    confirmPayment(updatedIntent, onSuccess, onFailure)
                 }
 
                 override fun onFailure(e: TerminalException) {
                     collectCancelable = null
                     Log.e(TAG, "collectPaymentMethod failed: ${e.errorMessage}")
-                    onPaymentFailure(e.errorMessage ?: "collect_failed")
+                    onFailure(e.errorMessage ?: "collect_failed")
                 }
             },
             collectConfig
         )
     }
 
-    private fun confirmPayment(paymentIntent: PaymentIntent, bookingRef: String) {
-        Terminal.getInstance().confirmPaymentIntent(
+    private fun confirmPayment(
+        paymentIntent: PaymentIntent,
+        onSuccess: (String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        // SDK 4.x: confirmPaymentIntent returns a Cancelable — suppressed, not needed here.
+        @Suppress("UNUSED_VARIABLE")
+        val confirmCancelable = Terminal.getInstance().confirmPaymentIntent(
             paymentIntent,
             object : PaymentIntentCallback {
-                override fun onSuccess(paymentIntent: PaymentIntent) {
-                    if (paymentIntent.status == PaymentIntentStatus.SUCCEEDED) {
-                        val piId = paymentIntent.id ?: run {
-                            Log.w(TAG, "PaymentIntent.id null — using bookingRef as fallback")
-                            bookingRef
+                override fun onSuccess(confirmedIntent: PaymentIntent) {
+                    if (confirmedIntent.status == PaymentIntentStatus.SUCCEEDED) {
+                        val piId = confirmedIntent.id ?: run {
+                            Log.w(TAG, "PaymentIntent.id null after confirm")
+                            "unknown"
                         }
-                        Log.d(TAG, "Payment succeeded: $piId — booking: $bookingRef")
-                        onPaymentSuccess(piId)
+                        Log.i(TAG, "Payment succeeded: $piId")
+                        onSuccess(piId)
                     } else {
-                        val status = paymentIntent.status
+                        val status = confirmedIntent.status
                         Log.w(TAG, "Unexpected status after confirm: $status")
-                        onPaymentFailure("unexpected_status_$status")
+                        onFailure("unexpected_status_$status")
                     }
                 }
 
                 override fun onFailure(e: TerminalException) {
                     Log.e(TAG, "confirmPaymentIntent failed: ${e.errorMessage}")
-                    onPaymentFailure(e.errorMessage ?: "confirm_failed")
+                    onFailure(e.errorMessage ?: "confirm_failed")
                 }
             }
         )
@@ -355,14 +353,14 @@ class TerminalManager(
     fun cancelPayment() {
         val cancelable = collectCancelable
         if (cancelable == null) {
-            Log.d(TAG, "cancelPayment — no active operation")
+            Log.d(TAG, "cancelPayment — no active collect operation")
             return
         }
+
         cancelable.cancel(object : Callback {
             override fun onSuccess() {
-                Log.d(TAG, "Payment collection cancelled")
+                Log.d(TAG, "Payment collection cancelled by user")
                 collectCancelable = null
-                onPaymentFailure("cancelled_by_user")
             }
 
             override fun onFailure(e: TerminalException) {
@@ -371,31 +369,102 @@ class TerminalManager(
         })
     }
 
-    // ── Status ────────────────────────────────────────────────────────────────
+    // ── Listener objects ──────────────────────────────────────────────────────
 
-    fun getReaderStatus(): String {
-        val reader = Terminal.getInstance().connectedReader ?: return "disconnected"
-        return if (reader.networkStatus == Reader.NetworkStatus.ONLINE) "connected" else "offline"
+    private val internetReaderListener = object : InternetReaderListener {
+        override fun onDisconnect(reason: DisconnectReason) {
+            Log.w(TAG, "Internet reader disconnected: $reason")
+            updateStatus("disconnected")
+        }
     }
 
-    // ── Permission helpers ────────────────────────────────────────────────────
+    private val mobileReaderListener = object : MobileReaderListener {
+
+        override fun onDisconnect(reason: DisconnectReason) {
+            Log.w(TAG, "BLE reader disconnected: $reason")
+            updateStatus("disconnected")
+        }
+
+        override fun onReportReaderEvent(event: ReaderEvent) {
+            Log.d(TAG, "BLE reader event: $event")
+        }
+
+        override fun onReportLowBatteryWarning() {
+            Log.w(TAG, "BLE reader low battery")
+        }
+
+        override fun onStartInstallingUpdate(
+            update: ReaderSoftwareUpdate,
+            cancelable: Cancelable?
+        ) {
+            Log.i(TAG, "BLE reader firmware update started")
+        }
+
+        override fun onReportReaderSoftwareUpdateProgress(progress: Float) {
+            Log.d(TAG, "BLE update progress: ${(progress * 100).toInt()}%")
+        }
+
+        override fun onFinishInstallingUpdate(
+            update: ReaderSoftwareUpdate?,
+            e: TerminalException?
+        ) {
+            if (e != null) {
+                Log.e(TAG, "BLE update failed: ${e.errorMessage}")
+            } else {
+                Log.i(TAG, "BLE firmware update complete")
+            }
+        }
+
+        // ReaderReconnectionListener
+
+        override fun onReaderReconnectStarted(
+            reader: Reader,
+            cancelReconnect: Cancelable,
+            reason: DisconnectReason
+        ) {
+            Log.i(TAG, "BLE reader reconnecting: ${reader.serialNumber}")
+            updateStatus("reconnecting")
+        }
+
+        override fun onReaderReconnectSucceeded(reader: Reader) {
+            Log.i(TAG, "BLE reader reconnected: ${reader.serialNumber}")
+            updateStatus("connected")
+        }
+
+        override fun onReaderReconnectFailed(reader: Reader) {
+            Log.e(TAG, "BLE reader reconnect failed: ${reader.serialNumber}")
+            updateStatus("disconnected")
+        }
+    }
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    /** Returns the target reader by serial, or the first discovered reader. */
+    private fun pickReader(readers: List<Reader>): Reader? {
+        return if (KioskConfig.READER_SERIAL.isNotBlank()) {
+            readers.firstOrNull { it.serialNumber == KioskConfig.READER_SERIAL }
+        } else {
+            readers.firstOrNull()
+        }
+    }
 
     /**
-     * Explicit checkSelfPermission call before any BLE API touch.
-     * Satisfies lint rule: "Call requires permission which may be rejected by user".
-     * API 31+ → BLUETOOTH_SCAN; below → ACCESS_FINE_LOCATION (BLE requires it).
+     * Checks BLE permission for the current API level.
+     * API 31+ (Android 12+): BLUETOOTH_SCAN.
+     * Below API 31: ACCESS_FINE_LOCATION (required for BLE discovery on older devices).
      */
     private fun hasBluetoothPermission(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            ContextCompat.checkSelfPermission(
-                context,
-                Manifest.permission.BLUETOOTH_SCAN
-            ) == PackageManager.PERMISSION_GRANTED
+        val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Manifest.permission.BLUETOOTH_SCAN
         } else {
-            ContextCompat.checkSelfPermission(
-                context,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
+            Manifest.permission.ACCESS_FINE_LOCATION
         }
+        return ContextCompat.checkSelfPermission(appContext, permission) ==
+                PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun updateStatus(status: String) {
+        readerStatus = status
+        Log.d(TAG, "readerStatus → $status")
     }
 }
