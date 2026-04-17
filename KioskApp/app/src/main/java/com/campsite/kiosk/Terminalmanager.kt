@@ -10,14 +10,18 @@ import com.stripe.stripeterminal.Terminal
 import com.stripe.stripeterminal.external.callable.Callback
 import com.stripe.stripeterminal.external.callable.Cancelable
 import com.stripe.stripeterminal.external.callable.DiscoveryListener
+import com.stripe.stripeterminal.external.callable.InternetReaderListener
+import com.stripe.stripeterminal.external.callable.MobileReaderListener
 import com.stripe.stripeterminal.external.callable.PaymentIntentCallback
 import com.stripe.stripeterminal.external.callable.ReaderCallback
 import com.stripe.stripeterminal.external.models.CollectConfiguration
 import com.stripe.stripeterminal.external.models.ConnectionConfiguration
+import com.stripe.stripeterminal.external.models.DisconnectReason
 import com.stripe.stripeterminal.external.models.DiscoveryConfiguration
 import com.stripe.stripeterminal.external.models.PaymentIntent
 import com.stripe.stripeterminal.external.models.PaymentIntentStatus
 import com.stripe.stripeterminal.external.models.Reader
+import com.stripe.stripeterminal.external.models.ReaderEvent
 import com.stripe.stripeterminal.external.models.TerminalException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,11 +42,87 @@ class TerminalManager(
     /** Held so callers can cancel an in-progress collectPaymentMethod. */
     private var collectCancelable: Cancelable? = null
 
+    // ── Listener implementations ──────────────────────────────────────────────
+
+    /**
+     * SDK 4.x: InternetConnectionConfiguration requires an InternetReaderListener
+     * as the first (mandatory) parameter. This listener receives disconnect events
+     * from the smart reader (WisePOS E) and any reader-level events.
+     */
+    private val internetReaderListener = object : InternetReaderListener {
+        override fun onDisconnect(reason: DisconnectReason) {
+            Log.w(TAG, "Internet reader disconnected — reason: $reason")
+            onReaderStatusChanged("disconnected")
+        }
+    }
+
+    /**
+     * SDK 4.x: BluetoothConnectionConfiguration requires a MobileReaderListener
+     * as the first (mandatory) parameter. MobileReaderListener extends
+     * ReaderReconnectionListener and handles BLE reader events.
+     */
+    private val mobileReaderListener = object : MobileReaderListener {
+        override fun onDisconnect(reason: DisconnectReason) {
+            Log.w(TAG, "BLE reader disconnected — reason: $reason")
+            onReaderStatusChanged("disconnected")
+        }
+
+        override fun onReportReaderEvent(event: ReaderEvent) {
+            Log.d(TAG, "BLE reader event: $event")
+        }
+
+        override fun onReportLowBatteryWarning() {
+            Log.w(TAG, "BLE reader low battery")
+        }
+
+        override fun onStartInstallingUpdate(
+            update: com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate,
+            cancelable: Cancelable?
+        ) {
+            Log.i(TAG, "BLE reader firmware update started")
+        }
+
+        override fun onReportReaderSoftwareUpdateProgress(progress: Float) {
+            Log.d(TAG, "BLE reader update progress: ${(progress * 100).toInt()}%")
+        }
+
+        override fun onFinishInstallingUpdate(
+            update: com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate?,
+            e: TerminalException?
+        ) {
+            if (e != null) {
+                Log.e(TAG, "BLE reader update failed: ${e.errorMessage}")
+            } else {
+                Log.i(TAG, "BLE reader update finished")
+            }
+        }
+
+        // ReaderReconnectionListener
+        override fun onReaderReconnectStarted(
+            reader: Reader,
+            cancelReconnect: Cancelable,
+            reason: DisconnectReason
+        ) {
+            Log.i(TAG, "BLE reader reconnecting: ${reader.serialNumber}")
+            onReaderStatusChanged("reconnecting")
+        }
+
+        override fun onReaderReconnectSucceeded(reader: Reader) {
+            Log.i(TAG, "BLE reader reconnected: ${reader.serialNumber}")
+            onReaderStatusChanged("connected")
+        }
+
+        override fun onReaderReconnectFailed(reader: Reader) {
+            Log.e(TAG, "BLE reader reconnect failed: ${reader.serialNumber}")
+            onReaderStatusChanged("disconnected")
+        }
+    }
+
     // ── Reader discovery ──────────────────────────────────────────────────────
 
     /**
      * WisePOS E — Internet discovery.
-     * No Bluetooth permission needed.
+     * No Bluetooth permission required.
      */
     fun discoverAndConnect(readerSerialNumber: String) {
         val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(
@@ -76,11 +156,11 @@ class TerminalManager(
 
     /**
      * WisePad 3 — Bluetooth discovery.
-     * Guards permission before touching BLE APIs.
+     * Guards BLUETOOTH_SCAN / ACCESS_FINE_LOCATION before touching BLE APIs.
      */
     fun discoverAndConnectBluetooth(readerSerialNumber: String) {
         if (!hasBluetoothPermission()) {
-            Log.w(TAG, "BLUETOOTH_SCAN permission not granted — skipping BLE discovery")
+            Log.w(TAG, "Bluetooth permission not granted — skipping BLE discovery")
             onReaderStatusChanged("permission_denied")
             return
         }
@@ -123,11 +203,12 @@ class TerminalManager(
     // ── Connect helpers ───────────────────────────────────────────────────────
 
     /**
-     * SDK 3+: connectInternetReader / connectBluetoothReader collapsed into
-     * connectReader with typed ConnectionConfiguration.
+     * SDK 4.x: InternetConnectionConfiguration(internetReaderListener, failIfInUse)
+     * internetReaderListener is the FIRST required parameter — was missing before.
      */
     private fun connectInternetReader(reader: Reader) {
         val config = ConnectionConfiguration.InternetConnectionConfiguration(
+            internetReaderListener = internetReaderListener,
             failIfInUse = true
         )
 
@@ -148,14 +229,18 @@ class TerminalManager(
         )
     }
 
+    /**
+     * SDK 4.x: BluetoothConnectionConfiguration(locationId, mobileReaderListener)
+     * mobileReaderListener is a required parameter — was missing before.
+     * Double-checks permission before calling BLE connect.
+     */
     private fun connectBluetoothReader(reader: Reader) {
         if (!hasBluetoothPermission()) {
-            Log.w(TAG, "BLUETOOTH_SCAN lost before connect — aborting")
+            Log.w(TAG, "Bluetooth permission lost before connect — aborting")
             onReaderStatusChanged("permission_denied")
             return
         }
 
-        // TERMINAL_LOCATION_ID must be set in KioskConfig before production use.
         val locationId = KioskConfig.TERMINAL_LOCATION_ID.ifBlank {
             Log.e(TAG, "TERMINAL_LOCATION_ID not configured in KioskConfig")
             onReaderStatusChanged("config_error")
@@ -163,7 +248,8 @@ class TerminalManager(
         }
 
         val config = ConnectionConfiguration.BluetoothConnectionConfiguration(
-            locationId = locationId
+            locationId = locationId,
+            bluetoothReaderListener = mobileReaderListener
         )
 
         try {
@@ -217,7 +303,6 @@ class TerminalManager(
     }
 
     private fun collectPayment(paymentIntent: PaymentIntent, bookingRef: String) {
-        // SDK 3+: CollectPaymentMethodParameters → CollectConfiguration
         val collectConfig = CollectConfiguration.Builder().build()
 
         collectCancelable = Terminal.getInstance().collectPaymentMethod(
@@ -244,7 +329,6 @@ class TerminalManager(
             object : PaymentIntentCallback {
                 override fun onSuccess(paymentIntent: PaymentIntent) {
                     if (paymentIntent.status == PaymentIntentStatus.SUCCEEDED) {
-                        // id is nullable in SDK 4.x — fall back to bookingRef for logging
                         val piId = paymentIntent.id ?: run {
                             Log.w(TAG, "PaymentIntent.id null — using bookingRef as fallback")
                             bookingRef
@@ -268,9 +352,6 @@ class TerminalManager(
 
     // ── Cancel ────────────────────────────────────────────────────────────────
 
-    /**
-     * Cancels an in-progress collectPaymentMethod if one is active.
-     */
     fun cancelPayment() {
         val cancelable = collectCancelable
         if (cancelable == null) {
@@ -299,6 +380,11 @@ class TerminalManager(
 
     // ── Permission helpers ────────────────────────────────────────────────────
 
+    /**
+     * Explicit checkSelfPermission call before any BLE API touch.
+     * Satisfies lint rule: "Call requires permission which may be rejected by user".
+     * API 31+ → BLUETOOTH_SCAN; below → ACCESS_FINE_LOCATION (BLE requires it).
+     */
     private fun hasBluetoothPermission(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             ContextCompat.checkSelfPermission(
