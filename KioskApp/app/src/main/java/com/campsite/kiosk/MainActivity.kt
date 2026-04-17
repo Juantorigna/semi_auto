@@ -1,6 +1,8 @@
 package com.campsite.kiosk
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
@@ -9,6 +11,8 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.campsite.kiosk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,20 +20,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var webView: WebView
 
-    // ─── Back-press handler ───────────────────────────────────────────────────
-    // Modern API replaces deprecated onBackPressed(). Callback is always enabled
-    // so the kiosk can NEVER exit to launcher — back only navigates WebView history.
+    companion object {
+        private const val REQUEST_LOCATION = 1001
+    }
+
     private val backPressedCallback: OnBackPressedCallback =
         object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (::webView.isInitialized && webView.canGoBack()) {
                     webView.goBack()
                 }
-                // else: swallow — kiosk must not leave the app
             }
         }
-
-    // ─── Lifecycle ────────────────────────────────────────────────────────────
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +55,44 @@ class MainActivity : AppCompatActivity() {
         } else {
             webView.loadUrl(KioskConfig.BASE_URL)
         }
+
+        // Init Terminal only after location permission confirmed
+        requestLocationThenInitTerminal()
     }
+
+    // ── Location permission → Terminal init ───────────────────────────────────
+
+    private fun requestLocationThenInitTerminal() {
+        val permission = Manifest.permission.ACCESS_FINE_LOCATION
+        if (ContextCompat.checkSelfPermission(this, permission)
+            == PackageManager.PERMISSION_GRANTED
+        ) {
+            TerminalManager.init(applicationContext)
+        } else {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ),
+                REQUEST_LOCATION
+            )
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_LOCATION) {
+            // Kiosk — always init regardless; reader will retry on its own
+            TerminalManager.init(applicationContext)
+        }
+    }
+
+    // ── Lifecycle ─────────────────────────────────────────────────────────────
 
     override fun onResume() {
         super.onResume()
@@ -77,7 +116,7 @@ class MainActivity : AppCompatActivity() {
         webView.saveState(outState)
     }
 
-    // ─── Hardware key guard — swallow volume keys ────────────────────────────
+    // ── Hardware key guard ────────────────────────────────────────────────────
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
@@ -88,7 +127,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ─── WebView config ───────────────────────────────────────────────────────
+    // ── WebView config ────────────────────────────────────────────────────────
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun configureWebView() {
@@ -136,7 +175,7 @@ class MainActivity : AppCompatActivity() {
         webView.keepScreenOn = true
     }
 
-    // ─── Immersive mode — API 26/30 compat ───────────────────────────────────
+    // ── Immersive mode ────────────────────────────────────────────────────────
 
     private fun enterImmersiveMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -160,7 +199,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // ─── UI helpers ───────────────────────────────────────────────────────────
+    // ── UI helpers ────────────────────────────────────────────────────────────
 
     private fun showLoading(visible: Boolean) {
         binding.loadingIndicator.visibility = if (visible) View.VISIBLE else View.GONE

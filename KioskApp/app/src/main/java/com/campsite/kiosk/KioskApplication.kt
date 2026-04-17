@@ -11,16 +11,11 @@ import android.util.Log
  * Discovery starts automatically inside [TerminalManager.init] after SDK init.
  */
 class KioskApplication : Application() {
-
-    companion object {
-        private const val TAG = "KioskApp"
-    }
+    companion object { private const val TAG = "KioskApp" }
 
     override fun onCreate() {
         super.onCreate()
         Log.i(TAG, "KioskApplication started")
-
-        // Steps 4 + 5: init Terminal SDK and kick off reader discovery
-        TerminalManager.init(this)
+        // Terminal init moved to MainActivity — needs location permission first
     }
 }
