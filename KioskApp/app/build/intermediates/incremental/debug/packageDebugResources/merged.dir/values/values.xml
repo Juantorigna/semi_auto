@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kiosk_accent">#E94560</color>
+    <color name="kiosk_background">#1A1A2E</color>
+    <color name="kiosk_on_surface">#FFFFFF</color>
+    <color name="kiosk_surface">#16213E</color>
+    <string name="app_name">KioskApp</string>
+    <string name="btn_retry">Riprova</string>
+    <string name="error_no_connection">Connessione non disponibile</string>
+    <string name="loading">Caricamento…</string>
+    <style name="Theme.KioskApp" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@color/kiosk_background</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/kiosk_accent</item>
+        <item name="colorSurface">@color/kiosk_surface</item>
+        <item name="colorOnSurface">@color/kiosk_on_surface</item>
+        <item name="android:statusBarColor">@color/kiosk_background</item>
+        <item name="android:navigationBarColor">@color/kiosk_background</item>
+    </style>
+</resources>

@@ -133,7 +133,7 @@ if ($dbHost === '' || $dbName === '' || $dbUser === '' || $dbPass === '') {
 /* ── Stripe credentials ── */
 $stripeEnv       = loadEnvFile(__DIR__ . '/../../../stripe.env', 'stripe.env');
 /* ── Select live or test key ──────────────────────────────────────────────── */
-$useLive = true; // set false to use test key
+$useLive = false; // set false to use test key
 
 $stripeSecretKey = $useLive
     ? ($stripeEnv['STRIPE_SECRET_KEY'] ?? '')

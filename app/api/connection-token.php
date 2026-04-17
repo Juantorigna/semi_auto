@@ -91,7 +91,7 @@ foreach ($lines as $line) {
 }
 
 /* ── Select live or test key ──────────────────────────────────────────────── */
-$useLive = true; // set false to use test key
+$useLive = false; // set false to use test key
 
 $stripeSecretKey = $useLive
     ? ($envVars['STRIPE_SECRET_KEY'] ?? '')

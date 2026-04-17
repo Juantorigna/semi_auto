@@ -119,7 +119,7 @@ object TerminalManager {
         discoveryInProgress = true
         updateStatus("discovering")
 
-        val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(isSimulated = false)
+        val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(isSimulated = true)
 
         // Java-compiled: positional args only — (config, discoveryListener, callback)
         Terminal.getInstance().discoverReaders(
