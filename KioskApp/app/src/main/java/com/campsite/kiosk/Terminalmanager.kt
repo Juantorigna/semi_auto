@@ -117,16 +117,12 @@ object TerminalManager {
     // ── Discovery entry point ─────────────────────────────────────────────────
 
     /**
-     * WisePOS E (Internet) is the default — no Bluetooth required.
-     * Bluetooth path activates only when TERMINAL_LOCATION_ID is set in KioskConfig,
-     * which is required only for WisePad 3 (BLE reader).
+     * WisePOS E (Internet) is always the primary path for this kiosk.
+     * TERMINAL_LOCATION_ID is required for Internet mode (WisePOS E).
+     * BLE path (WisePad 3) is never used — kept for reference only.
      */
     private fun startDiscovery() {
-        if (KioskConfig.TERMINAL_LOCATION_ID.isNotBlank()) {
-            discoverBluetooth()
-        } else {
-            discoverInternet()
-        }
+        discoverInternet()
     }
 
     // ── Internet discovery (WisePOS E) ────────────────────────────────────────
@@ -156,9 +152,16 @@ object TerminalManager {
     }
 
     private fun connectInternet(reader: Reader) {
+        val locationId = KioskConfig.TERMINAL_LOCATION_ID.ifBlank {
+            Log.e(TAG, "TERMINAL_LOCATION_ID blank — cannot connect Internet reader")
+            updateStatus("config_error")
+            return
+        }
+
         val config = ConnectionConfiguration.InternetConnectionConfiguration(
+            locationId             = locationId,
             internetReaderListener = internetReaderListener,
-            failIfInUse = true
+            failIfInUse            = true
         )
 
         Terminal.getInstance().connectReader(
@@ -178,7 +181,7 @@ object TerminalManager {
         )
     }
 
-    // ── Bluetooth discovery (WisePad 3) ───────────────────────────────────────
+    // ── Bluetooth discovery (WisePad 3) — NOT USED for this kiosk ────────────
 
     private fun discoverBluetooth() {
         if (!hasBluetoothPermission()) {
@@ -213,7 +216,6 @@ object TerminalManager {
                 }
             )
         } catch (se: SecurityException) {
-            // Race: permission revoked between hasBluetoothPermission() and SDK call
             Log.e(TAG, "SecurityException during BLE discovery: ${se.message}")
             updateStatus("permission_denied")
         }
@@ -233,7 +235,7 @@ object TerminalManager {
         }
 
         val config = ConnectionConfiguration.BluetoothConnectionConfiguration(
-            locationId = locationId,
+            locationId              = locationId,
             bluetoothReaderListener = mobileReaderListener
         )
 
@@ -414,8 +416,6 @@ object TerminalManager {
                 Log.i(TAG, "BLE firmware update complete")
             }
         }
-
-        // ReaderReconnectionListener
 
         override fun onReaderReconnectStarted(
             reader: Reader,
