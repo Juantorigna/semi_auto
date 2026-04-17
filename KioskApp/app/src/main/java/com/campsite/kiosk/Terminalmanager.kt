@@ -32,6 +32,7 @@ import com.stripe.stripeterminal.log.LogLevel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 private const val TAG = "TerminalManager"
@@ -45,8 +46,10 @@ private const val TAG = "TerminalManager"
  *   - Payment flow: retrievePaymentIntent → collectPaymentMethod → confirmPaymentIntent
  *   - Cancel of in-flight collection
  *
- * Named parameters are used for all ConnectionConfiguration constructors to decouple
- * this code from positional-argument changes between SDK 4.x patch releases.
+ * Parameter style: positional args used for SDK calls whose named-param labels
+ * churn between 4.x patch releases (discoverReaders, collectPaymentMethod,
+ * confirmPaymentIntent, retrievePaymentIntent). ConnectionConfiguration
+ * constructors still use named params — those names are stable in 4.x.
  *
  * @SuppressLint("MissingPermission") is applied at the object level because:
  *   1. Every BLE API call is preceded by hasBluetoothPermission(), which calls
@@ -84,8 +87,6 @@ object TerminalManager {
     /**
      * Called once from KioskApplication.onCreate.
      * Initialises the Terminal SDK and immediately starts reader discovery.
-     *
-     * Named params used on initTerminal to be resilient against SDK overload ordering.
      */
     fun init(context: Context) {
         appContext = context.applicationContext
@@ -107,10 +108,10 @@ object TerminalManager {
         }
 
         Terminal.initTerminal(
-            context = appContext,
-            logLevel = LogLevel.VERBOSE,
-            tokenProvider = TerminalTokenProvider(),
-            listener = terminalListener
+            appContext,
+            LogLevel.VERBOSE,
+            TerminalTokenProvider(),
+            terminalListener
         )
 
         Log.i(TAG, "Terminal SDK initialised")
@@ -139,37 +140,32 @@ object TerminalManager {
 
         val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(isSimulated = false)
 
-        Terminal.getInstance().discoverReaders(
-            config = config,
-            discoveryListener = object : DiscoveryListener {
-                override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
-                    val target = pickReader(readers) ?: run {
-                        Log.d(TAG, "No matching reader in discovered list (${readers.size} found)")
-                        return
-                    }
-                    connectInternet(target)
+        val discoveryListener = object : DiscoveryListener {
+            override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
+                val target = pickReader(readers) ?: run {
+                    Log.d(TAG, "No matching reader in discovered list (${readers.size} found)")
+                    return
                 }
-            },
-            callback = object : Callback {
-                override fun onSuccess() {
-                    Log.d(TAG, "Internet discovery scan complete")
-                    discoveryInProgress = false
-                }
-
-                override fun onFailure(e: TerminalException) {
-                    Log.e(TAG, "Internet discovery failed: ${e.errorMessage}")
-                    discoveryInProgress = false
-                    updateStatus("disconnected")
-                }
+                connectInternet(target)
             }
-        )
+        }
+
+        val connectionCallback = object : Callback {
+            override fun onSuccess() {
+                Log.d(TAG, "Internet discovery scan complete")
+                discoveryInProgress = false
+            }
+
+            override fun onFailure(e: TerminalException) {
+                Log.e(TAG, "Internet discovery failed: ${e.errorMessage}")
+                discoveryInProgress = false
+                updateStatus("disconnected")
+            }
+        }
+
+        Terminal.getInstance().discoverReaders(config, discoveryListener, connectionCallback)
     }
 
-    /**
-     * Named parameters used on InternetConnectionConfiguration to be resilient
-     * against positional-argument changes between SDK 4.x patch releases.
-     * This was the root cause of the "Argument type mismatch" compile error.
-     */
     private fun connectInternet(reader: Reader) {
         val config = ConnectionConfiguration.InternetConnectionConfiguration(
             internetReaderListener = internetReaderListener,
@@ -213,31 +209,31 @@ object TerminalManager {
             isSimulated = false
         )
 
-        try {
-            Terminal.getInstance().discoverReaders(
-                config = config,
-                discoveryListener = object : DiscoveryListener {
-                    override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
-                        val target = pickReader(readers) ?: run {
-                            Log.d(TAG, "No matching BLE reader found")
-                            return
-                        }
-                        connectBluetooth(target)
-                    }
-                },
-                callback = object : Callback {
-                    override fun onSuccess() {
-                        Log.d(TAG, "BLE discovery scan complete")
-                        discoveryInProgress = false
-                    }
-
-                    override fun onFailure(e: TerminalException) {
-                        Log.e(TAG, "BLE discovery failed: ${e.errorMessage}")
-                        discoveryInProgress = false
-                        updateStatus("disconnected")
-                    }
+        val discoveryListener = object : DiscoveryListener {
+            override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
+                val target = pickReader(readers) ?: run {
+                    Log.d(TAG, "No matching BLE reader found")
+                    return
                 }
-            )
+                connectBluetooth(target)
+            }
+        }
+
+        val connectionCallback = object : Callback {
+            override fun onSuccess() {
+                Log.d(TAG, "BLE discovery scan complete")
+                discoveryInProgress = false
+            }
+
+            override fun onFailure(e: TerminalException) {
+                Log.e(TAG, "BLE discovery failed: ${e.errorMessage}")
+                discoveryInProgress = false
+                updateStatus("disconnected")
+            }
+        }
+
+        try {
+            Terminal.getInstance().discoverReaders(config, discoveryListener, connectionCallback)
         } catch (se: SecurityException) {
             Log.e(TAG, "SecurityException during BLE discovery: ${se.message}")
             discoveryInProgress = false
@@ -245,11 +241,6 @@ object TerminalManager {
         }
     }
 
-    /**
-     * Named parameters used on BluetoothConnectionConfiguration for the same
-     * resilience reason as InternetConnectionConfiguration above.
-     * locationId is still required for BLE in SDK 4.x.
-     */
     @Suppress("unused")
     private fun connectBluetooth(reader: Reader) {
         if (!hasBluetoothPermission()) {
@@ -318,8 +309,8 @@ object TerminalManager {
 
         scope.launch {
             Terminal.getInstance().retrievePaymentIntent(
-                clientSecret = clientSecret,
-                callback = object : PaymentIntentCallback {
+                clientSecret,
+                object : PaymentIntentCallback {
                     override fun onSuccess(paymentIntent: PaymentIntent) {
                         collectPayment(paymentIntent, onSuccess, onFailure)
                     }
@@ -340,21 +331,23 @@ object TerminalManager {
     ) {
         val collectConfig = CollectConfiguration.Builder().build()
 
-        collectCancelable = Terminal.getInstance().collectPaymentMethod(
-            paymentIntent = paymentIntent,
-            paymentIntentCallback = object : PaymentIntentCallback {
-                override fun onSuccess(updatedIntent: PaymentIntent) {
-                    collectCancelable = null
-                    confirmPayment(updatedIntent, onSuccess, onFailure)
-                }
+        val callback = object : PaymentIntentCallback {
+            override fun onSuccess(updatedIntent: PaymentIntent) {
+                collectCancelable = null
+                confirmPayment(updatedIntent, onSuccess, onFailure)
+            }
 
-                override fun onFailure(e: TerminalException) {
-                    collectCancelable = null
-                    Log.e(TAG, "collectPaymentMethod failed: ${e.errorMessage}")
-                    onFailure(e.errorMessage ?: "collect_failed")
-                }
-            },
-            collectConfig = collectConfig
+            override fun onFailure(e: TerminalException) {
+                collectCancelable = null
+                Log.e(TAG, "collectPaymentMethod failed: ${e.errorMessage}")
+                onFailure(e.errorMessage ?: "collect_failed")
+            }
+        }
+
+        collectCancelable = Terminal.getInstance().collectPaymentMethod(
+            paymentIntent,
+            callback,
+            collectConfig
         )
     }
 
@@ -363,35 +356,34 @@ object TerminalManager {
         onSuccess: (String) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        // SDK 4.x confirmPaymentIntent returns a Cancelable — not needed for confirm.
-        @Suppress("UNUSED_VARIABLE")
-        val confirmCancelable = Terminal.getInstance().confirmPaymentIntent(
-            paymentIntent = paymentIntent,
-            callback = object : PaymentIntentCallback {
-                override fun onSuccess(confirmedIntent: PaymentIntent) {
-                    when (confirmedIntent.status) {
-                        PaymentIntentStatus.SUCCEEDED -> {
-                            val piId = confirmedIntent.id ?: run {
-                                Log.w(TAG, "PaymentIntent.id null after successful confirm")
-                                "unknown"
-                            }
-                            Log.i(TAG, "Payment succeeded: $piId")
-                            onSuccess(piId)
+        val callback = object : PaymentIntentCallback {
+            override fun onSuccess(confirmedIntent: PaymentIntent) {
+                when (confirmedIntent.status) {
+                    PaymentIntentStatus.SUCCEEDED -> {
+                        val piId = confirmedIntent.id ?: run {
+                            Log.w(TAG, "PaymentIntent.id null after successful confirm")
+                            "unknown"
                         }
-                        else -> {
-                            val status = confirmedIntent.status
-                            Log.w(TAG, "Unexpected status after confirm: $status")
-                            onFailure("unexpected_status_$status")
-                        }
+                        Log.i(TAG, "Payment succeeded: $piId")
+                        onSuccess(piId)
+                    }
+                    else -> {
+                        val status = confirmedIntent.status
+                        Log.w(TAG, "Unexpected status after confirm: $status")
+                        onFailure("unexpected_status_$status")
                     }
                 }
-
-                override fun onFailure(e: TerminalException) {
-                    Log.e(TAG, "confirmPaymentIntent failed: ${e.errorMessage}")
-                    onFailure(e.errorMessage ?: "confirm_failed")
-                }
             }
-        )
+
+            override fun onFailure(e: TerminalException) {
+                Log.e(TAG, "confirmPaymentIntent failed: ${e.errorMessage}")
+                onFailure(e.errorMessage ?: "confirm_failed")
+            }
+        }
+
+        // SDK 4.x confirmPaymentIntent returns a Cancelable — not retained for confirm.
+        @Suppress("UNUSED_VARIABLE")
+        val confirmCancelable = Terminal.getInstance().confirmPaymentIntent(paymentIntent, callback)
     }
 
     // ── Cancel ────────────────────────────────────────────────────────────────
@@ -510,7 +502,7 @@ object TerminalManager {
         if (discoveryInProgress) return
         Log.i(TAG, "Scheduling reconnect attempt")
         scope.launch {
-            kotlinx.coroutines.delay(5_000L)
+            delay(5_000L)
             startDiscovery()
         }
     }
