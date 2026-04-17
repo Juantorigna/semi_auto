@@ -45,13 +45,19 @@ private const val TAG = "TerminalManager"
  *   - Payment flow: retrievePaymentIntent → collectPaymentMethod → confirmPaymentIntent
  *   - Cancel of in-flight collection
  *
+ * SDK 4.x constructor signatures (verified against stripe-terminal-android 4.1.0):
+ *   InternetConnectionConfiguration(internetReaderListener, failIfInUse)
+ *     — locationId removed; listener moved to first param.
+ *   BluetoothConnectionConfiguration(locationId, autoReconnectOnUnexpectedDisconnect, bluetoothReaderListener)
+ *     — locationId still required for BLE.
+ *
  * @SuppressLint("MissingPermission") is applied at the object level because:
  *   1. Every BLE API call is preceded by hasBluetoothPermission() which calls
  *      checkSelfPermission and early-returns on failure.
  *   2. Every BLE try-block catches SecurityException as a secondary safety net for
  *      the race where permission is revoked between the check and the SDK call.
- *   3. The lint engine cannot statically trace the guard when the SDK call
- *      sits inside an anonymous class body, so the annotation is the correct tool here.
+ *   3. The lint engine cannot statically trace the guard when the SDK call sits
+ *      inside an anonymous class body, so the annotation is the correct tool here.
  *   Internet-mode calls (WisePOS E) require no Bluetooth permission.
  */
 @SuppressLint("MissingPermission")
@@ -117,9 +123,8 @@ object TerminalManager {
     // ── Discovery entry point ─────────────────────────────────────────────────
 
     /**
-     * WisePOS E (Internet) is always the primary path for this kiosk.
-     * TERMINAL_LOCATION_ID is required for Internet mode (WisePOS E).
-     * BLE path (WisePad 3) is never used — kept for reference only.
+     * WisePOS E (Internet) is the primary path for this kiosk.
+     * BLE path (WisePad 3) is kept for reference but not used.
      */
     private fun startDiscovery() {
         discoverInternet()
@@ -151,17 +156,15 @@ object TerminalManager {
         )
     }
 
+    /**
+     * SDK 4.x: InternetConnectionConfiguration(internetReaderListener, failIfInUse)
+     * locationId is no longer a parameter — reader is pre-registered to a location
+     * in the Stripe Dashboard. Named params removed to avoid version skew crashes.
+     */
     private fun connectInternet(reader: Reader) {
-        val locationId = KioskConfig.TERMINAL_LOCATION_ID.ifBlank {
-            Log.e(TAG, "TERMINAL_LOCATION_ID blank — cannot connect Internet reader")
-            updateStatus("config_error")
-            return
-        }
-
         val config = ConnectionConfiguration.InternetConnectionConfiguration(
-            locationId             = locationId,
-            internetReaderListener = internetReaderListener,
-            failIfInUse            = true
+            internetReaderListener,
+            true    // failIfInUse
         )
 
         Terminal.getInstance().connectReader(
@@ -221,6 +224,10 @@ object TerminalManager {
         }
     }
 
+    /**
+     * SDK 4.x: BluetoothConnectionConfiguration(locationId, autoReconnectOnUnexpectedDisconnect, bluetoothReaderListener)
+     * locationId is still required for BLE. Named params removed to avoid version skew crashes.
+     */
     private fun connectBluetooth(reader: Reader) {
         if (!hasBluetoothPermission()) {
             Log.w(TAG, "BLE permission lost before connect — aborting")
@@ -235,8 +242,9 @@ object TerminalManager {
         }
 
         val config = ConnectionConfiguration.BluetoothConnectionConfiguration(
-            locationId              = locationId,
-            bluetoothReaderListener = mobileReaderListener
+            locationId,
+            true,                // autoReconnectOnUnexpectedDisconnect
+            mobileReaderListener
         )
 
         try {
@@ -439,7 +447,7 @@ object TerminalManager {
 
     // ── Helpers ───────────────────────────────────────────────────────────────
 
-    /** Returns the target reader by serial, or the first discovered reader. */
+    /** Returns target reader by serial, or first discovered reader. */
     private fun pickReader(readers: List<Reader>): Reader? {
         return if (KioskConfig.READER_SERIAL.isNotBlank()) {
             readers.firstOrNull { it.serialNumber == KioskConfig.READER_SERIAL }
