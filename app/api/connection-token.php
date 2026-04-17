@@ -90,10 +90,15 @@ foreach ($lines as $line) {
     $envVars[$envKey] = $envVal;
 }
 
-$stripeSecretKey = $envVars['STRIPE_SECRET_KEY'] ?? '';
+/* ── Select live or test key ──────────────────────────────────────────────── */
+$useLive = true; // set false to use test key
+
+$stripeSecretKey = $useLive
+    ? ($envVars['STRIPE_SECRET_KEY'] ?? '')
+    : ($envVars['STRIPE_TEST_KEY']   ?? '');
 
 if ($stripeSecretKey === '') {
-    error_log('[connection-token.php] STRIPE_SECRET_KEY missing from stripe.env');
+    error_log('[connection-token.php] Stripe key missing from stripe.env');
     http_response_code(500);
     echo json_encode(['error' => 'Server configuration error']);
     exit;

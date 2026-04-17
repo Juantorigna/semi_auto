@@ -132,10 +132,15 @@ if ($dbHost === '' || $dbName === '' || $dbUser === '' || $dbPass === '') {
 
 /* ── Stripe credentials ── */
 $stripeEnv       = loadEnvFile(__DIR__ . '/../../../stripe.env', 'stripe.env');
-$stripeSecretKey = $stripeEnv['STRIPE_SECRET_KEY'] ?? '';
+/* ── Select live or test key ──────────────────────────────────────────────── */
+$useLive = true; // set false to use test key
+
+$stripeSecretKey = $useLive
+    ? ($stripeEnv['STRIPE_SECRET_KEY'] ?? '')
+    : ($stripeEnv['STRIPE_TEST_KEY']   ?? '');
 
 if ($stripeSecretKey === '') {
-    error_log('[create-payment-intent.php] STRIPE_SECRET_KEY missing from stripe.env');
+    error_log('[create-payment-intent.php] Stripe key missing from stripe.env');
     http_response_code(500);
     echo json_encode(['error' => 'Server configuration error']);
     exit;
