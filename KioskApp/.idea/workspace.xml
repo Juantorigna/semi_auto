@@ -22,14 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba832cdc-58ce-4b56-b027-8dea7239b950" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/processDebugResources/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/app/proguard-rules.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/JsBridge.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/JsBridge.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskConfig.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/Terminalmanager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/Terminalmanager.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +67,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
