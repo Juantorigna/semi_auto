@@ -61,5 +61,5 @@ object KioskConfig {
 
     /** Stripe Terminal location ID (Dashboard → Terminal → Locations). */
     /** Injected at build time from local.properties — never hardcoded. */
-    val TERMINAL_LOCATION_ID: String get() = BuildConfig.TMZ_LOCATION_ID
+    val TERMINAL_LOCATION_ID: String get() = BuildConfig.TML_LOCATION_ID
 }

@@ -22,33 +22,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba832cdc-58ce-4b56-b027-8dea7239b950" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/dexBuilderDebug/out/com/campsite/kiosk/MainActivity$Companion.dex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/output-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/build/tmp/kotlin-classes/debug/com/campsite/kiosk/MainActivity$Companion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/HEAD" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/description" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/applypatch-msg.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/commit-msg.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/fsmonitor-watchman.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/post-update.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-applypatch.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-commit.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-merge-commit.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-push.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-rebase.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/pre-receive.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/prepare-commit-msg.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/push-to-checkout.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/sendemail-validate.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/hooks/update.sample" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/info/exclude" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/objects/pack/pack-550355afc7c2b8b7ada6e7e94a579ff9b6cdda8a.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/objects/pack/pack-550355afc7c2b8b7ada6e7e94a579ff9b6cdda8a.pack" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/objects/pack/pack-550355afc7c2b8b7ada6e7e94a579ff9b6cdda8a.rev" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../semi_auto.git/packed-refs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskConfig.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/campsite/kiosk/KioskConfig.kt" afterDir="false" />
     </list>
