@@ -17,7 +17,7 @@ import com.stripe.stripeterminal.external.callable.PaymentIntentCallback
 import com.stripe.stripeterminal.external.callable.ReaderCallback
 import com.stripe.stripeterminal.external.callable.TerminalListener
 import com.stripe.stripeterminal.external.models.BatteryStatus
-import com.stripe.stripeterminal.external.models.CollectConfiguration
+import com.stripe.stripeterminal.external.models.CollectPaymentIntentConfiguration
 import com.stripe.stripeterminal.external.models.ConnectionConfiguration
 import com.stripe.stripeterminal.external.models.ConnectionStatus
 import com.stripe.stripeterminal.external.models.DisconnectReason
@@ -94,12 +94,14 @@ object TerminalManager {
             }
         }
 
-        Terminal.initTerminal(
+        Terminal.init(
             context = appContext,
             logLevel = LogLevel.VERBOSE,
             tokenProvider = TerminalTokenProvider(),
-            listener = terminalListener
+            listener = terminalListener,
+            offlineListener = null          // required in 5.x, nullable
         )
+// if still fails → add locationId = BuildConfig.TML_LOCATION_ID
 
         Log.i(TAG, "Terminal SDK initialised")
         startDiscovery()
@@ -298,7 +300,7 @@ object TerminalManager {
     ) {
         // SDK 4.x class: CollectConfiguration (renamed CollectPaymentIntentConfiguration in 5.0)
         // Kotlin @JvmOverloads signature: collectPaymentMethod(intent, callback, config)
-        val collectConfig = CollectConfiguration.Builder().build()
+        val collectConfig = CollectPaymentIntentConfiguration.Builder().build()
 
         collectCancelable = Terminal.getInstance().collectPaymentMethod(
             paymentIntent,
