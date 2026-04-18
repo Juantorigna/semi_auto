@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="header_large_text_size" type="dimen">@dimen/header_large_text_size_default</item>
-    <item name="header_medium_text_size" type="dimen">@dimen/header_medium_text_size_default</item>
-    <item name="header_small_text_size" type="dimen">@dimen/header_small_text_size_default</item>
-    <item name="header_xxlarge_text_size" type="dimen">@dimen/header_xxlarge_text_size_default</item>
-</resources>

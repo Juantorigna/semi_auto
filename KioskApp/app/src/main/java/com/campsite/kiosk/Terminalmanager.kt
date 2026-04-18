@@ -30,6 +30,7 @@ import com.stripe.stripeterminal.external.models.ReaderDisplayMessage
 import com.stripe.stripeterminal.external.models.ReaderEvent
 import com.stripe.stripeterminal.external.models.ReaderInputOptions
 import com.stripe.stripeterminal.external.models.ReaderSoftwareUpdate
+import com.stripe.stripeterminal.external.models.SimulatorConfiguration
 import com.stripe.stripeterminal.external.models.TerminalException
 import com.stripe.stripeterminal.log.LogLevel
 import kotlinx.coroutines.CoroutineScope
@@ -39,20 +40,6 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "TerminalManager"
 
-/**
- * TerminalManager — SDK 4.1.0 compatible
- *
- * API contract for SDK 4.x (pre-5.0 rename):
- *   CollectConfiguration          (renamed CollectPaymentIntentConfiguration in 5.0)
- *   discoverReaders(config, discoveryListener, callback)  — positional, Java-compiled
- *   connectReader(reader, config, callback)               — positional, Java-compiled
- *   collectPaymentMethod(intent, callback, config)        — Kotlin @JvmOverloads
- *   confirmPaymentIntent(intent, callback)                — Kotlin @JvmOverloads
- *   retrievePaymentIntent(clientSecret, callback)         — positional
- *
- * MobileReaderListener requires ALL abstract overrides; Android Studio will
- * flag a compile error if any are missing, so all are implemented here.
- */
 @SuppressLint("MissingPermission")
 object TerminalManager {
 
@@ -80,6 +67,7 @@ object TerminalManager {
 
         if (Terminal.isInitialized()) {
             Log.d(TAG, "Terminal already initialised — starting discovery")
+            applySimulatorConfig()
             startDiscovery()
             return
         }
@@ -99,12 +87,21 @@ object TerminalManager {
             logLevel = LogLevel.VERBOSE,
             tokenProvider = TerminalTokenProvider(),
             listener = terminalListener,
-            offlineListener = null          // required in 5.x, nullable
+            offlineListener = null
         )
-// if still fails → add locationId = BuildConfig.TML_LOCATION_ID
 
         Log.i(TAG, "Terminal SDK initialised")
+
+        // ← FIX: must set SimulatorConfiguration before discovery
+        //   so the SDK emits a fake reader to onUpdateDiscoveredReaders
+        applySimulatorConfig()
+
         startDiscovery()
+    }
+
+    private fun applySimulatorConfig() {
+        Terminal.getInstance().simulatorConfiguration = SimulatorConfiguration()
+        Log.d(TAG, "SimulatorConfiguration applied")
     }
 
     // ── Discovery ─────────────────────────────────────────────────────────────
@@ -114,7 +111,7 @@ object TerminalManager {
             Log.d(TAG, "Discovery already in progress — skipping")
             return
         }
-        discoverBluetooth()
+        discoverInternet()
     }
 
     private fun discoverInternet() {
@@ -123,7 +120,6 @@ object TerminalManager {
 
         val config = DiscoveryConfiguration.InternetDiscoveryConfiguration(isSimulated = true)
 
-        // Java-compiled: positional args only — (config, discoveryListener, callback)
         Terminal.getInstance().discoverReaders(
             config,
             object : DiscoveryListener {
@@ -156,7 +152,6 @@ object TerminalManager {
             failIfInUse = true
         )
 
-        // Java-compiled: positional args only — (reader, config, callback)
         Terminal.getInstance().connectReader(
             reader,
             config,
@@ -176,10 +171,9 @@ object TerminalManager {
         )
     }
 
-    // ── Bluetooth (WisePad 3) — NOT ACTIVE for this kiosk ────────────────────
+    // ── Bluetooth (WisePad 3) ─────────────────────────────────────────────────
 
     private fun discoverBluetooth() {
-
         discoveryInProgress = true
         updateStatus("discovering")
 
@@ -193,6 +187,7 @@ object TerminalManager {
                 config,
                 object : DiscoveryListener {
                     override fun onUpdateDiscoveredReaders(readers: List<Reader>) {
+                        Log.d(TAG, "BLE discovered ${readers.size} reader(s)")
                         val target = pickReader(readers) ?: run {
                             Log.d(TAG, "No matching BLE reader")
                             return
@@ -220,7 +215,6 @@ object TerminalManager {
         }
     }
 
-    @Suppress("unused")
     private fun connectBluetooth(reader: Reader) {
         if (!hasBluetoothPermission()) {
             Log.w(TAG, "BLE permission lost before connect")
@@ -228,10 +222,11 @@ object TerminalManager {
             return
         }
 
+        // Simulated readers don't require a real locationId;
+        // fall back to a placeholder when config is blank.
         val locationId = KioskConfig.TERMINAL_LOCATION_ID.ifBlank {
-            Log.e(TAG, "TERMINAL_LOCATION_ID blank — cannot connect BLE reader")
-            updateStatus("config_error")
-            return
+            Log.w(TAG, "TERMINAL_LOCATION_ID blank — using 'simulated' placeholder")
+            "simulated"
         }
 
         val config = ConnectionConfiguration.BluetoothConnectionConfiguration(
@@ -276,7 +271,6 @@ object TerminalManager {
         }
 
         scope.launch {
-            // Positional: (clientSecret, callback)
             Terminal.getInstance().retrievePaymentIntent(
                 clientSecret,
                 object : PaymentIntentCallback {
@@ -298,8 +292,6 @@ object TerminalManager {
         onSuccess: (String) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        // SDK 4.x class: CollectConfiguration (renamed CollectPaymentIntentConfiguration in 5.0)
-        // Kotlin @JvmOverloads signature: collectPaymentMethod(intent, callback, config)
         val collectConfig = CollectPaymentIntentConfiguration.Builder().build()
 
         collectCancelable = Terminal.getInstance().collectPaymentMethod(
@@ -325,7 +317,6 @@ object TerminalManager {
         onSuccess: (String) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        // Kotlin @JvmOverloads signature: confirmPaymentIntent(intent, callback)
         Terminal.getInstance().confirmPaymentIntent(
             paymentIntent,
             object : PaymentIntentCallback {
@@ -381,11 +372,6 @@ object TerminalManager {
         }
     }
 
-    /**
-     * MobileReaderListener — ALL abstract members must be overridden.
-     * Missing any override is a compile error; stubs are intentional for
-     * callbacks irrelevant to this kiosk (display, battery, updates).
-     */
     private val mobileReaderListener = object : MobileReaderListener {
 
         override fun onDisconnect(reason: DisconnectReason) {

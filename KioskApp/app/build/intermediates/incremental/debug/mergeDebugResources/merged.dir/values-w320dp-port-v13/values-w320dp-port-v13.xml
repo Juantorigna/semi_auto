@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="header_large_text_size">22sp</dimen>
-    <dimen name="header_medium_text_size">20sp</dimen>
-    <dimen name="header_small_text_size">18sp</dimen>
-    <dimen name="header_xxlarge_text_size">28sp</dimen>
-</resources>
