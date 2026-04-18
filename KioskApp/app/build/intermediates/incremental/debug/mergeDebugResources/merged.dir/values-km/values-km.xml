@@ -34,7 +34,6 @@
     <string name="bottomsheet_action_collapse">បង្រួមសន្លឹក​ខាងក្រោម</string>
     <string name="bottomsheet_action_expand">ពង្រីកសន្លឹក​ខាងក្រោម</string>
     <string name="bottomsheet_action_expand_halfway">ពង្រីក​ពាក់កណ្ដាល</string>
-    <string name="bottomsheet_drag_handle_clicked">បានប៉ះដង​អូស​ពីរដង</string>
     <string name="bottomsheet_drag_handle_content_description">ដង​អូស</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"ឆ្លើយ"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"វីដេអូ"</string>
@@ -46,17 +45,22 @@
     <string name="character_counter_content_description">តួ​អក្សរ​បាន​បញ្ចូល​ %1$d នៃ %2$d</string>
     <string name="character_counter_overflowed_content_description">ដែនកំណត់តួអក្សរបានលើស %1$d នៃ %2$d</string>
     <string name="clear_text_end_icon_content_description">សម្អាតអក្សរ</string>
+    <string name="common_google_play_services_unknown_issue">%1$s កំពុងមានបញ្ហាជាមួយសេវាកម្មរបស់ Google Play ។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។</string>
     <string name="error_a11y_label">បញ្ហា៖ មិនត្រឹមត្រូវ</string>
     <string name="error_icon_content_description">បញ្ហា</string>
     <string name="exposed_dropdown_menu_content_description">បង្ហាញ​ម៉ឺនុយ​ធ្លាក់ចុះ</string>
     <string name="icon_content_description">រូប​ប្រអប់បញ្ចូល</string>
     <string name="item_view_role_description">ផ្ទាំង</string>
+    <string name="m3_loading_indicator_content_description">កំពុងផ្ទុក</string>
     <string name="material_clock_toggle_content_description">ជ្រើសរើស AM ឬ PM</string>
     <string name="material_hour_24h_suffix">%1$s ម៉ោង</string>
     <string name="material_hour_selection">ជ្រើសរើសម៉ោង</string>
     <string name="material_hour_suffix">ម៉ោង %1$s</string>
     <string name="material_minute_selection">ជ្រើស​នាទី</string>
     <string name="material_minute_suffix">%1$s នាទី</string>
+    <string name="material_slider_range_end">ចំណុចបញ្ចប់</string>
+    <string name="material_slider_range_start">ចំណុចចាប់ផ្ដើម</string>
+    <string name="material_slider_value">តម្លៃ</string>
     <string name="material_timepicker_am">ព្រឹក</string>
     <string name="material_timepicker_clock_mode_description">ប្តូរ​ទៅ​មុខងារ​នាឡិកា​សម្រាប់​ការ​បញ្ចូល​ម៉ោង។</string>
     <string name="material_timepicker_hour">ម៉ោង</string>
@@ -104,9 +108,11 @@
     <string name="mtrl_picker_text_input_year_abbr">ឆ</string>
     <string name="mtrl_picker_today_description">ថ្ងៃនេះ %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">ប្ដូរទៅ​របៀប​បញ្ចូល​ប្រតិទិន</string>
-    <string name="mtrl_picker_toggle_to_day_selection">ចុច ដើម្បីប្ដូរទៅទិដ្ឋភាពប្រតិទិន</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ប្ដូរទៅទិដ្ឋភាពប្រតិទិន</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">ប្ដូរទៅ​របៀប​បញ្ចូល​អក្សរ</string>
-    <string name="mtrl_picker_toggle_to_year_selection">ចុច ដើម្បីប្ដូរទៅទិដ្ឋភាពឆ្នាំ</string>
+    <string name="mtrl_picker_toggle_to_year_selection">ប្ដូរទៅទិដ្ឋភាពឆ្នាំ</string>
+    <string name="mtrl_picker_toggled_to_day_selection">បានប្ដូរទៅទិដ្ឋភាពប្រតិទិន</string>
+    <string name="mtrl_picker_toggled_to_year_selection">បានប្ដូរទៅទិដ្ឋភាពឆ្នាំ</string>
     <string name="mtrl_timepicker_cancel">បោះបង់</string>
     <string name="mtrl_timepicker_confirm">យល់ព្រម</string>
     <string name="password_toggle_content_description">បង្ហាញពាក្យសម្ងាត់</string>

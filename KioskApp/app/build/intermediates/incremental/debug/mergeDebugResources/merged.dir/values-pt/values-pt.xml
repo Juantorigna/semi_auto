@@ -27,6 +27,7 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Compartilhar com"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Compartilhar com <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Recolher"</string>
+    <string name="backspace">Retrocesso</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Atender"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Vídeo"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Recusar"</string>
@@ -34,6 +35,97 @@
     <string msgid="6107532579223922871" name="call_notification_incoming_text">"Chamada recebida"</string>
     <string msgid="8623827134497363134" name="call_notification_ongoing_text">"Chamada em andamento"</string>
     <string msgid="59049573811482460" name="call_notification_screening_text">"Filtrando uma ligação recebida"</string>
+    <string name="content_description_backspace">Limpar o último dígito</string>
+    <string name="content_description_cancel">Cancelar</string>
+    <string name="content_description_enter">Introduzir</string>
+    <string name="cots_arrow_down_description">Seta para baixo que indica a zona de colocação</string>
+    <string name="cots_arrow_left_description">A seta para a esquerda indica a zona de toque</string>
+    <string name="cots_arrow_right_description">A seta para a direita indica a zona de toque</string>
+    <string name="cots_arrow_up_description">Seta para baixo que indica a zona de colocação</string>
+    <string name="cots_card_blocked">Cartão bloqueado</string>
+    <string name="cots_card_not_supported">Cartão não suportado</string>
+    <string name="cots_declined">Cartão recusado\nUtilize outro cartão</string>
+    <string name="cots_different_card_used">Foi utilizado um cartão diferente</string>
+    <string name="cots_emv_symbol_description">Símbolo EMV contactless</string>
+    <string name="cots_error_symbol_description">Símbolo de falha de contactless</string>
+    <string name="cots_irrecoverable_error">Erro\nUtilize outro cartão</string>
+    <string name="cots_loading">A processar</string>
+    <string name="cots_lpm_confirmed">Concluído</string>
+    <string name="cots_lpm_declined">Recusado</string>
+    <string name="cots_non_card_method_selected">Aguarde</string>
+    <string name="cots_pin_prompt">Introduza o PIN</string>
+    <string name="cots_reader_not_active">Leitor inativo</string>
+    <string name="cots_reader_pin_required">PIN necessário</string>
+    <string name="cots_reading">Segure o cartão</string>
+    <string name="cots_recoverable_error">Erro\nTente novamente</string>
+    <string name="cots_refund">Reembolso</string>
+    <string name="cots_save_card_description">Ao tocar no seu Cartão, irá guardar os detalhes de Pagamento em %1$s para pagamentos futuros.</string>
+    <string name="cots_save_card_description_no_merchant_name_provided">Ao tocar no seu Cartão, está a guardar detalhes de Pagamento para pagamentos futuros.</string>
+    <string name="cots_see_phone">Verificar telefone e tentar novamente</string>
+    <string name="cots_simulate_tap">Prima aqui para Simular o pagamento</string>
+    <string name="cots_success">Remover cartão</string>
+    <string name="cots_success_symbol_description">Símbolo de visto de contactless</string>
+    <string name="cots_tap_above">Coloque sobre o dispositivo</string>
+    <string name="cots_tap_above_save">Coloque sobre o dispositivo</string>
+    <string name="cots_tap_above_verify">Coloque sobre o dispositivo</string>
+    <string name="cots_tap_behind">Coloque atrás do dispositivo</string>
+    <string name="cots_tap_behind_save">Coloque atrás do dispositivo</string>
+    <string name="cots_tap_behind_verify">Coloque atrás do dispositivo</string>
+    <string name="cots_tap_below">Coloque por baixo do dispositivo</string>
+    <string name="cots_tap_below_save">Coloque por baixo do dispositivo</string>
+    <string name="cots_tap_below_verify">Coloque por baixo do dispositivo</string>
+    <string name="cots_tap_here">Toque aqui</string>
+    <string name="cots_tap_here_save">Toque aqui</string>
+    <string name="cots_tap_here_verify">Toque aqui</string>
+    <string name="cots_tap_left">Toque à esquerda do dispositivo</string>
+    <string name="cots_tap_left_save">Toque à esquerda do dispositivo</string>
+    <string name="cots_tap_left_verify">Toque à esquerda do dispositivo</string>
+    <string name="cots_tap_right">Toque à direita do dispositivo</string>
+    <string name="cots_tap_right_save">Toque à direita do dispositivo</string>
+    <string name="cots_tap_right_verify">Toque à direita do dispositivo</string>
+    <string name="cots_total">Total</string>
+    <string name="key_0">0</string>
+    <string name="key_00">00</string>
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_backspace">←</string>
+    <string name="message_back_to_payment_method_selection">Voltar à seleção do método de pagamento</string>
+    <string name="message_cancel_transaction">Cancelar transação</string>
+    <string name="message_choice">Escolha</string>
+    <string name="message_choose_an_option">Escolha uma opção</string>
+    <string name="message_disclosure_extended_auth">A taxa apresentada é uma estimativa. A taxa real será determinada no momento do processamento da Transação.</string>
+    <string name="message_disclosure_incremental_auth">Este serviço também se aplica a quaisquer ajustes acordados efetuados à Transação.</string>
+    <string name="message_disclosure_incremental_extended_auth">A taxa apresentada é uma estimativa. A taxa real será determinada no momento do processamento da Transação e aplicar-se-á também a quaisquer ajustes efetuados à Transação.</string>
+    <string name="message_disclosure_setup_future_usage">Qualquer conversão só se aplica a esta Transação.</string>
+    <string name="message_disclosure_setup_future_usage_incremental_extended_auth">A taxa apresentada é uma estimativa. A taxa real será determinada no momento do processamento da Transação e aplicar-se-á também a quaisquer ajustes efetuados à Transação.</string>
+    <string name="message_exchange_rate">1 %1$s = %2$s %3$s</string>
+    <string name="message_mark_up_eu_label">Inclui uma Majoração de %1$s%% sobre a Taxa de câmbio atual do ECB</string>
+    <string name="message_mark_up_non_eu_label">Inclui uma %1$s%% de Majoração sobre a Taxa de câmbio por atacado</string>
+    <string name="message_more_ways_to_pay">Mais formas de pagamento</string>
+    <string name="message_other">Outros</string>
+    <string name="message_pay_with">Pagar com %1$s</string>
+    <string name="message_pay_with_header">Pague com</string>
+    <string name="message_payment_approved_with">Pagamento %1$s</string>
+    <string name="message_payment_method_logo_content_description">Ícone do método de pagamento</string>
+    <string name="message_payment_method_qr_code_content_description">Código QR</string>
+    <string name="message_please_select_currency">Escolha uma divisa</string>
+    <string name="message_presentment_edit_tip_button">Editar dica</string>
+    <string name="message_previously_approved_with">Anteriormente aprovado com %1$s</string>
+    <string name="message_recommended">Recomendado</string>
+    <string name="message_restart_transaction">Reinicie transação</string>
+    <string name="message_return_to_collect_payment_screen">Voltar ao ecrã de cobrança de pagamento</string>
+    <string name="message_scan_to_pay">Ler para pagar</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Pesquisar"</string>
+    <string name="selection_option">%1s</string>
+    <string name="signature_max_size_error">Tamanho máximo da assinatura</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="stripe_ui_components_library_name">Componentes da interface do utilizador</string>
+    <string name="submit">Enviar</string>
 </resources>

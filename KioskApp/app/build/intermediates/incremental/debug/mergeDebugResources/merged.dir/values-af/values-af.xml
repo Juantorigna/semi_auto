@@ -34,7 +34,6 @@
     <string name="bottomsheet_action_collapse">Vou die onderste blad in</string>
     <string name="bottomsheet_action_expand">Vou die onderste blad uit</string>
     <string name="bottomsheet_action_expand_halfway">Vou halfpad uit</string>
-    <string name="bottomsheet_drag_handle_clicked">Het op sleephandvatsel gedubbeltik</string>
     <string name="bottomsheet_drag_handle_content_description">Sleephandvatsel</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Antwoord"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
@@ -46,17 +45,22 @@
     <string name="character_counter_content_description">Karakters ingevoer: %1$d van %2$d</string>
     <string name="character_counter_overflowed_content_description">Karakterlimiet oorskry %1$d van %2$d</string>
     <string name="clear_text_end_icon_content_description">Vee teks uit</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ondervind probleme met Google Play Dienste. Probeer asseblief weer.</string>
     <string name="error_a11y_label">Fout: ongeldig</string>
     <string name="error_icon_content_description">Fout</string>
     <string name="exposed_dropdown_menu_content_description">Wys aftrekkieslys</string>
     <string name="icon_content_description">Dialoogikoon</string>
     <string name="item_view_role_description">Oortjie</string>
+    <string name="m3_loading_indicator_content_description">Laai tans</string>
     <string name="material_clock_toggle_content_description">Kies vm. of nm.</string>
     <string name="material_hour_24h_suffix">%1$s uur</string>
     <string name="material_hour_selection">Kies uur</string>
     <string name="material_hour_suffix">%1$s-uur</string>
     <string name="material_minute_selection">Kies minute</string>
     <string name="material_minute_suffix">%1$s minute</string>
+    <string name="material_slider_range_end">Eindgrens</string>
+    <string name="material_slider_range_start">Begingrens</string>
+    <string name="material_slider_value">Waarde</string>
     <string name="material_timepicker_am">VM.</string>
     <string name="material_timepicker_clock_mode_description">Skakel oor na horlosiemodus vir die tydinvoer.</string>
     <string name="material_timepicker_hour">Uur</string>
@@ -104,9 +108,11 @@
     <string name="mtrl_picker_text_input_year_abbr">j</string>
     <string name="mtrl_picker_today_description">Vandag %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">Skakel oor na kalenderinvoermodus</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Tik om na kalenderaansig oor te skakel</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Skakel oor na kalenderaansig</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Skakel oor na teksinvoermodus</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Tik om na jaaraansig oor te skakel</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Skakel oor na jaaraansig</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Oorgeskakel na kalenderaansig</string>
+    <string name="mtrl_picker_toggled_to_year_selection">Oorgeskakel na jaaraansig</string>
     <string name="mtrl_timepicker_cancel">Kanselleer</string>
     <string name="mtrl_timepicker_confirm">OK</string>
     <string name="password_toggle_content_description">Wys wagwoord</string>

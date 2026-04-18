@@ -35,7 +35,6 @@
     <string name="bottomsheet_action_collapse">כיווץ הגיליון התחתון</string>
     <string name="bottomsheet_action_expand">הרחבת הגיליון התחתון</string>
     <string name="bottomsheet_action_expand_halfway">הרחבה עד האמצע</string>
-    <string name="bottomsheet_drag_handle_clicked">בוצעה הקשה כפולה על נקודת האחיזה לגרירה</string>
     <string name="bottomsheet_drag_handle_content_description">נקודת אחיזה לגרירה</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"מענה"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"וידאו"</string>
@@ -47,17 +46,22 @@
     <string name="character_counter_content_description">הוזנו %1$d תווים מתוך %2$d</string>
     <string name="character_counter_overflowed_content_description">מגבלת התווים חורגת ב-%1$d מתוך %2$d</string>
     <string name="clear_text_end_icon_content_description">מחיקת הטקסט</string>
+    <string name="common_google_play_services_unknown_issue">‏%1$s נתקלה בבעיה בשירותי Google Play. נסה שוב.</string>
     <string name="error_a11y_label">שגיאה: לא תקין</string>
     <string name="error_icon_content_description">שגיאה</string>
     <string name="exposed_dropdown_menu_content_description">הצגת התפריט הנפתח</string>
     <string name="icon_content_description">סמל לתיבת דו-שיח</string>
     <string name="item_view_role_description">מקש Tab</string>
+    <string name="m3_loading_indicator_content_description">בטעינה</string>
     <string name="material_clock_toggle_content_description">יש לבחור ב-AM או ב-PM</string>
     <string name="material_hour_24h_suffix">%1$s שעות</string>
     <string name="material_hour_selection">בחר שעה</string>
     <string name="material_hour_suffix">השעה %1$s</string>
     <string name="material_minute_selection">בחר דקות</string>
     <string name="material_minute_suffix">%1$s דקות</string>
+    <string name="material_slider_range_end">סוף הטווח</string>
+    <string name="material_slider_range_start">תחילת הטווח</string>
+    <string name="material_slider_value">ערך</string>
     <string name="material_timepicker_am">AM</string>
     <string name="material_timepicker_clock_mode_description">העבר למצב שעון לצורך הזנת השעה</string>
     <string name="material_timepicker_hour">שעה</string>
@@ -105,9 +109,11 @@
     <string name="mtrl_picker_text_input_year_abbr">ש</string>
     <string name="mtrl_picker_today_description">היום %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">החלפה לשיטת קלט של יומן</string>
-    <string name="mtrl_picker_toggle_to_day_selection">יש להקיש כדי לעבור לתצוגת יומן</string>
+    <string name="mtrl_picker_toggle_to_day_selection">מעבר לתצוגת יומן</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">החלפה לשיטת קלט של טקסט</string>
-    <string name="mtrl_picker_toggle_to_year_selection">יש להקיש כדי לעבור לתצוגת שנתית</string>
+    <string name="mtrl_picker_toggle_to_year_selection">מעבר לתצוגה שנתית</string>
+    <string name="mtrl_picker_toggled_to_day_selection">עברת לתצוגת יומן</string>
+    <string name="mtrl_picker_toggled_to_year_selection">בוצע מעבר לתצוגה שנתית</string>
     <string name="mtrl_timepicker_cancel">ביטול</string>
     <string name="mtrl_timepicker_confirm">אישור</string>
     <string name="password_toggle_content_description">הצגת סיסמה</string>

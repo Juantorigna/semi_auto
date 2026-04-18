@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="cots_background">#121212</color>
+    <color name="cots_idle_icon">@android:color/white</color>
+    <color name="cots_loading_track">#1F1F1F</color>
+    <color name="cots_primary">#635BFF</color>
+    <color name="cots_text_primary">@android:color/white</color>
+    <color name="cots_text_secondary">#C0C8D2</color>
+    <color name="cots_text_ttx">#C0C8D2</color>
     <style name="Theme.AppCompat.DayNight" parent="Theme.AppCompat"/>
     <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="Theme.AppCompat"/>
     <style name="Theme.AppCompat.DayNight.Dialog" parent="Theme.AppCompat.Dialog"/>

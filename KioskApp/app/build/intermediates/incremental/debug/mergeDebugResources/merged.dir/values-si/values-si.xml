@@ -34,7 +34,6 @@
     <string name="bottomsheet_action_collapse">පහළම පත්‍රය හකුළන්න</string>
     <string name="bottomsheet_action_expand">පහළම පත්‍රය දිග හරින්න</string>
     <string name="bottomsheet_action_expand_halfway">අඩක් දිග හරින්න</string>
-    <string name="bottomsheet_drag_handle_clicked">ඇදීම් හැඬලය දෙවරක් තට්ටු කර ඇත</string>
     <string name="bottomsheet_drag_handle_content_description">හැඬලය අදින්න</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"පිළිතුරු දෙ."</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"වීඩියෝ"</string>
@@ -46,17 +45,22 @@
     <string name="character_counter_content_description">අනුලකුණු %2$dන් %1$dක් ඇතුළු කෙරිණි</string>
     <string name="character_counter_overflowed_content_description">අනුලකුණු සීමාව %2$dකින් %1$d ඉක්ම විය</string>
     <string name="clear_text_end_icon_content_description">පෙළ හිස් කරන්න</string>
+    <string name="common_google_play_services_unknown_issue">%1$s හට Google Play සේවා සමගින් ගැටලු ඇත. කරුණාකර නැවත උත්සාහ කරන්න.</string>
     <string name="error_a11y_label">දෝෂය: වලංගු නැත</string>
     <string name="error_icon_content_description">දෝෂය</string>
     <string name="exposed_dropdown_menu_content_description">පතන මෙනුව පෙන්වන්න</string>
     <string name="icon_content_description">සංවාද නිරූපකය</string>
     <string name="item_view_role_description">ටැබය</string>
+    <string name="m3_loading_indicator_content_description">පූරණය වේ</string>
     <string name="material_clock_toggle_content_description">පෙරවරු හෝ පස්වරු තෝරන්න</string>
     <string name="material_hour_24h_suffix">පැය %1$sක්</string>
     <string name="material_hour_selection">පැය තෝරන්න</string>
     <string name="material_hour_suffix">%1$sයි</string>
     <string name="material_minute_selection">මිනිත්තු තෝරන්න</string>
     <string name="material_minute_suffix">මිනිත්තු %1$sයි</string>
+    <string name="material_slider_range_end">පරාස නිමාව</string>
+    <string name="material_slider_range_start">පරාස ආරම්භය</string>
+    <string name="material_slider_value">අගය</string>
     <string name="material_timepicker_am">පෙව</string>
     <string name="material_timepicker_clock_mode_description">වේලා ආදානය සඳහා ඔරලෝසු ප්‍රකාරය වෙත මාරු වෙන්න.</string>
     <string name="material_timepicker_hour">පැය</string>
@@ -104,9 +108,11 @@
     <string name="mtrl_picker_text_input_year_abbr">ව</string>
     <string name="mtrl_picker_today_description">අද %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">දින දර්ශන ආදාන ප්‍රකාරයට මාරු වන්න</string>
-    <string name="mtrl_picker_toggle_to_day_selection">දින දර්ශන දසුන වෙත මාරු වීමට තට්ටු කරන්න</string>
+    <string name="mtrl_picker_toggle_to_day_selection">දින දර්ශන දසුනට මාරු වන්න</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">පෙළ ආදාන ප්‍රකාරයට මාරු වන්න</string>
-    <string name="mtrl_picker_toggle_to_year_selection">වසරේ දසුන වෙත මාරු වීමට තට්ටු කරන්න</string>
+    <string name="mtrl_picker_toggle_to_year_selection">වසර දසුනට මාරු වන්න</string>
+    <string name="mtrl_picker_toggled_to_day_selection">දින දර්ශන දසුන වෙත මාරු විය</string>
+    <string name="mtrl_picker_toggled_to_year_selection">වසර දසුන වෙත මාරු විය</string>
     <string name="mtrl_timepicker_cancel">අවලංගු කරන්න</string>
     <string name="mtrl_timepicker_confirm">හරි</string>
     <string name="password_toggle_content_description">මුරපදය පෙන්වන්න</string>

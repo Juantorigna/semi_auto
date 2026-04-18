@@ -47,185 +47,306 @@
 27-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:5-81
 27-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:22-78
 28
-29    <permission
-29-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
-30        android:name="com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-30-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
-31        android:protectionLevel="signature" />
-31-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
-32
-33    <uses-permission android:name="com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-33-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
-33-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-34    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-34-->[com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:6:2-72
-34-->[com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:6:19-70
-35
-36    <application
-36-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:19:5-50:19
-37        android:name="com.campsite.kiosk.KioskApplication"
-37-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:20:9-41
-38        android:allowBackup="false"
-38-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:21:9-36
-39        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-39-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
-40        android:dataExtractionRules="@xml/data_extraction_rules"
-40-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:22:9-65
-41        android:debuggable="true"
-42        android:extractNativeLibs="false"
-43        android:hardwareAccelerated="true"
-43-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:29:9-43
-44        android:icon="@mipmap/ic_launcher"
-44-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:23:9-43
-45        android:label="@string/app_name"
-45-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:25:9-41
-46        android:networkSecurityConfig="@xml/network_security_config"
-46-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:28:9-69
-47        android:roundIcon="@mipmap/ic_launcher_round"
-47-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:24:9-54
-48        android:supportsRtl="false"
-48-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:26:9-36
-49        android:theme="@style/Theme.KioskApp" >
-49-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:27:9-46
-50        <activity
-50-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:32:9-48:20
-51            android:name="com.campsite.kiosk.MainActivity"
-51-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:33:13-41
-52            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|navigation"
-52-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:37:13-94
-53            android:exported="true"
-53-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:34:13-36
-54            android:keepScreenOn="true"
-54-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:39:13-40
-55            android:launchMode="singleTask"
-55-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:35:13-44
-56            android:screenOrientation="landscape"
-56-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:36:13-50
-57            android:windowSoftInputMode="adjustNothing" >
-57-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:38:13-56
-58            <intent-filter>
-58-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:41:13-46:29
-59                <action android:name="android.intent.action.MAIN" />
-59-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:42:17-69
-59-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:42:25-66
-60
-61                <category android:name="android.intent.category.LAUNCHER" />
-61-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:43:17-77
-61-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:43:27-74
-62                <category android:name="android.intent.category.HOME" />
-62-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:44:17-73
-62-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:44:27-70
-63                <category android:name="android.intent.category.DEFAULT" />
-63-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:17-76
-63-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:27-73
-64            </intent-filter>
-65        </activity>
-66
-67        <provider
-67-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
-68            android:name="androidx.startup.InitializationProvider"
-68-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
-69            android:authorities="com.campsite.kiosk.debug.androidx-startup"
-69-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
-70            android:exported="false" >
-70-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
-71            <meta-data
-71-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
-72                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-72-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
-73                android:value="androidx.startup" />
-73-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
-74            <meta-data
-74-->[androidx.lifecycle:lifecycle-process:2.8.5] C:\Users\rigna\.gradle\caches\transforms-4\15d7de815c7fe09111009769a1092cac\transformed\lifecycle-process-2.8.5\AndroidManifest.xml:29:13-31:52
-75                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-75-->[androidx.lifecycle:lifecycle-process:2.8.5] C:\Users\rigna\.gradle\caches\transforms-4\15d7de815c7fe09111009769a1092cac\transformed\lifecycle-process-2.8.5\AndroidManifest.xml:30:17-78
-76                android:value="androidx.startup" />
-76-->[androidx.lifecycle:lifecycle-process:2.8.5] C:\Users\rigna\.gradle\caches\transforms-4\15d7de815c7fe09111009769a1092cac\transformed\lifecycle-process-2.8.5\AndroidManifest.xml:31:17-49
-77            <meta-data
-77-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
-78                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-78-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
-79                android:value="androidx.startup" />
-79-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
-80        </provider>
-81
-82        <activity
-82-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:3-15:14
-83            android:name="com.stripe.stripeterminal.internal.common.usb.UsbEventReceiverActivity"
-83-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:105-190
-84            android:excludeFromRecents="true"
-84-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:13-46
-85            android:exported="false"
-85-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:47-71
-86            android:label="@string/app_name"
-86-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:72-104
-87            android:noHistory="true"
-87-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:191-215
-88            android:taskAffinity="com.stripe.stripeterminal.taskAffinityUsbEventReceiver"
-88-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:216-293
-89            android:theme="@style/Theme.Transparent" >
-89-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:294-334
-90            <intent-filter>
-90-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:11:4-13:20
-91                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
-91-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:12:5-77
-91-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:12:13-75
-92            </intent-filter>
-93
-94            <meta-data
-94-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:14:4-121
-95                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
-95-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:14:15-77
-96                android:resource="@xml/usb_device_filter" />
-96-->[com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:14:78-119
-97        </activity>
-98
-99        <service
-99-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
-100            android:name="androidx.room.MultiInstanceInvalidationService"
-100-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
-101            android:directBootAware="true"
-101-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
-102            android:exported="false" />
-102-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
-103
-104        <receiver
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
-105            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
-106            android:directBootAware="false"
-106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
-107            android:enabled="true"
-107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
-108            android:exported="true"
-108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
-109            android:permission="android.permission.DUMP" >
-109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
-110            <intent-filter>
-110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
-111                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
-111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
-112            </intent-filter>
-113            <intent-filter>
-113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
-114                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
-114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
-115            </intent-filter>
-116            <intent-filter>
-116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
-117                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
-117-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
-118            </intent-filter>
-119            <intent-filter>
-119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
-120                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
-120-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\rigna\.gradle\caches\transforms-4\4792ac15723f9ecb09a09f81d13380aa\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
-121            </intent-filter>
-122        </receiver>
-123    </application>
-124
-125</manifest>
+29    <uses-feature
+29-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:3:2-78
+30        android:name="android.hardware.nfc"
+30-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:3:16-51
+31        android:required="false" />
+31-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:3:52-76
+32    <uses-feature
+32-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:4:2-88
+33        android:name="android.hardware.usb.accessory"
+33-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:4:16-61
+34        android:required="false" />
+34-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:4:62-86
+35    <uses-feature
+35-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:5:2-83
+36        android:name="android.hardware.usb.host"
+36-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:5:16-56
+37        android:required="false" />
+37-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:5:57-81
+38
+39    <uses-permission android:name="android.permission.NFC" />
+39-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:7:2-58
+39-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:7:19-56
+40    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+40-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:9:2-71
+40-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:9:19-69
+41    <uses-permission
+41-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:10:2-102
+42        android:name="android.permission.HIDE_OVERLAY_WINDOWS"
+42-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:10:46-100
+43        android:minSdkVersion="31" />
+43-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:10:19-45
+44
+45    <permission
+45-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+46        android:name="com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+46-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+47        android:protectionLevel="signature" />
+47-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+48
+49    <uses-permission android:name="com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+49-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+49-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+50    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+50-->[com.stripe:stripeterminal-internal-common:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\296425d101c11f60d413018d572ef03d\transformed\stripeterminal-internal-common-5.4.1\AndroidManifest.xml:6:2-72
+50-->[com.stripe:stripeterminal-internal-common:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\296425d101c11f60d413018d572ef03d\transformed\stripeterminal-internal-common-5.4.1\AndroidManifest.xml:6:19-70
+51
+52    <application
+52-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:19:5-50:19
+53        android:name="com.campsite.kiosk.KioskApplication"
+53-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:20:9-41
+54        android:allowBackup="false"
+54-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:21:9-36
+55        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+55-->[androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+56        android:dataExtractionRules="@xml/data_extraction_rules"
+56-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:22:9-65
+57        android:debuggable="true"
+58        android:extractNativeLibs="false"
+59        android:gwpAsanMode="always"
+59-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:11:15-43
+60        android:hardwareAccelerated="true"
+60-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:29:9-43
+61        android:icon="@mipmap/ic_launcher"
+61-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:23:9-43
+62        android:label="@string/app_name"
+62-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:25:9-41
+63        android:networkSecurityConfig="@xml/network_security_config"
+63-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:28:9-69
+64        android:roundIcon="@mipmap/ic_launcher_round"
+64-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:24:9-54
+65        android:supportsRtl="false"
+65-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:26:9-36
+66        android:theme="@style/Theme.KioskApp" >
+66-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:27:9-46
+67        <activity
+67-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:32:9-48:20
+68            android:name="com.campsite.kiosk.MainActivity"
+68-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:33:13-41
+69            android:configChanges="orientation|screenSize|keyboard|keyboardHidden|navigation"
+69-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:37:13-94
+70            android:exported="true"
+70-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:34:13-36
+71            android:keepScreenOn="true"
+71-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:39:13-40
+72            android:launchMode="singleTask"
+72-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:35:13-44
+73            android:screenOrientation="landscape"
+73-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:36:13-50
+74            android:windowSoftInputMode="adjustNothing" >
+74-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:38:13-56
+75            <intent-filter>
+75-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:41:13-46:29
+76                <action android:name="android.intent.action.MAIN" />
+76-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:42:17-69
+76-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:42:25-66
+77
+78                <category android:name="android.intent.category.LAUNCHER" />
+78-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:43:17-77
+78-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:43:27-74
+79                <category android:name="android.intent.category.HOME" />
+79-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:44:17-73
+79-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:44:27-70
+80                <category android:name="android.intent.category.DEFAULT" />
+80-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:17-76
+80-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:27-73
+81            </intent-filter>
+82        </activity>
+83        <activity
+83-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:3-251
+84            android:name="lf1590ac64bf1495847993c7f.l458345c05cc44bc4623c5662"
+84-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:75-141
+85            android:configChanges="orientation|keyboardHidden|screenSize"
+85-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:13-74
+86            android:process=":stripetaptopay"
+86-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:142-175
+87            android:screenOrientation="locked"
+87-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:176-210
+88            android:theme="@style/NoDisplayCutout" />
+88-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:12:211-249
+89        <activity
+89-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:13:3-18:14
+90            android:name="com.stripe.cots.activity.ContactlessPaymentActivity"
+90-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:13:38-104
+91            android:exported="false"
+91-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:13:13-37
+92            android:process=":stripetaptopay"
+92-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:13:105-138
+93            android:theme="@style/Theme.CotsApp" >
+93-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:13:139-175
+94            <intent-filter>
+94-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:14:4-17:20
+95                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+95-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:15:5-64
+95-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:15:13-62
+96
+97                <category android:name="android.intent.category.DEFAULT" />
+97-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:17-76
+97-->C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:45:27-73
+98            </intent-filter>
+99        </activity>
+100        <activity
+100-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:19:3-187
+101            android:name="com.stripe.cots.simulator.SimulatedContactlessPaymentActivity"
+101-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:19:38-114
+102            android:exported="false"
+102-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:19:13-37
+103            android:process=":stripetaptopay"
+103-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:19:115-148
+104            android:theme="@style/Theme.CotsApp" />
+104-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:19:149-185
+105
+106        <service
+106-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:20:3-127
+107            android:name="com.stripe.cots.aidlservice.CotsService"
+107-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:20:37-91
+108            android:exported="false"
+108-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:20:12-36
+109            android:process=":stripetaptopay" />
+109-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:20:92-125
+110        <service
+110-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:21:3-136
+111            android:name="com.stripe.cots.aidlservice.SimulatedCotsService"
+111-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:21:37-100
+112            android:exported="false"
+112-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:21:12-36
+113            android:process=":stripetaptopay" />
+113-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:21:101-134
+114
+115        <provider
+115-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:22:3-186
+116            android:name="com.stripe.cots.content.CotsContentProvider"
+116-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:22:92-150
+117            android:authorities="com.campsite.kiosk.debug.stripetaptopay"
+117-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:22:13-66
+118            android:exported="false"
+118-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:22:67-91
+119            android:process=":stripetaptopay" />
+119-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:22:151-184
+120        <provider
+120-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:23:3-279
+121            android:name="com.stripe.cots.lpmuiplatform.PaymentMethodSpecsContentProvider"
+121-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:23:118-196
+122            android:authorities="com.campsite.kiosk.debug.lpmuiplatform.paymentmethodspecsprovider"
+122-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:23:13-92
+123            android:exported="false"
+123-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:23:93-117
+124            android:permission="com.stripe.updater.permission.PAYMENT_METHOD_SPECS_PROVIDER" />
+124-->[com.stripe:stripeterminal-taptopay:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\0f23299265e50c07ef189cd4592db8df\transformed\stripeterminal-taptopay-5.4.1\AndroidManifest.xml:23:197-277
+125        <provider
+125-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+126            android:name="androidx.startup.InitializationProvider"
+126-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+127            android:authorities="com.campsite.kiosk.debug.androidx-startup"
+127-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+128            android:exported="false" >
+128-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+129            <meta-data
+129-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+130                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+130-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+131                android:value="androidx.startup" />
+131-->[androidx.emoji2:emoji2:1.3.0] C:\Users\rigna\.gradle\caches\transforms-4\edba809557a3315aeef7d6c10c80695c\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+132            <meta-data
+132-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\rigna\.gradle\caches\transforms-4\c25b9d1545fd601b74c834168b0f3f23\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+133                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+133-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\rigna\.gradle\caches\transforms-4\c25b9d1545fd601b74c834168b0f3f23\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+134                android:value="androidx.startup" />
+134-->[androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\rigna\.gradle\caches\transforms-4\c25b9d1545fd601b74c834168b0f3f23\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+135            <meta-data
+135-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+136                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+136-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+137                android:value="androidx.startup" />
+137-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+138        </provider>
+139
+140        <meta-data
+140-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rigna\.gradle\caches\transforms-4\84eb964cae3722ab64c565feaa45f332\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+141            android:name="com.google.android.gms.version"
+141-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rigna\.gradle\caches\transforms-4\84eb964cae3722ab64c565feaa45f332\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+142            android:value="@integer/google_play_services_version" />
+142-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\rigna\.gradle\caches\transforms-4\84eb964cae3722ab64c565feaa45f332\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+143
+144        <activity
+144-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:3-15:14
+145            android:name="com.stripe.stripeterminal.internal.common.usb.UsbEventReceiverActivity"
+145-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:105-190
+146            android:excludeFromRecents="true"
+146-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:13-46
+147            android:exported="false"
+147-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:47-71
+148            android:label="@string/app_name"
+148-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:72-104
+149            android:noHistory="true"
+149-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:191-215
+150            android:taskAffinity="com.stripe.stripeterminal.taskAffinityUsbEventReceiver"
+150-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:216-293
+151            android:theme="@style/Theme.Transparent" >
+151-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:10:294-334
+152            <intent-filter>
+152-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:11:4-13:20
+153                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+153-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:12:5-77
+153-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:12:13-75
+154            </intent-filter>
+155
+156            <meta-data
+156-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:14:4-121
+157                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+157-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:14:15-77
+158                android:resource="@xml/usb_device_filter" />
+158-->[com.stripe:stripeterminal-core:5.4.1] C:\Users\rigna\.gradle\caches\transforms-4\396998b8266e097f817981b5de51cc65\transformed\stripeterminal-core-5.4.1\AndroidManifest.xml:14:78-119
+159        </activity>
+160
+161        <service
+161-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+162            android:name="androidx.room.MultiInstanceInvalidationService"
+162-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+163            android:directBootAware="true"
+163-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+164            android:exported="false" />
+164-->[androidx.room:room-runtime:2.6.1] C:\Users\rigna\.gradle\caches\transforms-4\1f367b71b6dabbbcaa3f342d04ae9e2c\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+165
+166        <receiver
+166-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+167            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+167-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+168            android:directBootAware="false"
+168-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+169            android:enabled="true"
+169-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+170            android:exported="true"
+170-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+171            android:permission="android.permission.DUMP" >
+171-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+172            <intent-filter>
+172-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+173                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+173-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+173-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+174            </intent-filter>
+175            <intent-filter>
+175-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+176                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+176-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+176-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+177            </intent-filter>
+178            <intent-filter>
+178-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+179                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+179-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+179-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+180            </intent-filter>
+181            <intent-filter>
+181-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+182                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+182-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+182-->[androidx.profileinstaller:profileinstaller:1.4.0] C:\Users\rigna\.gradle\caches\transforms-4\f9595a5d33080dc5d4949d6501409f38\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+183            </intent-filter>
+184        </receiver>
+185    </application>
+186
+187</manifest>

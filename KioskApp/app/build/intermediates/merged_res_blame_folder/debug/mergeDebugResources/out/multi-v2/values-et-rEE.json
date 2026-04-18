@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-46:/values-et-rEE/values-et-rEE.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\0f23299265e50c07ef189cd4592db8df\\transformed\\stripeterminal-taptopay-5.4.1\\res\\values-et-rEE\\values.xml",
+                    "from": {
+                        "startLines": "4,6,5,8,7,10,9,2,1,3,11,12",
+                        "startColumns": "1,1,1,1,1,1,1,1,1,1,1,1",
+                        "startOffsets": "112,178,145,244,211,310,277,46,13,79,343,384",
+                        "endColumns": "32,32,32,32,32,32,32,32,32,32,40,86",
+                        "endOffsets": "143,209,176,275,242,341,308,77,44,110,382,469"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,91,127,163,199,235,271,307,343,379,415,459",
+                        "endColumns": "35,35,35,35,35,35,35,35,35,35,43,89",
+                        "endOffsets": "86,122,158,194,230,266,302,338,374,410,454,544"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-36:/values-v24/values-v24.xml",
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-46:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\4b1ba4e2cef670310bf3e5b26607d020\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\618582c1d05a37bd7b2445f7bbca245e\\transformed\\material-1.13.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\1473c12105a18237d9ca7c7a984f23c1\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\ea034d66b33ce4b03337ec81179cbef6\\transformed\\appcompat-1.7.1\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

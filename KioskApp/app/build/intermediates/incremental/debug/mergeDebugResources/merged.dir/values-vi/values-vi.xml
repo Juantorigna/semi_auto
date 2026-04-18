@@ -31,10 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Chia sẻ với"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Chia sẻ với <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Thu gọn"</string>
+    <string name="backspace">Phím Backspace</string>
     <string name="bottomsheet_action_collapse">Thu gọn bảng dưới cùng</string>
     <string name="bottomsheet_action_expand">Mở rộng bảng dưới cùng</string>
     <string name="bottomsheet_action_expand_halfway">Mở rộng một nửa</string>
-    <string name="bottomsheet_drag_handle_clicked">Đã nhấn đúp nút kéo</string>
     <string name="bottomsheet_drag_handle_content_description">Nút kéo</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Trả lời"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
@@ -46,17 +46,68 @@
     <string name="character_counter_content_description">Đã nhập %1$d trong số %2$d ký tự</string>
     <string name="character_counter_overflowed_content_description">Đã vượt quá giới hạn ký tự %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Xóa văn bản</string>
+    <string name="common_google_play_services_unknown_issue">%1$s đang gặp sự cố với Dịch vụ Google Play. Hãy thử lại.</string>
+    <string name="content_description_backspace">Xóa chữ số cuối cùng</string>
+    <string name="content_description_cancel">Hủy</string>
+    <string name="content_description_enter">Nhập</string>
+    <string name="cots_arrow_down_description">Mũi tên hướng xuống chỉ vùng chạm</string>
+    <string name="cots_arrow_up_description">Mũi tên hướng lên chỉ vùng chạm</string>
+    <string name="cots_card_not_supported">Thẻ không được hỗ trợ</string>
+    <string name="cots_declined">Thẻ bị từ chối\nVui lòng sử dụng thẻ khác</string>
+    <string name="cots_emv_symbol_description">Biểu tượng thanh toán không chạm EMV</string>
+    <string name="cots_error_symbol_description">Biểu tượng thanh toán không chạm thất bại</string>
+    <string name="cots_irrecoverable_error">Có lỗi\nXin dùng thẻ khác</string>
+    <string name="cots_loading">Đang xử lý</string>
+    <string name="cots_pin_prompt">Nhập mã PIN</string>
+    <string name="cots_reader_not_active">Đầu đọc chưa hoạt động</string>
+    <string name="cots_reader_pin_required">Phải có mã PIN</string>
+    <string name="cots_reading">Giữ nguyên thẻ</string>
+    <string name="cots_recoverable_error">Có lỗi\nHãy thử lại</string>
+    <string name="cots_refund">Hoàn tiền</string>
+    <string name="cots_see_phone">Kiểm tra điện thoại và thử lại</string>
+    <string name="cots_simulate_tap">Nhấn vào đây để Tiến hành Thanh toán</string>
+    <string name="cots_success">Lấy thẻ ra</string>
+    <string name="cots_success_symbol_description">Biểu tượng có thanh toán không chạm</string>
+    <string name="cots_tap_above">Chạm vào phía trên thiết bị</string>
+    <string name="cots_tap_above_save">Chạm vào phía trên thiết bị</string>
+    <string name="cots_tap_above_verify">Chạm vào phía trên thiết bị</string>
+    <string name="cots_tap_behind">Chạm vào phía sau thiết bị</string>
+    <string name="cots_tap_behind_save">Chạm vào phía sau thiết bị</string>
+    <string name="cots_tap_behind_verify">Chạm vào phía sau thiết bị</string>
+    <string name="cots_tap_below">Chạm vào phía dưới thiết bị</string>
+    <string name="cots_tap_below_save">Chạm vào phía dưới thiết bị</string>
+    <string name="cots_tap_below_verify">Chạm vào phía dưới thiết bị</string>
+    <string name="cots_tap_here">Chạm tại đây</string>
+    <string name="cots_tap_here_save">Chạm tại đây</string>
+    <string name="cots_tap_here_verify">Chạm tại đây</string>
+    <string name="cots_total">Tổng</string>
     <string name="error_a11y_label">Lỗi: không hợp lệ</string>
     <string name="error_icon_content_description">Lỗi</string>
     <string name="exposed_dropdown_menu_content_description">Hiển thị menu thả xuống</string>
     <string name="icon_content_description">Biểu tượng hộp thoại</string>
     <string name="item_view_role_description">Thẻ</string>
+    <string name="key_0">0</string>
+    <string name="key_00">00</string>
+    <string name="key_1">1</string>
+    <string name="key_2">2</string>
+    <string name="key_3">3</string>
+    <string name="key_4">4</string>
+    <string name="key_5">5</string>
+    <string name="key_6">6</string>
+    <string name="key_7">7</string>
+    <string name="key_8">8</string>
+    <string name="key_9">9</string>
+    <string name="key_backspace">←</string>
+    <string name="m3_loading_indicator_content_description">Đang tải</string>
     <string name="material_clock_toggle_content_description">Chọn SA hoặc CH</string>
     <string name="material_hour_24h_suffix">%1$s giờ</string>
     <string name="material_hour_selection">Chọn giờ</string>
     <string name="material_hour_suffix">%1$s giờ</string>
     <string name="material_minute_selection">Chọn phút</string>
     <string name="material_minute_suffix">%1$s phút</string>
+    <string name="material_slider_range_end">Điểm kết thúc phạm vi</string>
+    <string name="material_slider_range_start">Điểm bắt đầu phạm vi</string>
+    <string name="material_slider_value">Giá trị</string>
     <string name="material_timepicker_am">SA</string>
     <string name="material_timepicker_clock_mode_description">Chuyển sang chế độ đồng hồ để nhập thời gian.</string>
     <string name="material_timepicker_hour">Giờ</string>
@@ -104,9 +155,11 @@
     <string name="mtrl_picker_text_input_year_abbr">y</string>
     <string name="mtrl_picker_today_description">Hôm nay %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">Chuyển sang chế độ nhập lịch</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Nhấn để chuyển sang chế độ xem theo lịch</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Chuyển sang chế độ xem theo Lịch</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Chuyển sang chế độ nhập văn bản</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Nhấn để chuyển sang chế độ xem theo năm</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Chuyển sang chế độ xem theo năm</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Đã chuyển sang chế độ xem Lịch</string>
+    <string name="mtrl_picker_toggled_to_year_selection">Đã chuyển sang chế độ xem năm</string>
     <string name="mtrl_timepicker_cancel">Huỷ</string>
     <string name="mtrl_timepicker_confirm">OK</string>
     <string name="password_toggle_content_description">Hiện mật khẩu</string>
@@ -114,5 +167,8 @@
     <string name="searchview_clear_text_content_description">Xoá văn bản</string>
     <string name="searchview_navigation_content_description">Quay lại</string>
     <string name="side_sheet_accessibility_pane_title">Trang bên</string>
+    <string name="signature_max_size_error">Kích thước chữ ký tối đa</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="stripe_ui_components_library_name">Thành phần giao diện người dùng</string>
+    <string name="submit">Gửi</string>
 </resources>

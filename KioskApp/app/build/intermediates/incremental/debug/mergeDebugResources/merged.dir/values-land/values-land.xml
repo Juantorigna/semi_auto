@@ -3,12 +3,13 @@
     <dimen name="abc_action_bar_default_height_material">48dp</dimen>
     <dimen name="abc_text_size_subtitle_material_toolbar">12dp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">14dp</dimen>
+    <dimen name="cots_default_tap_zone_vertical_position">.15</dimen>
+    <dimen name="cots_payment_amount_text_view_size">72sp</dimen>
+    <dimen name="cots_payment_prompt_text_view_size">24sp</dimen>
+    <dimen name="cots_setup_save_card_consent_text_size">16sp</dimen>
+    <dimen name="cots_tap_text_size">22sp</dimen>
     <dimen name="material_time_picker_minimum_screen_height">450dp</dimen>
     <dimen name="material_time_picker_minimum_screen_width">600dp</dimen>
-    <dimen name="mtrl_alert_dialog_background_inset_bottom">24dp</dimen>
-    <dimen name="mtrl_alert_dialog_background_inset_end">24dp</dimen>
-    <dimen name="mtrl_alert_dialog_background_inset_start">24dp</dimen>
-    <dimen name="mtrl_alert_dialog_background_inset_top">24dp</dimen>
     <dimen name="mtrl_calendar_days_of_week_height">20dp</dimen>
     <dimen name="mtrl_calendar_header_content_padding">4dp</dimen>
     <dimen name="mtrl_calendar_header_height_fullscreen">96dp</dimen>
@@ -21,8 +22,22 @@
     <dimen name="mtrl_calendar_text_input_padding_top">32dp</dimen>
     <dimen name="mtrl_calendar_title_baseline_to_top">24dp</dimen>
     <dimen name="mtrl_calendar_title_baseline_to_top_fullscreen">32dp</dimen>
+    <dimen name="stripe_key_pad_corner_radius">20dp</dimen>
+    <dimen name="stripe_key_pad_margin_horizontal">0dp</dimen>
+    <item format="float" name="stripe_key_pad_width_percent" type="dimen">0.323</item>
+    <dimen name="stripe_number_pad_height">270dp</dimen>
     <integer name="mtrl_calendar_header_orientation">0</integer>
     <integer name="mtrl_calendar_selection_text_lines">6</integer>
+    <style name="SelectionButtonWidth">
+		<item name="android:layout_width">640dp</item>
+	</style>
+    <style name="Stripe.UiComponents.TextAppearance.Header.XXXLarge" parent="TextAppearance.AppCompat">
+		<item name="fontFamily">@font/inter_semi_bold</item>
+		<item name="android:fontFamily">@font/inter_semi_bold</item>
+		<item name="android:textSize">48sp</item>
+		<item name="android:lineSpacingExtra">-2sp</item>
+		<item name="android:letterSpacing">-0.02</item>
+	</style>
     <style name="Widget.Design.TabLayout" parent="Base.Widget.Design.TabLayout">
     <item name="tabGravity">center</item>
     <item name="tabMode">fixed</item>

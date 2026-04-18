@@ -31,10 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"শেয়ার করুন"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-এর সাথে শেয়ার করুন"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"সঙ্কুচিত করুন"</string>
+    <string name="backspace">ব্যাকস্পেস</string>
     <string name="bottomsheet_action_collapse">স্ক্রিনের নিচে অ্যাটাচ করা শিট আড়াল করুন</string>
     <string name="bottomsheet_action_expand">স্ক্রিনের নিচে অ্যাটাচ করা শিট বড় করুন</string>
     <string name="bottomsheet_action_expand_halfway">অর্ধেক প্রসারিত করুন</string>
-    <string name="bottomsheet_drag_handle_clicked">টেনে আনার হ্যান্ডেলে ডবল ট্যাপ করা হয়েছে</string>
     <string name="bottomsheet_drag_handle_content_description">টেনে আনার হ্যান্ডেল</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"উত্তর দিন"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ভিডিও"</string>
@@ -46,17 +46,72 @@
     <string name="character_counter_content_description">%2$dটির মধ্যে %1$dটি অক্ষর লেখা হয়েছে</string>
     <string name="character_counter_overflowed_content_description">অক্ষরের সীমা %1$d এর %2$d অতিক্রম করেছে</string>
     <string name="clear_text_end_icon_content_description">টেক্সট মুছুন</string>
+    <string name="common_google_play_services_unknown_issue">Google Play পরিষেবাগুলির সাথে %1$s এর সমস্যা হচ্ছে৷ অনুগ্রহ করে আবার চেষ্টা করুন৷</string>
+    <string name="content_description_backspace">শেষ সংখ্যাটি মুছুন</string>
+    <string name="content_description_cancel">বাতিল করুন</string>
+    <string name="content_description_enter">লিখুন</string>
+    <string name="cots_arrow_down_description">নিম্নমুখী তীরচিহ্ন ট্যাপ করার অঞ্চলটি নির্দেশ করে</string>
+    <string name="cots_arrow_left_description">ট্যাপ জোন নির্দেশ করে বাম দিকে তীর</string>
+    <string name="cots_arrow_right_description">ট্যাপ জোন নির্দেশ করে ডানদিকে তীর</string>
+    <string name="cots_arrow_up_description">ঊর্ধমুখী তীরচিহ্ন ট্যাপ করার অঞ্চলটি নির্দেশ করে</string>
+    <string name="cots_card_blocked">কার্ড ব্লক করা হয়েছে</string>
+    <string name="cots_card_not_supported">কার্ড সমর্থিত নয়</string>
+    <string name="cots_declined">কার্ড প্রত্যাখ্যান করা হয়েছে\nঅনুগ্রহ করে অন্য একটি কার্ড ব্যবহার করুন</string>
+    <string name="cots_different_card_used">ভিন্ন কার্ড ব্যবহার করা হয়েছে</string>
+    <string name="cots_emv_symbol_description">EMV কন্ট্যাক্টলেস চিহ্ন</string>
+    <string name="cots_error_symbol_description">ব্যর্থতা কন্ট্যাক্টলেস চিহ্ন</string>
+    <string name="cots_irrecoverable_error">ত্রুটি\nআরেকটি কার্ড ব্যবহার করুন</string>
+    <string name="cots_loading">প্রক্রিয়াকরণ করা হচ্ছে</string>
+    <string name="cots_lpm_confirmed">করা হয়েছে</string>
+    <string name="cots_lpm_declined">প্রত্যাখ্যান করা হয়েছে</string>
+    <string name="cots_non_card_method_selected">অনুগ্রহ করে অপেক্ষা করুন</string>
+    <string name="cots_pin_prompt">PIN লিখুন</string>
+    <string name="cots_reader_not_active">রিডার সক্রিয় নয়</string>
+    <string name="cots_reader_pin_required">PIN প্রয়োজন</string>
+    <string name="cots_reading">কার্ড ধরে রাখুন</string>
+    <string name="cots_recoverable_error">ত্রুটি\nআবার চেষ্টা করুন</string>
+    <string name="cots_refund">রিফান্ড</string>
+    <string name="cots_save_card_description">আপনার কার্ড ট্যাপ করে, আপনি ভবিষ্যতের প্রদানগুলির জন্য %1$s-এ প্রদানের বিশদ সংরক্ষণ করছেন।</string>
+    <string name="cots_save_card_description_no_merchant_name_provided">আপনার কার্ড ট্যাপ করে, আপনি ভবিষ্যতের প্রদানগুলির জন্য প্রদানের বিশদ সংরক্ষণ করছেন।</string>
+    <string name="cots_see_phone">ফোন চেক করুন এবং আবার চেষ্টা করুন</string>
+    <string name="cots_simulate_tap">পেমেন্ট সিমুলেট করতে এখানে চাপুন</string>
+    <string name="cots_success">কার্ড বের করে নিন</string>
+    <string name="cots_success_symbol_description">চেকমার্ক কন্ট্যাক্টলেস চিহ্ন</string>
+    <string name="cots_tap_above">ডিভাইসের উপরে ট্যাপ করুন</string>
+    <string name="cots_tap_above_save">ডিভাইসের উপরে ট্যাপ করুন</string>
+    <string name="cots_tap_above_verify">ডিভাইসের উপরে ট্যাপ করুন</string>
+    <string name="cots_tap_behind">ডিভাইসের পিছনে ট্যাপ করুন</string>
+    <string name="cots_tap_behind_save">ডিভাইসের পিছনে ট্যাপ করুন</string>
+    <string name="cots_tap_behind_verify">ডিভাইসের পিছনে ট্যাপ করুন</string>
+    <string name="cots_tap_below">ডিভাইসের নীচে ট্যাপ করুন</string>
+    <string name="cots_tap_below_save">ডিভাইসের নীচে ট্যাপ করুন</string>
+    <string name="cots_tap_below_verify">ডিভাইসের নীচে ট্যাপ করুন</string>
+    <string name="cots_tap_here">এখানে ট্যাপ করুন</string>
+    <string name="cots_tap_here_save">এখানে ট্যাপ করুন</string>
+    <string name="cots_tap_here_verify">এখানে ট্যাপ করুন</string>
+    <string name="cots_tap_left">ডিভাইসের বাম দিকে ট্যাপ করুন</string>
+    <string name="cots_tap_left_save">ডিভাইসের বাম দিকে ট্যাপ করুন</string>
+    <string name="cots_tap_left_verify">ডিভাইসের বাম দিকে ট্যাপ করুন</string>
+    <string name="cots_tap_right">ডিভাইসের ডানদিকে ট্যাপ করুন</string>
+    <string name="cots_tap_right_save">ডিভাইসের ডানদিকে ট্যাপ করুন</string>
+    <string name="cots_tap_right_verify">ডিভাইসের ডানদিকে ট্যাপ করুন</string>
+    <string name="cots_total">মোট</string>
     <string name="error_a11y_label">সমস্যা: সঠিক নয়</string>
     <string name="error_icon_content_description">সমস্যা</string>
     <string name="exposed_dropdown_menu_content_description">ড্রপ-ডাউন মেনু দেখুন</string>
     <string name="icon_content_description">ডায়ালগ আইকন</string>
     <string name="item_view_role_description">ট্যাব</string>
+    <string name="key_00">00</string>
+    <string name="m3_loading_indicator_content_description">লোড করা হচ্ছে</string>
     <string name="material_clock_toggle_content_description">AM অথবা PM বেছে নিন</string>
     <string name="material_hour_24h_suffix">%1$s ঘণ্টা</string>
     <string name="material_hour_selection">ঘণ্টা বেছে নিন</string>
     <string name="material_hour_suffix">%1$sটা বাজে</string>
     <string name="material_minute_selection">মিনিট বেছে নিন</string>
     <string name="material_minute_suffix">%1$s মিনিট</string>
+    <string name="material_slider_range_end">রেঞ্জ শেষ</string>
+    <string name="material_slider_range_start">রেঞ্জ শুরু</string>
+    <string name="material_slider_value">মান</string>
     <string name="material_timepicker_am">AM</string>
     <string name="material_timepicker_clock_mode_description">সময় ইনপুট দেওয়ার জন্য ঘড়ি মোডে যান।</string>
     <string name="material_timepicker_hour">ঘণ্টা</string>
@@ -64,6 +119,32 @@
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">সময় বেছে নিন</string>
     <string name="material_timepicker_text_input_mode_description">সময় ইনপুট দেওয়ার জন্য পাঠ্য ইনপুট মোডে যান।</string>
+    <string name="message_back_to_payment_method_selection">পেমেন্ট পদ্ধতি নির্বাচনে ফিরে যান</string>
+    <string name="message_cancel_transaction">লেনদেন বাতিল করুন</string>
+    <string name="message_choice">পছন্দ</string>
+    <string name="message_choose_an_option">একটি বিকল্প চয়ন করুন</string>
+    <string name="message_disclosure_extended_auth">প্রদর্শিত হারটি একটি অনুমান; লেনদেন প্রক্রিয়াকরণের সময় প্রকৃত হার নির্ধারণ করা হবে।</string>
+    <string name="message_disclosure_incremental_auth">এই পরিষেবাটি লেনদেনে করা যে কোনও সম্মত সমন্বয়ের ক্ষেত্রেও প্রযোজ্য।</string>
+    <string name="message_disclosure_incremental_extended_auth">প্রদর্শিত হারটি একটি অনুমান; লেনদেন প্রক্রিয়াকরণের সময় প্রকৃত হার নির্ধারণ করা হবে এবং লেনদেনে করা যে কোনও সমন্বয়ের ক্ষেত্রেও প্রযোজ্য হবে।</string>
+    <string name="message_disclosure_setup_future_usage">যে কোনও রূপান্তর শুধুমাত্র এই লেনদেনের ক্ষেত্রে প্রযোজ্য।</string>
+    <string name="message_disclosure_setup_future_usage_incremental_extended_auth">প্রদর্শিত হারটি একটি অনুমান; লেনদেন প্রক্রিয়াকরণের সময় প্রকৃত হার নির্ধারণ করা হবে এবং লেনদেনে করা যে কোনও সমন্বয়ের ক্ষেত্রেও প্রযোজ্য হবে।</string>
+    <string name="message_exchange_rate">1 %1$s = %2$s %3$s</string>
+    <string name="message_mark_up_eu_label">বর্তমান ECB বিনিময় হারের চেয়ে %1$s%% মার্কআপ অন্তর্ভুক্ত</string>
+    <string name="message_mark_up_non_eu_label">পাইকারি বিনিময় হারের চেয়ে %1$s%% মার্কআপ অন্তর্ভুক্ত</string>
+    <string name="message_more_ways_to_pay">পেমেন্ট করার আরও উপায়</string>
+    <string name="message_other">অন্যান্য</string>
+    <string name="message_pay_with">%1$s-এর সাহায্যে প্রদান করুন</string>
+    <string name="message_pay_with_header">এর সাথে পেমেন্ট করুন</string>
+    <string name="message_payment_approved_with">%1$s প্রদান</string>
+    <string name="message_payment_method_logo_content_description">পেমেন্ট পদ্ধতি আইকন</string>
+    <string name="message_payment_method_qr_code_content_description">QR কোড</string>
+    <string name="message_please_select_currency">একটি মুদ্রা নির্বাচন করুন</string>
+    <string name="message_presentment_edit_tip_button">টিপ সম্পাদনা করুন</string>
+    <string name="message_previously_approved_with">%1$s ব্যবহার করে পূর্বে অনুমোদিত</string>
+    <string name="message_recommended">প্রস্তাবিত</string>
+    <string name="message_restart_transaction">লেনদেন পুনরায় চালু করুন</string>
+    <string name="message_return_to_collect_payment_screen">প্রদানের স্ক্রিন সংগ্রহ করতে ফিরে যান</string>
+    <string name="message_scan_to_pay">পে করতে স্ক্যান করুন</string>
     <string name="mtrl_badge_numberless_content_description">নতুন বিজ্ঞপ্তি</string>
     <string name="mtrl_checkbox_state_description_checked">টিক চিহ্ন দেওয়া হয়েছে</string>
     <string name="mtrl_checkbox_state_description_indeterminate">আংশিকভাবে টিক চিহ্ন দেওয়া হয়েছে</string>
@@ -72,7 +153,7 @@
     <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$dটির বেশি নতুন বিজ্ঞপ্তি</string>
     <string name="mtrl_picker_a11y_next_month">আগামী মাসে যান</string>
     <string name="mtrl_picker_a11y_prev_month">আগের মাসে যান</string>
-    <string name="mtrl_picker_announce_current_range_selection">চালু হওয়ার তারিখ বাছুন: %1$s – শেষ হওয়ার তারিখ বাছুন: %2$s</string>
+    <string name="mtrl_picker_announce_current_range_selection">শুরুর তারিখ বাছুন: %1$s – সমাপ্তির তারিখ বাছুন: %2$s</string>
     <string name="mtrl_picker_announce_current_selection">বর্তমান বাছাই: %1$s</string>
     <string name="mtrl_picker_announce_current_selection_none">কোনওটিই নয়</string>
     <string name="mtrl_picker_cancel">বাতিল করুন</string>
@@ -104,15 +185,20 @@
     <string name="mtrl_picker_text_input_year_abbr">y</string>
     <string name="mtrl_picker_today_description">আজ %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">ক্যালেন্ডার ইনপুট মোডে বদল করুন</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Calendar ভিউতে পাল্টাতে ট্যাপ করুন</string>
+    <string name="mtrl_picker_toggle_to_day_selection">ক্যালেন্ডার ভিউতে পাল্টান</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">টেক্সট ইনপুট মোডে বদল করুন</string>
-    <string name="mtrl_picker_toggle_to_year_selection">বার্ষিক ভিউতে পাল্টাতে ট্যাপ করুন</string>
+    <string name="mtrl_picker_toggle_to_year_selection">বছরের ভিউতে পাল্টান</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Calendar ভিউতে পাল্টানো হয়েছে</string>
+    <string name="mtrl_picker_toggled_to_year_selection">বছরের ভিউতে পাল্টানো হয়েছে</string>
     <string name="mtrl_timepicker_cancel">বাতিল করুন</string>
     <string name="mtrl_timepicker_confirm">ঠিক আছে</string>
     <string name="password_toggle_content_description">পাসওয়ার্ড দেখান</string>
     <string msgid="6264217191555673260" name="search_menu_title">"সার্চ করুন"</string>
     <string name="searchview_clear_text_content_description">টেক্সট মুছুন</string>
     <string name="searchview_navigation_content_description">ফিরে যান</string>
+    <string name="selection_option">%1s</string>
     <string name="side_sheet_accessibility_pane_title">সাইড শিট</string>
+    <string name="signature_max_size_error">স্বাক্ষরের সর্বাধিক আকার</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"৯৯৯+"</string>
+    <string name="submit">জমা করুন</string>
 </resources>

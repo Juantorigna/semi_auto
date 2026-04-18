@@ -112,7 +112,7 @@ object TerminalManager {
             Log.d(TAG, "Discovery already in progress — skipping")
             return
         }
-        discoverInternet()
+        discoverBluetooth()
     }
 
     private fun discoverInternet() {
@@ -176,20 +176,14 @@ object TerminalManager {
 
     // ── Bluetooth (WisePad 3) — NOT ACTIVE for this kiosk ────────────────────
 
-    @Suppress("unused")
     private fun discoverBluetooth() {
-        if (!hasBluetoothPermission()) {
-            Log.w(TAG, "BLE permission not granted")
-            updateStatus("permission_denied")
-            return
-        }
 
         discoveryInProgress = true
         updateStatus("discovering")
 
         val config = DiscoveryConfiguration.BluetoothDiscoveryConfiguration(
             timeout = 60,
-            isSimulated = false
+            isSimulated = true
         )
 
         try {

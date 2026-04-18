@@ -31,10 +31,10 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Partekatu honekin"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Partekatu <ns1:g id="APPLICATION_NAME">%s</ns1:g> aplikazioarekin"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Tolestu"</string>
+    <string name="backspace">Atzera tekla</string>
     <string name="bottomsheet_action_collapse">Tolestu pantailaren behealdean ainguratutako orria</string>
     <string name="bottomsheet_action_expand">Zabaldu pantailaren behealdean ainguratutako orria</string>
     <string name="bottomsheet_action_expand_halfway">Zabaldu erdiraino</string>
-    <string name="bottomsheet_drag_handle_clicked">Birritan sakatu da arrastatzeko kontrol-puntua</string>
     <string name="bottomsheet_drag_handle_content_description">Arrastatzeko kontrol-puntua</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Erantzun"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Bideoa"</string>
@@ -46,17 +46,72 @@
     <string name="character_counter_content_description">%1$d/%2$d karaktere idatzi dira</string>
     <string name="character_counter_overflowed_content_description">Karaktere-muga gainditu da: %1$d/%2$d</string>
     <string name="clear_text_end_icon_content_description">Garbitu testua</string>
+    <string name="common_google_play_services_unknown_issue">%1$s aplikazioak arazoak ditu Google Play Services-ekin. Saiatu berriro.</string>
+    <string name="content_description_backspace">Garbitu azken digitua</string>
+    <string name="content_description_cancel">Utzi</string>
+    <string name="content_description_enter">Sartu</string>
+    <string name="cots_arrow_down_description">Beheranzko geziak ukitzeko eremua adierazten du</string>
+    <string name="cots_arrow_left_description">Ezkerreko gezia, ukipen-gunea adierazten duena</string>
+    <string name="cots_arrow_right_description">Eskuineko gezia, ukipen-eremua adierazten duena</string>
+    <string name="cots_arrow_up_description">Goranzko geziak ukitzeko eremua adierazten du</string>
+    <string name="cots_card_blocked">Txartela blokeatu da</string>
+    <string name="cots_card_not_supported">Ez da txartela onartzen</string>
+    <string name="cots_declined">Ukatu da txartela\nErabili beste txartel bat</string>
+    <string name="cots_different_card_used">Txartel desberdina erabili da</string>
+    <string name="cots_emv_symbol_description">Contactless-aren EMV sinboloa</string>
+    <string name="cots_error_symbol_description">Contactless-aren errorearen sinboloa</string>
+    <string name="cots_irrecoverable_error">Errorea\nErabili beste txartel bat</string>
+    <string name="cots_loading">Prozesatzen</string>
+    <string name="cots_lpm_confirmed">Egina</string>
+    <string name="cots_lpm_declined">Baztertuta</string>
+    <string name="cots_non_card_method_selected">Itxaron</string>
+    <string name="cots_pin_prompt">Idatzi PINa</string>
+    <string name="cots_reader_not_active">Irakurlea ez dago aktibo</string>
+    <string name="cots_reader_pin_required">PINa beharrezkoa da</string>
+    <string name="cots_reading">Eutsi txartela</string>
+    <string name="cots_recoverable_error">Errorea\nSaiatu berriro</string>
+    <string name="cots_refund">Diru-itzultzea</string>
+    <string name="cots_save_card_description">Txartelarekin ukitzean, ordainketa-datuak %1$s plataforman gordeko dira etorkizuneko ordainketetarako.</string>
+    <string name="cots_save_card_description_no_merchant_name_provided">Txartelarekin ukitzean, ordainketa-datuak gordeko dira etorkizuneko ordainketetarako.</string>
+    <string name="cots_see_phone">Egiaztatu telefonoa eta saiatu berriro</string>
+    <string name="cots_simulate_tap">Sakatu hemen ordainketa simulatzeko</string>
+    <string name="cots_success">Kendu txartela</string>
+    <string name="cots_success_symbol_description">Contactless-aren egiaztapen-marka</string>
+    <string name="cots_tap_above">Ukitu gailuaren goialdean</string>
+    <string name="cots_tap_above_save">Ukitu gailuaren goialdean</string>
+    <string name="cots_tap_above_verify">Ukitu gailuaren goialdean</string>
+    <string name="cots_tap_behind">Ukitu gailuaren atzean</string>
+    <string name="cots_tap_behind_save">Ukitu gailuaren atzean</string>
+    <string name="cots_tap_behind_verify">Ukitu gailuaren atzean</string>
+    <string name="cots_tap_below">Ukitu gailuaren behealdean</string>
+    <string name="cots_tap_below_save">Ukitu gailuaren behealdean</string>
+    <string name="cots_tap_below_verify">Ukitu gailuaren behealdean</string>
+    <string name="cots_tap_here">Ukitu hemen</string>
+    <string name="cots_tap_here_save">Ukitu hemen</string>
+    <string name="cots_tap_here_verify">Ukitu hemen</string>
+    <string name="cots_tap_left">Sakatu gailuaren ezkerraldean</string>
+    <string name="cots_tap_left_save">Sakatu gailuaren ezkerraldean</string>
+    <string name="cots_tap_left_verify">Sakatu gailuaren ezkerraldean</string>
+    <string name="cots_tap_right">Sakatu gailuaren eskuinaldean</string>
+    <string name="cots_tap_right_save">Sakatu gailuaren eskuinaldean</string>
+    <string name="cots_tap_right_verify">Sakatu gailuaren eskuinaldean</string>
+    <string name="cots_total">Guztira</string>
     <string name="error_a11y_label">Errorea: ez du balio</string>
     <string name="error_icon_content_description">Errorea</string>
     <string name="exposed_dropdown_menu_content_description">Erakutsi goitibeherako menua</string>
     <string name="icon_content_description">Leihoko ikonoa</string>
     <string name="item_view_role_description">Fitxa</string>
+    <string name="key_00">00</string>
+    <string name="m3_loading_indicator_content_description">Kargatzen</string>
     <string name="material_clock_toggle_content_description">Hautatu AM edo PM</string>
     <string name="material_hour_24h_suffix">%1$s ordu</string>
     <string name="material_hour_selection">Hautatu ordua</string>
     <string name="material_hour_suffix">%1$s(r)ak dira</string>
     <string name="material_minute_selection">Hautatu minutuak</string>
     <string name="material_minute_suffix">%1$s minutu</string>
+    <string name="material_slider_range_end">Barrutiaren amaiera</string>
+    <string name="material_slider_range_start">Barrutiaren hasiera</string>
+    <string name="material_slider_value">Balioa</string>
     <string name="material_timepicker_am">AM</string>
     <string name="material_timepicker_clock_mode_description">Aldatu erloju modura ordua zehazteko.</string>
     <string name="material_timepicker_hour">Ordua</string>
@@ -64,6 +119,32 @@
     <string name="material_timepicker_pm">PM</string>
     <string name="material_timepicker_select_time">Hautatu ordua</string>
     <string name="material_timepicker_text_input_mode_description">Ordua idazteko, aldatu testua idazteko metodora.</string>
+    <string name="message_back_to_payment_method_selection">Itzuli ordainketa metodoaren hautapenera</string>
+    <string name="message_cancel_transaction">Bertan behera utzi transakzioa</string>
+    <string name="message_choice">Aukera</string>
+    <string name="message_choose_an_option">Hautatu aukera bat</string>
+    <string name="message_disclosure_extended_auth">Erakusten den tasa estimazio bat da; benetako tasa transakzioa prozesatzen den unean zehaztuko da.</string>
+    <string name="message_disclosure_incremental_auth">Zerbitzu hau transakzioari egindako hitzartutako doikuntzei ere aplikatuko zaie.</string>
+    <string name="message_disclosure_incremental_extended_auth">Erakusten den tasa estimazio bat da; benetako tasa transakzioa prozesatzen den unean zehaztuko da, eta transakzioari egindako edozein doikuntzari ere aplikatuko zaio.</string>
+    <string name="message_disclosure_setup_future_usage">Edozein bihurketa transakzio honi soilik aplikatuko zaio.</string>
+    <string name="message_disclosure_setup_future_usage_incremental_extended_auth">Erakusten den tasa estimazio bat da; benetako tasa transakzioa prozesatzen den unean zehaztuko da, eta transakzioari egindako edozein doikuntzari ere aplikatuko zaio.</string>
+    <string name="message_exchange_rate">1 %1$s = %2$s %3$s</string>
+    <string name="message_mark_up_eu_label">EBZren uneko kanbio-tasaren gaineko %1$s%%-(e)ko gainkargua ere barne hartzen du</string>
+    <string name="message_mark_up_non_eu_label">Handizkako kanbio-tasaren gaineko %1$s%%-ko gainkargua barne hartzen du</string>
+    <string name="message_more_ways_to_pay">Ordaintzeko modu gehiago</string>
+    <string name="message_other">Beste batzuk</string>
+    <string name="message_pay_with">Ordaindu honekin: %1$s</string>
+    <string name="message_pay_with_header">Ordaindu honekin</string>
+    <string name="message_payment_approved_with">%1$s ordainketa</string>
+    <string name="message_payment_method_logo_content_description">Ordainketa metodoaren ikonoa</string>
+    <string name="message_payment_method_qr_code_content_description">QR kodea</string>
+    <string name="message_please_select_currency">Hautatu dibisa</string>
+    <string name="message_presentment_edit_tip_button">Editatu eskupekoa</string>
+    <string name="message_previously_approved_with">Aurretik onartua %1$s erabiliz</string>
+    <string name="message_recommended">Gomendatua</string>
+    <string name="message_restart_transaction">Berrabiarazi transakzioa</string>
+    <string name="message_return_to_collect_payment_screen">Itzuli ordainketa kobratzeko pantailara</string>
+    <string name="message_scan_to_pay">Eskaneatu ordaintzeko</string>
     <string name="mtrl_badge_numberless_content_description">Jakinarazpen berria</string>
     <string name="mtrl_checkbox_state_description_checked">Markatuta</string>
     <string name="mtrl_checkbox_state_description_indeterminate">Erdi-markatuta</string>
@@ -72,7 +153,7 @@
     <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$d jakinarazpen berri baino gehiago</string>
     <string name="mtrl_picker_a11y_next_month">Aldatu hurrengo hilabetera</string>
     <string name="mtrl_picker_a11y_prev_month">Aldatu aurreko hilabetera</string>
-    <string name="mtrl_picker_announce_current_range_selection">Hasiera-dataren hautapena: %1$s, amaiera-dataren hautapena: %2$s</string>
+    <string name="mtrl_picker_announce_current_range_selection">Hasiera-dataren hautapena: %1$s – Amaiera-dataren hautapena: %2$s</string>
     <string name="mtrl_picker_announce_current_selection">Oraingo hautapena: %1$s</string>
     <string name="mtrl_picker_announce_current_selection_none">bat ere ez</string>
     <string name="mtrl_picker_cancel">Utzi</string>
@@ -93,7 +174,7 @@
     <string name="mtrl_picker_range_header_only_start_selected">%1$s – Amaiera-data</string>
     <string name="mtrl_picker_range_header_selected">%1$s-%2$s</string>
     <string name="mtrl_picker_range_header_title">Hautatu barrutia</string>
-    <string name="mtrl_picker_range_header_unselected">Hasiera-data - Amaiera-data</string>
+    <string name="mtrl_picker_range_header_unselected">Hasiera-data – Amaiera-data</string>
     <string name="mtrl_picker_save">Gorde</string>
     <string name="mtrl_picker_start_date_description">Hasiera-data: %1$s</string>
     <string name="mtrl_picker_text_input_date_hint">Data</string>
@@ -104,15 +185,20 @@
     <string name="mtrl_picker_text_input_year_abbr">u</string>
     <string name="mtrl_picker_today_description">Gaur %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">Aldatu egutegiaren idazketa-metodora</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Calendar-en ikuspegira aldatzeko, sakatu hau</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Aldatu Calendar-en ikuspegira</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Aldatu testua idazteko modura</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Urteko ikuspegira aldatzeko, sakatu hau</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Aldatu urtearen ikuspegira</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Aldatu da egutegiaren ikuspegira</string>
+    <string name="mtrl_picker_toggled_to_year_selection">Aldatu da urtearen ikuspegira</string>
     <string name="mtrl_timepicker_cancel">Utzi</string>
     <string name="mtrl_timepicker_confirm">Ados</string>
     <string name="password_toggle_content_description">Erakutsi pasahitza</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Bilatu"</string>
     <string name="searchview_clear_text_content_description">Garbitu testua</string>
     <string name="searchview_navigation_content_description">Atzera</string>
+    <string name="selection_option">%1s</string>
     <string name="side_sheet_accessibility_pane_title">Alboko orria</string>
+    <string name="signature_max_size_error">Sinaduraren gehienezko tamaina</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="submit">Bidali</string>
 </resources>

@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-46:/values-w786dp-land-xhdpi-v13/values-w786dp-land-xhdpi-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\0f23299265e50c07ef189cd4592db8df\\transformed\\stripeterminal-taptopay-5.4.1\\res\\values-w786dp-land-xhdpi-v13\\values.xml",
+                    "from": {
+                        "startLines": "11,10,2,9,1,6,3",
+                        "startColumns": "1,1,1,1,1,1,1",
+                        "startOffsets": "422,371,66,320,13,214,118",
+                        "endLines": "11,10,2,9,1,8,5",
+                        "endColumns": "44,50,51,50,52,12,12",
+                        "endOffsets": "465,420,116,369,64,318,212"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,10",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,103,157,212,266,322,431",
+                        "endLines": "2,3,4,5,6,9,12",
+                        "endColumns": "47,53,54,53,55,12,12",
+                        "endOffsets": "98,152,207,261,317,426,525"
+                    }
+                }
+            ]
+        }
+    ]
+}

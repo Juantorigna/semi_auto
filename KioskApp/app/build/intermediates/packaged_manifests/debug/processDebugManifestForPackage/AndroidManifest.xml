@@ -26,6 +26,22 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.accessory"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.usb.host"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
+        android:name="android.permission.HIDE_OVERLAY_WINDOWS"
+        android:minSdkVersion="31" />
+
     <permission
         android:name="com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
@@ -40,6 +56,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:debuggable="true"
         android:extractNativeLibs="false"
+        android:gwpAsanMode="always"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -63,7 +80,48 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="lf1590ac64bf1495847993c7f.l458345c05cc44bc4623c5662"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:process=":stripetaptopay"
+            android:screenOrientation="locked"
+            android:theme="@style/NoDisplayCutout" />
+        <activity
+            android:name="com.stripe.cots.activity.ContactlessPaymentActivity"
+            android:exported="false"
+            android:process=":stripetaptopay"
+            android:theme="@style/Theme.CotsApp" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.stripe.cots.simulator.SimulatedContactlessPaymentActivity"
+            android:exported="false"
+            android:process=":stripetaptopay"
+            android:theme="@style/Theme.CotsApp" />
+
+        <service
+            android:name="com.stripe.cots.aidlservice.CotsService"
+            android:exported="false"
+            android:process=":stripetaptopay" />
+        <service
+            android:name="com.stripe.cots.aidlservice.SimulatedCotsService"
+            android:exported="false"
+            android:process=":stripetaptopay" />
+
+        <provider
+            android:name="com.stripe.cots.content.CotsContentProvider"
+            android:authorities="com.campsite.kiosk.debug.stripetaptopay"
+            android:exported="false"
+            android:process=":stripetaptopay" />
+        <provider
+            android:name="com.stripe.cots.lpmuiplatform.PaymentMethodSpecsContentProvider"
+            android:authorities="com.campsite.kiosk.debug.lpmuiplatform.paymentmethodspecsprovider"
+            android:exported="false"
+            android:permission="com.stripe.updater.permission.PAYMENT_METHOD_SPECS_PROVIDER" />
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.campsite.kiosk.debug.androidx-startup"
@@ -78,6 +136,10 @@
                 android:name="androidx.profileinstaller.ProfileInstallerInitializer"
                 android:value="androidx.startup" />
         </provider>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name="com.stripe.stripeterminal.internal.common.usb.UsbEventReceiverActivity"

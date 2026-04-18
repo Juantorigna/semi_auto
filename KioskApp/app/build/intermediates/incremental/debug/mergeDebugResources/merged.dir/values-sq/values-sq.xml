@@ -34,7 +34,6 @@
     <string name="bottomsheet_action_collapse">Palos fletën e poshtme</string>
     <string name="bottomsheet_action_expand">Zgjero fletën e poshtme</string>
     <string name="bottomsheet_action_expand_halfway">Zgjeroje deri në gjysmë</string>
-    <string name="bottomsheet_drag_handle_clicked">Te doreza e zvarritjes u trokit dy herë</string>
     <string name="bottomsheet_drag_handle_content_description">Doreza e zvarritjes</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Përgjigju"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Video"</string>
@@ -46,17 +45,22 @@
     <string name="character_counter_content_description">Karakteret e futura: %1$d nga %2$d</string>
     <string name="character_counter_overflowed_content_description">Kufiri i karaktereve është kaluar: %1$d nga %2$d</string>
     <string name="clear_text_end_icon_content_description">Pastro tekstin</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ka probleme me shërbimet e Google Play. Provo sërish.</string>
     <string name="error_a11y_label">Gabim: E pavlefshme</string>
     <string name="error_icon_content_description">Gabim</string>
     <string name="exposed_dropdown_menu_content_description">Shfaq menynë me lëshim poshtë</string>
     <string name="icon_content_description">Ikona e dialogut</string>
     <string name="item_view_role_description">Tab</string>
+    <string name="m3_loading_indicator_content_description">Po ngarkohet</string>
     <string name="material_clock_toggle_content_description">Zgjidh paradite ose pasdite</string>
     <string name="material_hour_24h_suffix">%1$s orë</string>
     <string name="material_hour_selection">Zgjidh orën</string>
     <string name="material_hour_suffix">%1$s fiks</string>
     <string name="material_minute_selection">Përzgjidh minutat</string>
     <string name="material_minute_suffix">%1$s minuta</string>
+    <string name="material_slider_range_end">Fundi i diapazonit</string>
+    <string name="material_slider_range_start">Fillimi i diapazonit</string>
+    <string name="material_slider_value">Vlera</string>
     <string name="material_timepicker_am">PD</string>
     <string name="material_timepicker_clock_mode_description">Kalo te modaliteti i orës për hyrjen e kohës.</string>
     <string name="material_timepicker_hour">Ora</string>
@@ -90,10 +94,10 @@
     <string name="mtrl_picker_navigate_to_year_description">Navigo te viti %1$d</string>
     <string name="mtrl_picker_out_of_range">Jashtë gamës: %1$s</string>
     <string name="mtrl_picker_range_header_only_end_selected">Data e fillimit – %1$s</string>
-    <string name="mtrl_picker_range_header_only_start_selected">%1$s – data e përfundimit</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – Data e përfundimit</string>
     <string name="mtrl_picker_range_header_selected">%1$s - %2$s</string>
     <string name="mtrl_picker_range_header_title">Zgjidh gamën</string>
-    <string name="mtrl_picker_range_header_unselected">Data e fillimit - data e përfundimit</string>
+    <string name="mtrl_picker_range_header_unselected">Data e fillimit - Data e përfundimit</string>
     <string name="mtrl_picker_save">Ruaj</string>
     <string name="mtrl_picker_start_date_description">Data e fillimit: %1$s</string>
     <string name="mtrl_picker_text_input_date_hint">Data</string>
@@ -104,9 +108,11 @@
     <string name="mtrl_picker_text_input_year_abbr">v</string>
     <string name="mtrl_picker_today_description">Sot %1$s</string>
     <string name="mtrl_picker_toggle_to_calendar_input_mode">Kalo te modaliteti i \"Hyrjes së kalendarit\"</string>
-    <string name="mtrl_picker_toggle_to_day_selection">Trokit për t\'u kthyer te pamja e \"Kalendarit\"</string>
+    <string name="mtrl_picker_toggle_to_day_selection">Kalo te pamja e kalendarit</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Kalo te modaliteti i \"Hyrjes së tekstit\"</string>
-    <string name="mtrl_picker_toggle_to_year_selection">Trokit për t\'u kthyer te pamja vjetore</string>
+    <string name="mtrl_picker_toggle_to_year_selection">Kalo te pamja e vitit</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Kaloi në pamjen e \"Kalendarit\"</string>
+    <string name="mtrl_picker_toggled_to_year_selection">Kaloi në pamjen vjetore</string>
     <string name="mtrl_timepicker_cancel">Anulo</string>
     <string name="mtrl_timepicker_confirm">Në rregull</string>
     <string name="password_toggle_content_description">Shfaq fjalëkalimin</string>

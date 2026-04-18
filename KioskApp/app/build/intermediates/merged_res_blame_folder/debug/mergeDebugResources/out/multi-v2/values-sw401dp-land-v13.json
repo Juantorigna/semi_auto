@@ -1,0 +1,28 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-46:/values-sw401dp-land-v13/values-sw401dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\0f23299265e50c07ef189cd4592db8df\\transformed\\stripeterminal-taptopay-5.4.1\\res\\values-sw401dp-land-v13\\values.xml",
+                    "from": {
+                        "startLines": "3,14,17,13,16,11,2,1,19,12,18,15,4",
+                        "startColumns": "1,1,1,1,1,1,1,1,1,1,1,1,1",
+                        "startOffsets": "129,748,929,687,866,563,71,13,1044,623,988,808,188",
+                        "endLines": "3,14,17,13,16,11,2,1,19,12,18,15,10",
+                        "endColumns": "58,59,58,60,62,59,57,57,53,63,55,57,9",
+                        "endOffsets": "186,806,986,746,927,621,127,69,1096,685,1042,864,561"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,117,180,242,306,372,435,496,557,614,681,740,801",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,20",
+                        "endColumns": "61,62,61,63,65,62,60,60,56,66,58,60,9",
+                        "endOffsets": "112,175,237,301,367,430,491,552,609,676,735,796,1174"
+                    }
+                }
+            ]
+        }
+    ]
+}

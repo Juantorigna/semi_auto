@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-36:/values-v23/values-v23.xml",
+            "outputFile": "com.campsite.kiosk.app-mergeDebugResources-46:/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\bc1ac07c5b7dc6683ab3a624b95b2a1e\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\4b1ba4e2cef670310bf3e5b26607d020\\transformed\\material-1.12.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\618582c1d05a37bd7b2445f7bbca245e\\transformed\\material-1.13.0\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\1473c12105a18237d9ca7c7a984f23c1\\transformed\\appcompat-1.7.0\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\rigna\\.gradle\\caches\\transforms-4\\ea034d66b33ce4b03337ec81179cbef6\\transformed\\appcompat-1.7.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
