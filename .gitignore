@@ -5,3 +5,4 @@ vendor
 composer.lock
 composer.json
 cacert.pem
+local.properties

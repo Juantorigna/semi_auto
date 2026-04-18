@@ -60,5 +60,6 @@ object KioskConfig {
     const val READER_SERIAL: String = ""
 
     /** Stripe Terminal location ID (Dashboard → Terminal → Locations). */
-    const val TERMINAL_LOCATION_ID: String = "tml_GUenMA4aJYXiSN"
+    /** Injected at build time from local.properties — never hardcoded. */
+    val TERMINAL_LOCATION_ID: String get() = BuildConfig.TMZ_LOCATION_ID
 }

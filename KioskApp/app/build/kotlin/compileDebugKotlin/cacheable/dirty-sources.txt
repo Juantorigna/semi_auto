@@ -1,0 +1,8 @@
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\Terminalmanager.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\KioskApplication.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\KioskWebChromeClient.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\MainActivity.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\KioskConfig.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\KioskWebViewClient.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\JsBridge.kt
+C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\java\com\campsite\kiosk\Terminaltokenprovider.kt

@@ -123,15 +123,21 @@ ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\Andro
 	android:name
 		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:15:22-73
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:16:5-17:38
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:16:5-79
 MERGED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:6:2-75
 MERGED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:6:2-75
 MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:4:2-75
 MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:4:2-75
-	android:maxSdkVersion
-		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:9-35
 	android:name
 		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:16:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:5-81
+MERGED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:5:2-77
+MERGED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:5:2-77
+MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:3:2-77
+MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:3:2-77
+	android:name
+		ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:17:22-78
 application
 ADDED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:19:5-50:19
 INJECTED from C:\Users\rigna\OneDrive\Desktop\semi_auto\KioskApp\app\src\main\AndroidManifest.xml:19:5-50:19
@@ -385,12 +391,6 @@ uses-permission#com.campsite.kiosk.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSIO
 ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] C:\Users\rigna\.gradle\caches\transforms-4\56dd7dd8edca00e14aca30601639a789\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:5:2-77
-MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:3:2-77
-MERGED from [com.stripe:stripeterminal-internal-common:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\4a3228eb4f0960ed37c1915f146a5372\transformed\stripeterminal-internal-common-4.1.0\AndroidManifest.xml:3:2-77
-	android:name
-		ADDED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:5:19-75
 activity#com.stripe.stripeterminal.internal.common.usb.UsbEventReceiverActivity
 ADDED from [com.stripe:stripeterminal-core:4.1.0] C:\Users\rigna\.gradle\caches\transforms-4\e44bc305e0ebe66e9187cd4f7021322a\transformed\stripeterminal-core-4.1.0\AndroidManifest.xml:10:3-15:14
 	android:label
