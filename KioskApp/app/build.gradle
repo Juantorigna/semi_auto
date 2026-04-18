@@ -16,7 +16,12 @@ android {
 
         // Kiosk: single task, no history
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // read from local.properties
+        def props = new Properties()
+        file("${rootProject.projectDir}/local.properties").withInputStream { props.load(it) }
+        buildConfigField "String", "TML_LOCATION_ID", "\"${props.getProperty('stripe.terminal.location_id', '')}\""
     }
+
 
     buildTypes {
         release {
